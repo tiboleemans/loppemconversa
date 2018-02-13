@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Loppem Conversa</title>
+    <link rel="shortcut icon" href="images/logo.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/loppem-conversa.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div id="navigation"></div>
+
+    <div style="margin-top: 75px" class="container" >
+        <div class="col-md-7">
+            <h1 id="page_title" class="page-header"></h1>
+        </div>
+
+        <!-- Map Column -->
+        <div class="col-md-8">
+            <!-- Embedded Google Map -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m11!1m3!1d328!2d3.1589537!3d51.1621347!2m2!1f180!2f41.66!3m2!1i1024!2i768!4f20!3m3!1m2!1s0x47c3518a8c45a683%3A0x9b04dc6ad4a47f3e!2sZevenkerken+4%2C+8200+Brugge%2C+Belgi%C3%AB!5e1!3m2!1snl!2sus!4v1478018797591" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>              
+        </div>
+        <!-- Contact Details Column -->
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <h1 id="detail_contact_title" class="panel-heading"> Detail contact </h1>
+                <div class="panel-body">
+                    <p id="contact_correspondant"> </p>
+                    <p id="contact_preference"></p>
+                    <p id="contact_mail"></p>
+                    <p id="concact_office_location"></p>
+                    <p id="contact_address_stage"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the php/contact_me.php file. -->
+        <!-- <div class="row">
+            <div class="col-md-8">
+                <h3>Send us a Message</h3>
+                <form name="sentMessage" id="contactForm" novalidate>
+
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <h4>Full Name:</h4>
+                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <h4>Phone Number:</h4>
+                            <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <h4>Email Address:</h4>
+                            <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <h4>Message:</h4>
+                            <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                        </div>
+                    </div>
+                    
+                    <hr />                                        
+                    <div id="success"></div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+
+        </div>
+
+        <hr> -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="row footer">
+                <div class="col-lg-12">
+                    <p style="text-align: center;" id="footer"></p>                
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/i18next/i18next.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+
+            $("#navigation").load("navigation.html", function(){
+                if(window.localStorage.getItem("langChoice") == "NL"){
+                    document.getElementById('langId').innerHTML = "FR";
+                } else {
+                    document.getElementById('langId').innerHTML = "NL";
+                }                
+                $(".home").removeClass("active");
+                $(".information").removeClass("active");
+                $(".inscription").removeClass("active");
+                $(".rules").removeClass("active");
+                $(".pictures").removeClass("active");
+                $(".contact").addClass("active");
+                $(".faq").removeClass("active");
+                $(".navbar").addClass("navbar-fixed-top");
+
+            i18next.init({
+              lng: window.localStorage.getItem("langChoice"),
+              debug: true,
+              resources: {
+                NL: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Informatie",
+                    "inscription_nav" : "Inschrijven",
+                    "rules_nav" : "Reglement",
+                    "photo_nav" : "Foto's",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",
+                    "page_title" : "Contacteer ons",
+                    "detail_contact_title" : "Contactgegevens",
+                    "contact_correspondant" : "Correspondent: Rik Van de Vannet",
+                    "contact_preference" : "<i class=\"fa fa-phone\"></i> : 0478 51 93 44 <br /> (bij voorkeur tussen 19 en 21 uur)",
+                    "contact_mail" : "mail: info@loppemconversa.be",
+                    "concact_office_location" : "<u> Per post: </u> <br/> Loppem Conversa <br> Christine D'haenstraat 18/101 <br> 8000 Brugge",
+                    "contact_address_stage" : "<u>Adres van de stage:</u> <br/> Loppem Conversa <br> Abdijschool van Zevenkerken <br> Zevenkerken 4 <br> 8200 Brugge",
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                  }
+                },
+                FR: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Information",
+                    "inscription_nav" : "Inscrire",
+                    "rules_nav" : "Règlement",
+                    "photo_nav" : "Photos",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",                  
+                    "page_title" : "Contactez-nous",
+                    "detail_contact_title" : "Contact",
+                    "contact_correspondant" : "Correspondant: Rik Van de Vannet",
+                    "contact_preference" : "<i class=\"fa fa-phone\"></i> : 0478 51 93 44 <br /> (de pr&eacute;f&eacute;rence entre 19 et 21 heures)",
+                    "contact_mail" : "mail: info@loppemconversa.be",
+                    "concact_office_location" : "<u> Par courrier: </u> <br/> Loppem Conversa <br> Christine D'haenstraat 18/101 <br> 8000 Brugge",
+                    "contact_address_stage" : "<u>Adresse du stage:</u> <br/> Loppem Conversa <br> Abdijschool van Zevenkerken <br> Zevenkerken 4 <br> 8200 Brugge",                    
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa "
+                    }
+                }
+              }
+            }, function(err, t) {
+              // init set content
+              updateContent();
+                });
+            });
+        });   
+
+        function updateContent() {    
+            document.getElementById('home_nav').innerHTML = i18next.t('home_nav');
+            document.getElementById('information_nav').innerHTML = i18next.t('information_nav');
+            document.getElementById('inscription_nav').innerHTML = i18next.t('inscription_nav');
+            document.getElementById('rules_nav').innerHTML = i18next.t('rules_nav');
+            document.getElementById('photo_nav').innerHTML = i18next.t('photo_nav');
+            document.getElementById('contact_nav').innerHTML = i18next.t('contact_nav');
+            document.getElementById('faq_nav').innerHTML = i18next.t('faq_nav');
+            document.getElementById('page_title').innerHTML = i18next.t('page_title');
+            document.getElementById('detail_contact_title').innerHTML = i18next.t('detail_contact_title');
+            document.getElementById('contact_correspondant').innerHTML = i18next.t('contact_correspondant');
+            document.getElementById('contact_preference').innerHTML = i18next.t('contact_preference');            
+            document.getElementById('contact_mail').innerHTML = i18next.t('contact_mail');
+            document.getElementById('concact_office_location').innerHTML = i18next.t('concact_office_location');
+            document.getElementById('contact_address_stage').innerHTML = i18next.t('contact_address_stage');
+            document.getElementById('footer').innerHTML = i18next.t('footer');      
+        }
+
+        function changeLng(lng) {
+          i18next.changeLanguage(lng);
+        }
+
+        function changeLng() {
+            var lang = window.localStorage.getItem("langChoice");
+            if(lang === "NL"){
+                document.getElementById('langId').innerHTML = 'NL';
+                window.localStorage.setItem("langChoice", 'FR');
+                i18next.changeLanguage('FR');
+            } else {
+                document.getElementById('langId').innerHTML = 'FR';
+                window.localStorage.setItem("langChoice", 'NL');
+                i18next.changeLanguage('NL')
+            }
+        }
+
+
+        i18next.on('languageChanged', function() {
+          updateContent();
+        });
+
+    </script> 
+
+    <!-- Bootstrap Core JavaScript -->
+    
+
+    <!-- Contact Form JavaScript -->
+    <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the php/contact_me.php file. -->
+<!--     <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script> -->
+
+</body>
+
+</html>

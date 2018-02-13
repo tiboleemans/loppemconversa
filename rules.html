@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Loppem Conversa</title>
+    <link rel="shortcut icon" href="images/logo.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/loppem-conversa.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="navigation"></div>
+
+    <!-- Page Content -->
+    <div style="margin-top: 75px" class="container" >
+        <div class="col-md-7">
+            <h1 id="page_title" class="page-header"></h1>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <h2 id="student_title" class="panel-heading"></h2>
+                <p id="student_text_language" class="panel-body">
+                </p>
+                <p id="student_text_respect" class="panel-body"> </p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="insurance_title" class="panel-heading"></h2>
+                <p id="insurance_text" class="panel-body"></p>
+                <p id="attest_text" class="panel-body"> </p>                
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="medical_title" class="panel-heading"></h2>
+                <p id="medical_text" class="panel-body">
+                    
+                </p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="objects_title" class="panel-heading"></h2>
+                <p id="objects_text_broken" class="panel-body"></p>
+                <p id="objects_text_lost" class="panel-body"> </p>
+                <p id="objects_text_forbidden" class="panel-body"></p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="camp_rules_title" class="panel-heading"></h2>
+                <p id="camp_rules_text_room" class="panel-body"></p>
+                <p id="camp_rules_text_smoking" class="panel-body"> </p>
+                <p id="camp_rules_text_runners" class="panel-body"> </p>
+                <p id="camp_rules_text_exclusion" class="panel-body"></p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="cancelation_title" class="panel-heading"></h2>
+                <p id="cancelation_text" class="panel-body"></p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="privacy_title" class="panel-heading"></h2>
+                <p id="privacy_text" class="panel-body">
+                    
+                </p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="general_title" class="panel-heading"></h2>
+                <p id="general_text" class="panel-body"></p>
+                <p id="accept_text" class="panel-body"></p>
+            </div>
+        </div>
+
+
+        <div class="col-md-5">
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image1.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image2.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image3.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image4.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image5.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image6.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image7.jpg" />            
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row footer">
+                <div class="col-lg-12">
+                    <p style="text-align: center;" id="footer"></p>                
+                </div>
+            </div>
+        </footer>
+    </div>
+    <
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <script src="https://unpkg.com/i18next/i18next.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $("#navigation").load("navigation.html", function(){
+                if(window.localStorage.getItem("langChoice") == "NL"){
+                    document.getElementById('langId').innerHTML = "FR";
+                } else {
+                    document.getElementById('langId').innerHTML = "NL";
+                }                
+                $(".home").removeClass("active");
+                $(".information").removeClass("active");
+                $(".inscription").removeClass("active");
+                $(".rules").addClass("active");
+                $(".pictures").removeClass("active");
+                $(".contact").removeClass("active");
+                $(".faq").removeClass("active");
+                $(".navbar").addClass("navbar-fixed-top");
+
+            i18next.init({
+              lng: window.localStorage.getItem("langChoice"),
+              debug: true,
+              resources: {
+                NL: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Informatie",
+                    "inscription_nav" : "Inschrijven",
+                    "rules_nav" : "Reglement",
+                    "photo_nav" : "Foto's",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",
+                    "page_title" : "Reglement",
+                    "student_title" : "Gedrag leerling",
+                    "student_text_language" : "De leerlingen spreken altijd Engels/Nederlands, zowel tijdens de lessen, als daarbuiten. Een leerling die zich niet aan deze regel houdt, wordt berispt, kan een strafwerk krijgen of uitgesloten worden van de stage.",
+                    "student_text_respect" : "Leerlingen gaan respectvol om met elkaar en met het personeel.",
+                    "insurance_title" : "Verzekering en attesten",
+                    "insurance_text" : "De burgerlijke aansprakelijkheid van elke leerling wordt door onze verzekering gedekt (na aanspreking van de eventuele familiale verzekering). De maatschappij neemt eveneens de medische, farmaceutische en hospitaalkosten op zich. Wij zijn niet verzekerd tegen diefstal of verlies van voorwerpen. Als een leerling schade toebrengt aan het gebouw, materialen of derden, dan is het de verantwoordelijkheid van de ouders deze schade te vergoeden.",
+                    "attest_text" : "Attesten voor de gevolgde stage worden op aanvraag alleen door de directie ingevuld. Formulieren voor de tegemoetkomingen (mutualiteit, werkgever, ...) worden opgestuurd na de stage. Het fiscaal attest, voor deelnemers tot op de dag dat ze 12 jaar worden, wordt automatisch toegestuurd in de loop van de maand maart van het volgende kalenderjaar.",
+                    "medical_title" : "Medische zorgen",
+                    "medical_text" : "De eerste medische zorgen mogen door de organisatie toegediend worden, indien nodig en zonder consultatie van een dokter. Ouders brengen de organisatie op de hoogte over specifieke medische behoeften van hun kind.",
+                    "objects_title" : "Waardevolle voorwerpen",
+                    "objects_text_broken" : "Smartphone, MP3-speler, iPod, PSP, juwelen of andere waardevolle spullen worden op eigen risico meegenomen. De organisatie is niet verantwoordelijk voor eventuele diefstal of schade.",
+                    "objects_text_lost" : "De organisatie is niet verantwoordelijk voor verloren voorwerpen.",
+                    "objects_text_forbidden" : "Elk gebruik van gsm is niet toegelaten tijdens de stage. In bepaalde situaties kunnen leerlingen terecht bij de directie om te telefoneren.",
+                    "camp_rules_title" : "Kampregels",
+                    "camp_rules_text_room" : "Leerlingen hebben geen toelating de kamer van anderen te betreden.",
+                    "camp_rules_text_smoking" : "Roken is toegelaten vanaf de leeftijd van 16 jaar mits een voorafgaande schriftelijke toestemming van de ouders.",
+                    "camp_rules_text_runners" : "De organisatie is niet verantwoordelijk voor een leerling die het domein verlaat. Toegang tot het bos kan enkel onder begeleiding.",
+                    "camp_rules_text_exclusion" : "Inbreuk op het cursusreglement kan leiden tot onmiddellijke uitsluiting van het verdere verloop van de cursus.",
+                    "cancelation_title" : "Annulatie inschrijving",
+                    "cancelation_text" : "Bij annulatie van de inschrijving wordt tot 14 dagen voor de aanvang van de stage een administratieve kost van &euro; 50 aangerekend. Indien u minder dan 14 dagen voor de stage annuleert, wordt een administratieve kost van &euro; 150 aangerekend. ",
+                    "privacy_title" : "Privacy",
+                    "privacy_text" : "Tijdens en na de taalstage worden foto's gepubliceerd op de website van Loppem Conversa. Zij kunnen ook gebruikt worden voor commerci&euml;le doeleinden (brochures, affiches, beurzen,...). Inschrijven voor een taalstage wil dus ook zeggen dat u hieraan uw akkoord geeft. Indien dit niet het geval zou zijn, moet dit schriftelijk meegedeeld worden bij de inschrijving.",
+                    "general_title" : "Algemeen",
+                    "general_text" : "In gevallen van geschil of betwisting waarbij er na een wederzijds overleg tussen de betrokkene en Loppem Conversa geen oplossing gevonden wordt, is de Rechtbank van Koophandel van Brugge bevoegd.",
+                    "accept_text" : "Door inschrijving aanvaardt u het bovenstaande cursusreglement.",                    
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                  }
+                },
+                FR: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Information",
+                    "inscription_nav" : "Inscrire",
+                    "rules_nav" : "Règlement",
+                    "photo_nav" : "Photos",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",
+                    "page_title" : "Règlement du cours",
+                    "student_title" : "Comportement &eacute;l&egrave;ve",
+                    "student_text_language" : "Les &eacute;l&egrave;ves parlent n&eacute;erlandais/anglais en toutes circonstances, aussi bien pendant les heures de cours qu'en dehors. Un &eacute;l&egrave;ve ne respectant pas cette consigne, sera r&eacute;primand&eacute;, pourra avoir une punition ou sera peut-&ecirc;tre renvoy&eacute; du cours. ",
+                    "student_text_respect" : "Les &eacute;l&egrave;ves adopteront un comportement de respect vis-&agrave;-vis des autres et du personnel.",
+                    "insurance_title" : "Assurance et attestation",
+                    "insurance_text" : "La responsabilit&eacute; civile de chaque &eacute;l&egrave;ve sera couverte par notre assurance (apr&egrave;s utilisation &eacute;ventuelle de l'assurance familiale). Loppem Conversa prend aussi en charge les co&ucirc;ts m&eacute;dicaux, pharmaceutiques et hospitaliers. Nous ne sommes pas assur&eacute;s contre le vol et la perte d'objets. Tout &eacute;l&egrave;ve occasionnant des d&eacute;g&acirc;ts aux b&acirc;timents, aux mat&eacute;riaux ou &agrave; des tiers sera tenu d'en payer les frais.",
+                    "attest_text" : "Les attestations d'assiduit&eacute; au cours ne seront remplies par la direction que sur demande. Les formulaires pour les allocations (mutualit&eacute;s, employeur, ...) seront envoy&eacute;s apr&egrave;s le stage. L'attestation fiscale, pour les participants qui n'ont pas encore 12 ans, vous sera envoy&eacute;e dans le courant du mois de mars de l'ann&eacute;e suivante.",
+                    "medical_title" : "M&eacute;dical",
+                    "medical_text" : "Les premiers soins m&eacute;dicaux peuvent &ecirc;tre administr&eacute;s par l'organisation, en cas de n&eacute;cessit&eacute; et sans consultation d'un m&eacute;decin. Les parents se doivent d'informer l'organisation si l'&eacute;l&egrave;ve en question a besoin de soins m&eacute;dicaux particuliers.",
+                    "objects_title" : "Objets de valeur",
+                    "objects_text_broken" : "Les &eacute;l&egrave;ves sont responsables de leurs effets personnels tels enregistreurs smartphone, MP3, iPod, PSP, bijoux ou autres objets pr&eacute;cieux. L'organisation n'est pas responsable pour les d&eacute;g&acirc;ts ou vols &eacute;ventuels.",
+                    "objects_text_lost" : "L'organisation n'est pas responsable pour les objets perdus.",
+                    "objects_text_forbidden" : "L'utilisation du t&eacute;l&eacute;phone portable est interdite pendant le stage afin de garantir une immersion totale.",
+                    "camp_rules_title" : "Pendant le stage",
+                    "camp_rules_text_room" : "Il est interdit aux &eacute;l&egrave;ves de se retrouver &agrave; plusieurs dans une m&ecirc;me chambre.",
+                    "camp_rules_text_smoking" : "D&egrave;s l'&acirc;ge de 16 ans, les participants titulaires d'une permission &eacute;crite de leurs parents au d&eacute;but du stage, peuvent fumer.",
+                    "camp_rules_text_runners" : "L'organisation ne peut &ecirc;tre tenue responsable d'un &eacute;l&egrave;ve qui quitte le domaine sans autorisation. L'acc&egrave;s au bois ne peut se faire qu'en compagnie des moniteurs.",
+                    "camp_rules_text_exclusion" : "Toute infraction grave au r&egrave;glement peut mener &agrave; l'exclusion imm&eacute;diate et le renvoi du stage le jour m&ecirc;me.",
+                    "cancelation_title" : "Annulation inscription",
+                    "cancelation_text" : "En cas d'annulation de l'inscription jusqu'&agrave; quinze jours avant le d&eacute;but du stage une charge adminstrative de &euro; 50 sera prise en compte. En cas d'annulation dans les quinze jours avant le d&eacute;but du stage, une charge administrative de &euro; 150 sera prise en compte.",
+                    "privacy_title" : "Privacy",
+                    "privacy_text" : "Pendant et apr&egrave;s le stage, des photos seront mises sur le site internet de Loppem Conversa. Elles peuvent &eacute;galement &ecirc;tre utilis&eacute;es pour des raisons commerciales (d&eacute;pliants, posters, bourses,...). L'inscription &agrave; notre cours implique automatiquement votre accord sur ces publications. Dans le cas contraire, veuillez nous le communiquer par &eacute;crit.",
+                    "general_title" : "G&eacute;n&eacute;ral",
+                    "general_text" : "En cas de diff&eacute;rends entre nous et si une solution amiable n'a pas &eacute;t&eacute; trouv&eacute;e, le Tribunal de Commerce de Bruges sera seul comp&eacute;tent.",
+                    "accept_text" : "En vous inscrivant, vous acceptez explicitement le r&egrave;glement.",                              
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa "
+                    }
+                }
+              }
+            }, function(err, t) {
+              // init set content
+              updateContent();
+                });
+            });
+        });   
+
+        function updateContent() {    
+            document.getElementById('home_nav').innerHTML = i18next.t('home_nav');
+            document.getElementById('information_nav').innerHTML = i18next.t('information_nav');
+            document.getElementById('inscription_nav').innerHTML = i18next.t('inscription_nav');
+            document.getElementById('rules_nav').innerHTML = i18next.t('rules_nav');
+            document.getElementById('photo_nav').innerHTML = i18next.t('photo_nav');
+            document.getElementById('contact_nav').innerHTML = i18next.t('contact_nav');
+            document.getElementById('faq_nav').innerHTML = i18next.t('faq_nav');
+            document.getElementById('page_title').innerHTML = i18next.t('page_title');
+            document.getElementById('student_title').innerHTML = i18next.t('student_title');
+            document.getElementById('student_text_language').innerHTML = i18next.t('student_text_language');
+            document.getElementById('student_text_respect').innerHTML = i18next.t('student_text_respect');
+            document.getElementById('insurance_title').innerHTML = i18next.t('insurance_title');
+            document.getElementById('insurance_text').innerHTML = i18next.t('insurance_text');
+            document.getElementById('attest_text').innerHTML = i18next.t('attest_text');
+            document.getElementById('medical_title').innerHTML = i18next.t('medical_title');
+            document.getElementById('medical_text').innerHTML = i18next.t('medical_text');
+            document.getElementById('objects_title').innerHTML = i18next.t('objects_title');
+            document.getElementById('objects_text_broken').innerHTML = i18next.t('objects_text_broken');
+            document.getElementById('objects_text_lost').innerHTML = i18next.t('objects_text_lost');
+            document.getElementById('objects_text_forbidden').innerHTML = i18next.t('objects_text_forbidden');
+            document.getElementById('camp_rules_title').innerHTML = i18next.t('camp_rules_title');
+            document.getElementById('camp_rules_text_room').innerHTML = i18next.t('camp_rules_text_room');
+            document.getElementById('camp_rules_text_smoking').innerHTML = i18next.t('camp_rules_text_smoking');
+            document.getElementById('camp_rules_text_runners').innerHTML = i18next.t('camp_rules_text_runners');
+            document.getElementById('camp_rules_text_exclusion').innerHTML = i18next.t('camp_rules_text_exclusion');
+            document.getElementById('cancelation_title').innerHTML = i18next.t('cancelation_title');
+            document.getElementById('cancelation_text').innerHTML = i18next.t('cancelation_text');
+            document.getElementById('privacy_title').innerHTML = i18next.t('privacy_title');
+            document.getElementById('privacy_text').innerHTML = i18next.t('privacy_text');
+            document.getElementById('general_title').innerHTML = i18next.t('general_title');
+            document.getElementById('general_text').innerHTML = i18next.t('general_text');
+            document.getElementById('accept_text').innerHTML = i18next.t('accept_text');
+            document.getElementById('footer').innerHTML = i18next.t('footer');      
+        }
+
+        function changeLng(lng) {
+          i18next.changeLanguage(lng);
+        }
+
+        function changeLng() {
+            var lang = window.localStorage.getItem("langChoice");
+            if(lang === "NL"){
+                document.getElementById('langId').innerHTML = 'NL';
+                window.localStorage.setItem("langChoice", 'FR');
+                i18next.changeLanguage('FR');
+            } else {
+                document.getElementById('langId').innerHTML = 'FR';
+                window.localStorage.setItem("langChoice", 'NL');
+                i18next.changeLanguage('NL')
+            }
+        }
+
+
+        i18next.on('languageChanged', function() {
+          updateContent();
+        });
+
+    </script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+</body>
+
+</html>

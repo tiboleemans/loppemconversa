@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/inscription-style.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" /> 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    
+</head>
+
+<body>
+
+
+<div class="container">
+
+<form>
+    <label>Options:
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default">
+                <input type="radio" name="options" value="option1" autocomplete="off" required>Radio 1
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="options" value="option2" autocomplete="off" required>Radio 2
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="options" value="option3" autocomplete="off" required>Radio 3
+            </label>
+        </div>
+    </label>
+    <div>
+        <button type="button" class="btn btn-primary">Validate</button>
+    </div>
+</form>
+<div id="selected-option" hidden>
+    <strong>Selected Option:</strong>
+    <div></div>
+</div>
+
+</div><!-- /.container -->
+
+<script> 
+$(function () {
+    var form = $("form");
+    form.validate({
+        // position error message
+        errorPlacement: function (error, element) {
+            error.appendTo($(element).closest(".btn-group").parent());
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).closest(".btn-group")
+                .addClass(errorClass)
+                .removeClass(validClass);
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).closest(".btn-group")
+                .removeClass(errorClass)
+                .addClass(validClass);
+        }
+    });
+
+    $("button").click(function () {
+        
+        // problem with 'checked' state when changing radio button state with keyboard
+        $("[data-toggle='buttons'] .active").find("input").prop("checked", true);
+        
+        if(form.valid()) {
+            $("#selected-option").show().find("div").html($("input[name='options']:checked").val());
+        }
+    });
+});
+</script>
+
+ </body>
+
+</html>

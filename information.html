@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Loppem Conversa</title>
+    <link rel="shortcut icon" href="images/logo.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/loppem-conversa.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="navigation"></div>
+
+    <div style="margin-top: 75px" class="container" >
+        <div class="col-md-7">
+            <h1 id="page_title" class="page-header"></h1>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <h2 id="offre_title" class="panel-heading"></h2>
+                <p id="offre_text" class="panel-body"></p>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img style="max-width: 80%; margin: 25px auto;" class="img-responsive center-block" src="images/info/info-image1.jpg" />
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <h2 id="domain_title" class="panel-heading"></h2>
+                <p id="domain_text" class="panel-body"> </p>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img style="max-width: 80%; margin: 25px auto;" class="img-responsive center-block" src="images/info/info-image2.jpg" />
+        </div>        
+
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <h2 id="sport_title" class="panel-heading"></h2>
+                <p id="sport_text" class="panel-body"></p>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img style="max-width: 80%; margin: 25px auto;" class="img-responsive center-block" src="images/info/info-image3.jpg" />
+        </div>        
+
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <h2 id="avance_title" class="panel-heading"></h2>
+                <p id="avance_text" class="panel-body"></p>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img style="max-width: 80%; margin: 25px auto;" class="img-responsive center-block" src="images/info/info-image4.jpg" />
+        </div>  
+
+        <div class="col-md-7">
+            <div class="panel panel-default">  
+                <h2 id="price_title" class="panel-heading"><a id="price_title" > </a> </h2>
+                <div class="panel-body">            
+                    <table class="table table-bordered" style="text-align: center;" cellspacing="0" cellpadding="5px" align="left|center|center|center"> 
+                        <tr>
+                            <th></th>
+                            <th style="text-align: center;" id="base_price"></th>
+                            <th style="text-align: center;" id="one_reduction"></th>
+                        </tr>
+                        <tr>
+                            <td id="base_price"></td>
+                            <td>&euro; 735</td>
+                            <td>&euro; 715</td>
+                        </tr>
+                        <tr>
+                            <td id="advance"></td>
+                            <td>&euro; 335</td>
+                            <td>&euro; 315</td>
+                        </tr>
+                        <tr>
+                            <td id="balance"></td>
+                            <td>&euro; 400</td>
+                            <td>&euro; 400</td>
+                        </tr>                        
+                    </table>                                
+                    <p id="price_detail"> </p> 
+                    <p id="price_detail2"> </p>
+                    <p id="price_extra"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="reduction_div" class="col-md-5">
+            <div class="panel panel-default">  
+                <h2 id="reduction_title" class="panel-heading"><a id="reduction"> </a> </h2> 
+                <p id="reduction_text" class="panel-body"></p>
+                <p id="reduction_detail" class="panel-body"></p>  
+            </div>              
+        </div>
+        <div class="col-md-7">
+            <img style="max-width: 80%; margin: 25px auto;" class="img-responsive center-block" src="images/info/info-image7.jpg" />
+        </div>        
+
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <h2 id="periodes_title" class="panel-heading"></h2>                  
+                <p id="periodes_text" class="panel-body"></p>
+            </div>
+            <div class="panel panel-default">
+                <h2 id="address_title" class="panel-heading"></h2>
+                <div class="panel-body">
+                    <p id="address_text" class="panel-body"> </p>
+                    <a id="address_contact_btn" href="contact.html" class="btn btn-default"></a>
+                </div>
+            </div>
+        </div>    
+
+        <!-- Footer -->
+        <footer>
+            <div class="row footer">
+                <div class="col-lg-12">
+                    <p style="text-align: center;" id="footer"></p>                
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/i18next/i18next.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $("#navigation").load("navigation.html", function(){
+                if(window.localStorage.getItem("langChoice") == "NL"){
+                    document.getElementById('langId').innerHTML = "FR";
+                } else {
+                    document.getElementById('langId').innerHTML = "NL";
+                }                
+                $(".home").removeClass("active");
+                $(".information").addClass("active");
+                $(".inscription").removeClass("active");
+                $(".rules").removeClass("active");
+                $(".pictures").removeClass("active");
+                $(".contact").removeClass("active");
+                $(".faq").removeClass("active");
+                $(".navbar").addClass("navbar-fixed-top");
+
+            i18next.init({
+              lng: window.localStorage.getItem("langChoice"),
+              debug: true,
+              resources: {
+                NL: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Informatie",
+                    "inscription_nav" : "Inschrijven",
+                    "rules_nav" : "Reglement",
+                    "photo_nav" : "Foto's",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",
+                    "page_title" : "Informatie over de cursus",
+                    "offre_title" : "Aanbod",
+                    "offre_text" : "Loppem Conversa organiseert conversatiecursussen voor leerlingen van 10 tot 18 jaar. Wij staan garant voor interactieve lessen en uitdagende werkvormen. Ons doel is jongeren 10 dagen onder te dompelen in een echt taalbad. Dit betekent dat ze ook buiten de lessen Engels of Nederlands moeten spreken. Na de stage vertrekken de leerlingen met mooie herinneringen en een betere kennis van de taal. Naast cursussen Engels voor Nederlands- en Franstaligen organiseren we ook cursussen Nederlands voor Franstaligen. De leerlingen verblijven in comfortabele eenpersoonskamers.",
+                    "domain_title" : "Domein",
+                    "domain_text" : "De school en de sportvelden bevinden zich in een groene omgeving aan de Brugse rand. Gezonde buitenlucht draagt bij tot een bruisend vakantiegevoel. De terreinen waar de leerlingen zich onder begeleiding kunnen uitleven, zijn omringd door prachtige bossen. Het domein omvat ook 4 voetbalvelden, 2 basketbalpleinen, 4 tennisvelden en een sportzaal.",
+                    "sport_title" : "Sport en ambiance",
+                    "sport_text" : "Een enthousiast team monitoren organiseert sport- en ontspanningsactiviteiten. Op deze manier komen de talenten van elke leerling naar boven en wordt een dynamisch en positief groepsgevoel gestimuleerd. Balsporten, zwemmen, knutselen, film en muzikaal entertainment staan zeker op het programma. De creativiteit van de leerlingen primeert ook tijdens een interactief stadsspel in de historische binnenstad van Brugge. Loppem Conversa zorgt op deze manier voor een unieke sfeer.",
+                    "avance_title" : "Een duidelijke voorsprong",
+                    "avance_text" : "Loppem Conversa is een springplank naar de toekomst en geeft uw kind een duidelijke voorsprong in het spreken van de gekozen taal. Deze meerwaarde vraagt op persoonlijk niveau en op studievlak een duidelijke inspanning van de leerlingen. Zo opent het spreken van vreemde talen mogelijkheden naar verdere studies en de beroepswereld.",
+                    "price_title" : "Kostprijs",
+                    "base_price" : "Basisprijs", 
+                    "one_reduction" : "* Eén korting",
+                    "two_reduction" : "Twee kortingen", 
+                    "advance" : "Voorschot",
+                    "balance" : "Saldo",
+                    "price_detail" : "* Voorschot wordt betaald voor 1 februari 2018.",
+                    "price_detail2" : "U betaald het voorschot onmiddellijk na de inschrijving en het saldo voor één juni 2018. U kan verschillende kortingen combineren tot een maximum van 40 euro per inschrijving.",
+                    "reduction_title" : "Speciale korting",
+                    "reduction_text" : "&euro; 20 bij het aanbrengen van een nieuwe leerling, onder de volgende voorwaarden:<ul> <li>  Uw kind is zelf ingeschreven. </li> <li>  De nieuw aangebrachte leerling heeft nog nooit een stage bij Loppem Conversa gevolgd </li> <li>  De nieuw aangebrachte leerling behoort niet tot hetzelfde gezin (dus inwonend op hetzelfde adres). </li> <li>  U vermeldt de naam van deze leerling duidelijk in het inschrijvingsformulier op de website in het daartoe bestemde vakje. </li>  <li> U kunt elkaar niet wederzijds aanbrengen. </li></ul>",
+                    "reduction_detail" : "Deze korting wordt pas toegekend en terugbetaald NA de stage. ",
+                    "price_extra" : "Sommige ziekenfondsen komen tussenbeide in de inschrijvingskosten. Informeer bij uw ziekenfonds. Voor leerlingen tot 12 jaar wordt een fiscaal attest voor opvang opgeleverd.",
+                    "periodes_title" : "Periodes",
+                    "periodes_text" : "De stages Engels/Nederlands gaan door van 2 tot 12 juli en van 2 tot 12 augustus 2018. De leerlingen worden de eerste dag verwacht tussen 9 en 11 uur en worden de laatste dag terug opgehaald tussen 9 en 11 uur.",
+                    "address_title" : "Domeinadres",
+                    "address_text" : "Loppem Conversa <br> Abdijschool van Zevenkerken <br> Zevenkerken 4 <br> 8200 Brugge",
+                    "address_contact_btn" : "Contacteren",
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                  }
+                },
+                FR: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Information",
+                    "inscription_nav" : "Inscrire",
+                    "rules_nav" : "Règlement",
+                    "photo_nav" : "Photos",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",                  
+                    "page_title" : "Information sur les cours",
+                    "offre_title" : "Offre",
+                    "offre_text" : "Loppem Conversa organise des cours de conversation pour jeunes de 10 &agrave; 18 ans. Nous garantissons des le&ccedil;ons interactives et des m&eacute;thodes didactiques motivantes. Notre objectif est de plonger les jeunes dans un vrai bain de langues pendant 10 jours dans un esprit d'&eacute;quipe et de stimulation. Ceci signifie qu'ils devront &eacute;galement parler la langue cible en dehors des heures de cours. Ainsi les &eacute;l&egrave;ves rentreront chez eux avec des souvenirs inoubliables et avec une meilleure connaissance de la langue choisie.",
+                    "domain_title" : "Domaine",
+                    "domain_text" : "L'&eacute;cole et les terrains de sport se situent au milieu d'un cadre verdoyant &agrave; proximit&eacute; de Bruges, o&ugrave; l'air sain et pur contribue &agrave; un sentiment de vacances actives. Les terrains, o&ugrave; les jeunes peuvent se d&eacute;fouler en compagnie des moniteurs, sont entour&eacute;s de bois magnifiques. Le domaine comprend 4 terrains de foot, 2 terrains de basket, 4 terrains de tennis en une salle omnisports.", 
+                    "sport_title" : "Sport et ambiance", 
+                    "sport_text" : "Une &eacute;quipe enthousiaste de moniteurs organise des activit&eacute;s sportives et r&eacute;cr&eacute;atives. Ainsi on esp&egrave;re r&eacute;v&eacute;ler les talents de chaque &eacute;l&egrave;ve et cr&eacute;er un sentiment de groupe positif et dynamique. Les jeux de balle, la natation, le bricolage, film et ateliers musicaux sont au programme. La cr&eacute;ativit&eacute; des &eacute;l&egrave;ves pourra &eacute;galement s'exprimer lors du jeu de ville interactif dans le centre historique de Bruges. C'est ainsi que Loppem Conversa cr&eacute;era une ambiance unique.",
+                    "avance_title" : "Une avance significative pour votre enfant",
+                    "avance_text" : "Loppem Conversa, le tremplin vers l'avenir, donne &agrave; votre enfant une avance significative par son approche interactive de la langue n&eacute;erlandaise ou anglaise. Notre m&eacute;thode exige un effort consid&eacute;rable de la part des &eacute;l&egrave;ves et g&eacute;n&egrave;re une plus-value tant sur le plan personnel que scolaire. Ainsi parler plusieurs langues ouvre de nouvelles voies vers le monde des &eacute;tudes et vers la vie professionnelle.",
+                    "base_price" : "Prix de base",
+                    "one_reduction" : "Une r&eacute;duction *", 
+                    "two_reduction" : "Deux r&eacute;ductions **", 
+                    "advance" : "Acompte",
+                    "balance" : "Solde",
+                    "price_title" : "Prix &agrave; payer:",
+                    "price_detail" : "* Acompte &agrave; payer avant le 1er f&eacute;vrier 2018<br /> <br />",
+                    "price_detail2" : "Vous payez l'acompte lors de l'inscription et le solde avant le premier juin 2018. Vous pouvez combiner les diff&eacute;rentes r&eacute;ductions jusqu'&agrave; un maximum de 40 euro par inscription.",
+                    "reduction_title" : "R&eacute;duction sp&eacute;ciale:",
+                    "reduction_text" : "&euro; 20 quand vous nous apportez un nouvel inscrit, &agrave; condition que:<ul> <li>  Vous ayez d&eacute;j&agrave; inscrit votre fils/fille. </li> <li>  Le nouvel inscrit n'ait jamais suivi de stage &agrave; Loppem Conversa au pass&eacute;. </li> <li>  Le nouvel inscrit ne fasse pas partie de votre propre famille (habitant donc &agrave; la m&ecirc;me adresse). </li> <li>  Vous fassiez mention du nom de ce nouvel &eacute;l&egrave;ve sur la fiche d'inscription qui se trouve sur notre site (veuillez le noterdans la case r&eacute;serv&eacute;e aux nouveaux inscrits). </li> <li> On ne peut pas s'apporter mutuellement. </li></ul>", 
+                    "reduction_detail" : "La r&eacute;duction sp&eacute;ciale ne vous sera adjug&eacute;e et rembours&eacute;e qu'APRES le stage suivi.",
+                    "price_extra" : "Certaines mutualit&eacute;s interviennent dans les frais d'inscription. N'h&eacute;sitez pas &agrave; vous informer aupr&egrave;s de votre mutualit&eacute;. Pour les &eacute;l&egrave;ves jusqu'&agrave; 12 ans une attestation fiscale sera livr&eacute;e.",
+                    "periodes_title" : "P&eacute;riodes",
+                    "periodes_text" : "Les stages en d'anglais/n&eacute;erlandais sont organis&eacute;s du 2 au 12 juillet et du 2 au 12 ao&ucirc;t 2018. Les &eacute;l&egrave;ves seront attendus le premier jour entre 9 et 11 heures et ils seront r&eacute;cup&eacute;r&eacute;s le dernier jour entre 9 et 11 heures.",
+                    "address_title" : "Adresse du domaine",
+                    "address_text" : "Loppem Conversa <br> L'&eacute;cole abbatiale de Zevenkerken <br> Zevenkerken 4 <br> 8200 Brugge ",
+                    "address_contact_btn" : "Contactez-nous",
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa "
+                    }
+                }
+              }
+            }, function(err, t) {
+              // init set content
+              updateContent();
+                });
+            });
+        });   
+
+        function updateContent() {    
+            document.getElementById('home_nav').innerHTML = i18next.t('home_nav');
+            document.getElementById('information_nav').innerHTML = i18next.t('information_nav');
+            document.getElementById('inscription_nav').innerHTML = i18next.t('inscription_nav');
+            document.getElementById('rules_nav').innerHTML = i18next.t('rules_nav');
+            document.getElementById('photo_nav').innerHTML = i18next.t('photo_nav');
+            document.getElementById('contact_nav').innerHTML = i18next.t('contact_nav');
+            document.getElementById('faq_nav').innerHTML = i18next.t('faq_nav');
+            document.getElementById('page_title').innerHTML = i18next.t('page_title');            
+            document.getElementById('offre_title').innerHTML = i18next.t('offre_title');
+            document.getElementById('offre_text').innerHTML = i18next.t('offre_text');
+            document.getElementById('domain_title').innerHTML = i18next.t('domain_title');
+            document.getElementById('domain_text').innerHTML = i18next.t('domain_text');
+            document.getElementById('sport_title').innerHTML = i18next.t('sport_title');
+            document.getElementById('sport_text').innerHTML = i18next.t('sport_text');
+            document.getElementById('avance_title').innerHTML = i18next.t('avance_title');
+            document.getElementById('avance_text').innerHTML = i18next.t('avance_text');
+            document.getElementById('base_price').innerHTML = i18next.t('base_price');
+            document.getElementById('one_reduction').innerHTML = i18next.t('one_reduction');            
+            document.getElementById('advance').innerHTML = i18next.t('advance');            
+            document.getElementById('balance').innerHTML = i18next.t('balance');    
+            document.getElementById('price_title').innerHTML = i18next.t('price_title');        
+            document.getElementById('price_detail').innerHTML = i18next.t('price_detail');
+            document.getElementById('price_detail2').innerHTML = i18next.t('price_detail2');
+            document.getElementById('reduction_title').innerHTML = i18next.t('reduction_title');            
+            document.getElementById('reduction_text').innerHTML = i18next.t('reduction_text');
+            document.getElementById('reduction_detail').innerHTML = i18next.t('reduction_detail');
+            document.getElementById('price_extra').innerHTML = i18next.t('price_extra');
+            document.getElementById('periodes_title').innerHTML = i18next.t('periodes_title');
+            document.getElementById('periodes_text').innerHTML = i18next.t('periodes_text');
+            document.getElementById('address_title').innerHTML = i18next.t('address_title');
+            document.getElementById('address_text').innerHTML = i18next.t('address_text');
+            document.getElementById('address_contact_btn').innerHTML = i18next.t('address_contact_btn');
+            document.getElementById('footer').innerHTML = i18next.t('footer');      
+        }
+
+        function changeLng(lng) {
+          i18next.changeLanguage(lng);
+        }
+
+        function changeLng() {
+            var lang = window.localStorage.getItem("langChoice");
+            if(lang === "NL"){
+                document.getElementById('langId').innerHTML = 'NL';
+                window.localStorage.setItem("langChoice", 'FR');
+                i18next.changeLanguage('FR');
+            } else {
+                document.getElementById('langId').innerHTML = 'FR';
+                window.localStorage.setItem("langChoice", 'NL');
+                i18next.changeLanguage('NL')
+            }
+        }
+
+
+        i18next.on('languageChanged', function() {
+          updateContent();
+        });
+
+    </script>
+
+</body>
+
+</html>

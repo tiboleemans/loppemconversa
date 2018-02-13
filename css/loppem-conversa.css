@@ -1,0 +1,179 @@
+/*!
+ * Start Bootstrap - Modern Business (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    /* padding-top: 50px;  Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+/*    background-image: linear-gradient(180deg, #081A79, #6D7ABF);
+*/    /*background-color: #E0E0E0;*/
+    /*background-image: linear-gradient(180deg, #DFFFFF, #E9FFFF);*/
+    background-color: #EBE8E8;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /*color: #FFFFB0;*/
+    color: #000;
+}
+li, 
+p {
+    /*color: #FFFFB0;*/
+    color: #000;
+    text-align: justify;
+    font-size: 14px;
+}
+
+#panel-heading {
+    background-color: #EBE8E8;
+}
+
+.padding-top{
+    padding-top: 50px;
+}
+
+
+
+.header-site{
+   background: #000000 url(http://www.yoursite.com/folder/image.jpg) 100% 100% no-repeat;
+}
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+/* Home Page Carousel */
+
+header.carousel {
+    height: 60%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fillimg-slider {
+    width: 100%;
+    height: 100%;
+    background-position: 0% 50%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+header.carousel .fillimg1 {
+    width: 100%;
+    height: 100%;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header.carousel .fillimg2 {
+    width: 100%;
+    height: 100%;
+    background-position: 50% 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header.carousel .fillimg3 {
+    width: 100%;
+    height: 100%;
+    background-position: 50% 40%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header.carousel .fillimg4 {
+    width: 100%;
+    height: 100%;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+header.carousel .fillimg5 {
+    width: 100%;
+    height: 100%;
+    background-position: 50% 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px;
+}
+
+.period {
+    display: block;
+    font-style: italic;
+}
+
+.img-center {margin:-25px auto;}
+
+
+/* Footer Styles */
+
+/*footer p {
+    margin: 50px 0;
+    text-align: center;
+}*/
+
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #f5a034 !important;
+}
+

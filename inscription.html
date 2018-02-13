@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Loppem Conversa</title>
+
+
+    <!-- CSS Libraries -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" rel="stylesheet" /> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" rel="stylesheet"/>
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+
+    <link href="css/inscription-style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navigation"></div>
+    <!-- Page Content -->
+    <div style="margin-top: 75px" class="container">
+        <div class="col-md-7" id="inscription_div">
+            <div class="panel panel-default">
+                <h1 class="panel-heading" id="inscription_title"></h1>
+                <p class="panel-body" id="inscription_text">
+                </p>    
+            </div>
+
+            <div style="margin: 25px auto;" >
+                    <img class="img-responsive center-block" src="images/inscrire.png" />                  
+            </div> 
+        </div>
+                 
+        <div class="col-md-5" id="reduction_div">
+            <div class="panel panel-default">
+                <h2 class="panel-heading" id="reduction_title"></h2>
+                <p class="panel-body" id="reduction_text"></p>
+                <h2 class="panel-heading" id="autresReduction_title"></h2>
+                <p class="panel-body" id="autresReduction_text"></p>
+                <div class="panel-body">
+                    <a href="information.html#reduction" class="btn btn-default" id="info_btn"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the php/contact_me.php file. -->
+        <div class="col-md-12">
+            <form class="form-horizontal" name="sentMessage" id="inscriptionForm" validate>
+                <input type="hidden" name="pageLang" id="pageLang"/>
+                <div class="panel panel-default">
+                    <h3 class="panel-heading" id="form_session"></h3>
+                    <div class="panel-body form-group">
+                        <div class="has-feedback rowElement">                                        
+                            <label for="langLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_lang"></label>
+                            <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                <div id="divLang" class="btn-group" style="padding-bottom: 5px" role="group" aria-label="langLabel">
+                                  <button type="button" class="btn btn-default" value="Néerlandais" id="form_lang_nl"></button>
+                                  <button type="button" class="btn btn-default" value="Anglais" id="form_lang_eng"></button>
+                                </div>
+                                <input type="hidden" name="langInput" id="langInput" />
+                                <span class="glyphicon form-control-feedback" id="langInput1"></span>                                
+                            </div>
+                        </div>     
+
+                        <div class="has-feedback rowElement">                                        
+                            <label for="periodeLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_periode"></label>
+                            <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                <div id="divPeriode" class="btn-group" role="group" aria-label="periodeLabel">
+                                  <button type="button" class="btn btn-default" value="Juillet" id="form_periode_july"></button>
+                                  <button type="button" class="btn btn-default" value="Août" id="form_periode_august"></button>
+                                </div>
+                                <input type="hidden" name="periodeInput" id="periodeInput" />   
+                                <span class="glyphicon form-control-feedback" id="periodeInput1"></span>                               
+                            </div>
+                        </div>
+                    </div>
+                                    
+                    <h3 class="panel-heading" id="form_eleve"></h3>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">
+                                <label for="lastNameStudent" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_eleve_name"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="lastNameStudent" name="lastNameStudent">
+                                    <span class="glyphicon form-control-feedback" id="lastNameStudent1"></span>
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">                    
+                                <label for="firstNameStudent" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_eleve_firstname"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="firstNameStudent" name="firstNameStudent">
+                                    <span class="glyphicon form-control-feedback" id="firstNameStudent1"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">                    
+                                <label for="birthDateInput" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_eleve_birthdate"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <div class="input-group">
+                                        <input class="form-control" id="birthDateInput" name="birthDateInput" placeholder="DD/MM/YYYY"/> 
+<!--                                         <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div> -->
+                                    </div>        
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">                                            
+                                <label for="genderLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_eleve_gender"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <div id="divGender" class="btn-group" style="padding-bottom: 5px" role="group" aria-label="genderLabel">
+                                        <button type="button" class="btn btn-default" value="Garçon" id="form_eleve_boy"></button>
+                                        <button type="button" class="btn btn-default" value="Fille" id="form_eleve_girl"></button>
+                                    </div>
+                                    <input type="hidden" name="genderInput" id="genderInput" />                                   
+                                </div>
+                            </div>                      
+                        </div>                        
+                    </div>
+
+                    <h3 class="panel-heading" id="form_parent"></h3>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">                                            
+                                <label for="lastNameParent" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_name"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="lastNameParent" name="lastNameParent">
+                                    <span class="glyphicon form-control-feedback" id="lastNameParent1"></span>
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">                                                  
+                                <label for="firstNameParent" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_firstname"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="firstNameParent" name="firstNameParent">
+                                    <span class="glyphicon form-control-feedback" id="firstNameParent1"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">                                                                
+                                <label for="email" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_mail"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="email" name="email">
+                                    <span class="glyphicon form-control-feedback" id="email1"></span>
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">                                            
+                                <label for="relationLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_relation"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <div id="divRelation" class="btn-group" role="group" aria-label="relationLabel">
+                                      <button type="button" class="btn btn-default" value="Mère" id="form_parent_relation_mother"></button>
+                                      <button type="button" class="btn btn-default" value="Père" id="form_parent_relation_father"></button>
+                                      <button type="button" class="btn btn-default" value="Tuteur" id="form_parent_relation_guardian"></button>                              
+                                    </div>
+                                    <input type="hidden" name="relationInput" id="relationInput" />   
+                                    <span class="glyphicon form-control-feedback" id="relationInput1"></span>                                 
+                                </div>
+                            </div>                    
+                        </div>
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">                                                                                    
+                                <label for="streetParent" class="control-label col-sm-2 col-xs-12 alignLeftX" id="form_parent_street"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="streetParent" name="streetParent">
+                                    <span class="glyphicon form-control-feedback" id="streetParent1"></span>
+                                </div>
+                            </div>
+                            <div class="rowElement">                                                                                        
+                                <label for="streetNumParent" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_street_nr"></label>
+                                <div class="col-sm-1 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="streetNumParent" name="streetNumParent">
+                                    <span class="glyphicon form-control-feedback" id="streetNumParent1"></span>
+                                </div>
+                            </div>
+                            <label for="busNrParent" class="control-label col-sm-1 col-xs-12 alignLeftXs" id="form_parent_street_bus"></label>
+                            <div class="col-sm-1 col-xs-12 alignLeftXs">
+                                <input type="text" class="form-control" id="busNrParent" name="busNrParent">
+                            </div>                        
+                        </div>
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">                                                                                        
+                                <label for="cityParent" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_city"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="cityParent" name="cityParent">
+                                    <span class="glyphicon form-control-feedback" id="cityParent1"></span>
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">                        
+                                <label for="zipCodeParent" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_zip"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="zipCodeParent" name="zipCodeParent">
+                                    <span class="glyphicon form-control-feedback" id="zipCodeParent1"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">                    
+                                <label for="gsm" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_cell"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="gsm" name="gsm">
+                                    <span class="glyphicon form-control-feedback" id="gsm1"></span>
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">                        
+                                <label for="telUrgent" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_parent_urgent"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" placeholder="en cas d'urgence, fixe ou autre GSM" id="telUrgent" name="telUrgent">
+                                    <span class="glyphicon form-control-feedback" id="telUrgent1"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="panel-heading" id="form_school"></h3>
+                    <div class="panel-body">
+                        <div class="form-group has-feedback rowElement">
+                            <label for="nameSchool" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_name"></label>
+                            <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                <input type="text" class="form-control" id="nameSchool" name="nameSchool">
+                                <span class="glyphicon form-control-feedback" id="nameSchool1"></span>
+                            </div>
+                        </div>  
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">                    
+                                <label for="streetSchool" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_street"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="streetSchool" name="streetSchool">
+                                    <span class="glyphicon form-control-feedback" id="streetSchool1"></span>
+                                </div>
+                            </div>
+                            <div class="rowElement">                        
+                                <label for="streetNumSchool" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_street_nr"></label>
+                                <div class="col-sm-1 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="streetNumSchool" name="streetNumSchool">
+                                    <span class="glyphicon form-control-feedback" id="streetNumSchool1"></span>
+                                </div>
+                            </div>
+                            <label for="busNrSchool" class="control-label col-sm-1 col-xs-12 alignLeftXs" id="form_school_street_bus"></label>
+                            <div class="col-sm-1 col-xs-12 alignLeftXs">
+                                <input type="text" class="form-control" id="busNrSchool" name="busNrSchool">
+                            </div>                        
+                        </div>                                      
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">
+                                <label for="citySchool" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_city"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs control-group">
+                                    <input type="text" class="form-control" id="citySchool" name="citySchool">
+                                    <span class="glyphicon form-control-feedback" id="citySchool1"></span>
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">
+                                <label for="zipCodeSchool" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_zip"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="zipCodeSchool" name="zipCodeSchool">
+                                    <span class="glyphicon form-control-feedback" id="zipCodeSchool"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">                    
+                                <label for="titreProfLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_prof_title"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <div id="divTitreProf" class="btn-group" role="group" aria-label="titreProfLabel">
+                                      <button type="button" class="btn btn-default" value="Monsieur" id="form_prof_mr"></button>
+                                      <button type="button" class="btn btn-default" value="Madame" id="form_prof_mme"></button>                           
+                                    </div>
+                                    <input type="hidden" name="titreProfInput" id="titreProfInput" />   
+                                    <span class="glyphicon form-control-feedback" id="titreProfInput1"></span>                           
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">                        
+                                <label for="nameProf" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_prof_name"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <input type="text" class="form-control" id="nameProf" name="nameProf">
+                                    <span class="glyphicon form-control-feedback" id="nameProf1"></span>
+                                </div>     
+                            </div>                    
+                        </div>
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">
+                                <label for="amountYearsLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_year"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <div id="divAmountYears" class="btn-group" role="group" aria-label="amountYearsLabel">
+                                        <button type="button" class="btn btn-default" value="0">0</button>
+                                        <button type="button" class="btn btn-default" value="1">1</button>
+                                        <button type="button" class="btn btn-default" value="2">2</button>
+                                        <button type="button" class="btn btn-default" value="3">3</button>   
+                                        <button type="button" class="btn btn-default" value="4">4</button>
+                                        <button type="button" class="btn btn-default" value="5">5</button>
+                                        <button type="button" class="btn btn-default" value="6">6</button>
+                                        <button type="button" class="btn btn-default" value="7+">7+</button>
+                                    </div>
+                                    <div id="form_school_year_extra"></div>
+                                    <input type="hidden" name="amountYearsInput" id="amountYearsInput" />   
+                                    <span class="glyphicon form-control-feedback" id="amountYearsInput1"></span>                           
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">
+                                <label for="amountHoursLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_hours">
+                                    <span class="glyphicon glyphicon-info-sign" title="Combien d'heures de cours est-ce que l'élève suit de la langue chosi à l'école?"></span></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <div id="divAmountHours" class="btn-group" role="group" aria-label="amountHoursLabel">
+                                        <button type="button" class="btn btn-default" value="0">0</button>
+                                        <button type="button" class="btn btn-default" value="1">1</button>
+                                        <button type="button" class="btn btn-default" value="2">2</button>
+                                        <button type="button" class="btn btn-default" value="3">3</button>
+                                        <button type="button" class="btn btn-default" value="4">4</button>
+                                        <button type="button" class="btn btn-default" value="5">5</button>
+                                        <button type="button" class="btn btn-default" value="6">6</button>
+                                        <button type="button" class="btn btn-default" value="7+">7+</button>
+                                    </div>
+                                    <div id="form_school_hours_extra"></div>
+                                    <input type="hidden" name="amountHoursInput" id="amountHoursInput" />   
+                                    <span class="glyphicon form-control-feedback" id="amountHoursInput1"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="has-feedback rowElement">
+                                <label for="immersionLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_immersion">
+                                <span class="glyphicon glyphicon-info-sign" title=""></span></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <div id="divImmersion" class="btn-group" role="group" aria-label="immersionLabel">
+                                      <button type="button" class="btn btn-default" value="1" id="form_school_immersion_yes"></button>
+                                      <button type="button" class="btn btn-default" value="0" id="form_school_immersion_no"></button>
+                                    </div>
+                                    <div id="form_school_immersion_extra"></div> 
+                                    <input type="hidden" name="immersionInput" id="immersionInput" />   
+                                    <span class="glyphicon form-control-feedback" id="immersionInput1"></span>                                    
+                                </div>
+                            </div>
+                            <div class="has-feedback rowElement">
+                                <label for="rapportLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_school_rapport"></label>
+                                <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                    <div id="divRapport" class="btn-group" role="group" aria-label="rapportLabel">
+                                      <button type="button" class="btn btn-default" value="1" id="form_school_rapport_yes"></button>
+                                      <button type="button" class="btn btn-default" value="0" id="form_school_rapport_no"></button>
+                                    </div>
+                                    <div id="form_school_rapport_extra"></div>                                                        
+                                    <input type="hidden" name="rapportInput" id="rapportInput" />   
+                                    <span class="glyphicon form-control-feedback" id="rapportInput1"></span>                                    
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+
+                    <h3 class="panel-heading" id="form_extra"></h3>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="apportedStudent" class="control-label col-sm-4 col-xs-12 alignLeftXs" id="form_extra_apported"> </label>
+                            <div class="col-sm-6 col-xs-12 alignLeftXs">
+                                <input type="text" class="form-control" id="apportedStudent" name="apportedStudent" placeholder="Profitez d'une réduction en apportant un nouvel élève">
+                            </div>   
+                        </div>
+                        <div class="form-group">
+                            <div class="rowElement">
+                                <label for="contact" class="control-label col-sm-4 col-xs-12 alignLeftXs" id="form_extra_voie"></label>
+                                <div id="divContact" class="col-sm-6 control-group">
+                                    <select id="contact" name="contact" class="show-menu-arrow form-control">
+                                        <option value=""></option>
+                                        <option value="Bouche à oreil" id="form_extra_voie_bouche"></option>
+                                        <option value="Internet" id="form_extra_voie_internet"></option>
+                                        <option value="Ecole" id="form_extra_voie_ecole"></option>
+                                        <option value="Participation l'année dernière" id="form_extra_voie_ancien"></option>
+                                        <option value="Par un ancien élève" id="form_extra_voie_par_ancien"></option>
+                                        <option value="Journal parlé" id="form_extra_voie_news"></option>
+                                        <option value="Brochure" id="form_extra_voie_brochure"></option>
+                                        <option value="Presse écrite" id="form_extra_voie_news_paper"></option>
+                                        <option value="Autre" id="form_extra_voie_other"></option>
+                                    </select>
+                                    <input type="hidden" name="contactInput" id="contactInput" />                      
+<!--                                     <span class="glyphicon form-control-feedback" id="contact1"></span>                                  
+ -->                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="form-group">
+                            <label for="addedInfo" class="control-label col-sm-4 col-xs-12 alignLeftXs" id="form_extra_infos"></label>
+                            <div class="col-sm-6">                      
+                                <textarea class="form-control col-sm-6" rows="5" name="addedInfo" id="addedInfo" placeholder="Soins médicaux, allergies, examens, ... "></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="allergiesInfo" class="control-label col-sm-4 col-xs-12 alignLeftXs" id="form_extra_allergies"></label>
+                            <div class="col-sm-6">                      
+                                <textarea class="form-control col-sm-6" rows="5" name="allergiesInfo" id="allergiesInfo"></textarea>
+                            </div>
+                        </div>                        
+
+                        <div class="form-group">
+                            <label for="comment" class="control-label col-sm-4 col-xs-12 alignLeftXs" id="form_extra_interesse"></label>
+                            <div class="col-sm-6">                      
+                                <textarea class="form-control col-sm-6" rows="5" name="comment" id="comment" placeholder="S.v.p. nom, adresse et gsm ou e-mail"></textarea>
+                            </div>
+                        </div>
+<!--                         <div class="rowElement">                                        
+                            <label for="picturesLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_extra_pictures"></label>
+                            <div class="col-sm-4 col-xs-12 alignLeftXs">
+                                <div id="divPictures" class="btn-group" role="group" aria-label="picturesLabel">
+                                  <button type="button" class="btn btn-default" value="Yes" id="form_pictures_oui"></button>
+                                  <button type="button" class="btn btn-default" value="Non" id="form_pictures_non"></button>
+                                </div>
+                                <input type="hidden" name="picturesInput" id="picturesInput" />   
+                            </div>
+                        </div> -->
+                        <div class="form-group has-feedback rowElement">
+                            <label for="accepted" class="control-label col-sm-4 col-xs-12 alignLeftXs" id="form_extra_rules"></label>
+                            <div class="control-group col-sm-6 col-xs-12">               
+                                <span class="button-checkbox">
+                                    <button type="button" class="btn" data-color="primary" id="form_btn_accept"></button>
+                                    <input type="checkbox" class="hidden" name="accepted" id="accepted" />
+                                </span>
+                                <span class="glyphicon form-control-feedback" id="accepted1"></span>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <div class="button text-center">
+                            <button type="submit" class="btn btn-primary" id="form_btn_submit"></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div id="confirmation_div" style="width:75%; margin: 0 auto; display: none;">
+                <div class="panel panel-default">
+                    <h1 class="panel-heading" id="confirmation_title"></h1>
+                    <p class="panel-body" id="confirmation_text"> </p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="row footer">
+                <div class="col-lg-12">
+                    <p style="text-align: center;" id="footer"></p>                
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+    <!-- /.container -->
+
+    <!-- JavaScript -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script> 
+
+    <!-- Bootstrap Core-->
+    <script src="js/bootstrap.min.js"></script>    
+
+    <!-- <script type="text/javascript">
+        $(document).ready(function(){
+            $.getScript("js/bootstrap-select.js");
+    });
+    </script>
+     -->
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootstrap.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+        <!-- Validation scripts -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/inscriptionValidation.js"></script>
+
+    <script src="js/i18next/i18next.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#navigation").load("navigation.html", function(){
+                
+                if(window.localStorage.getItem("langChoice") == "NL"){
+                    document.getElementById('langId').innerHTML = "FR";
+                } else {
+                    document.getElementById('langId').innerHTML = "NL";
+                }
+                $(".home").removeClass("active");
+                $(".information").removeClass("active");
+                $(".inscription").addClass("active");
+                $(".rules").removeClass("active");
+                $(".contact").removeClass("active");
+                $(".faq").removeClass("active");
+                $(".navbar").addClass("navbar-fixed-top");
+
+                i18next.init({
+                  lng: window.localStorage.getItem("langChoice"),
+                  debug: true,
+                  resources: {
+                    NL: {
+                        translation: {
+                            "home_nav" : "Home",
+                            "information_nav" : "Informatie",
+                            "inscription_nav" : "Inschrijven",
+                            "rules_nav" : "Reglement",
+                            "photo_nav" : "Foto's",
+                            "contact_nav" : "Contact",
+                            "faq_nav" : "FAQ",
+                            "inscription_title" : "Inschrijvingsformulier",
+                            "inscription_text" : "Door in te schrijven verklaart u zich akkoord met het cursusreglement, dat terug te vinden is onder de link <a href=\"rules.html\"><u>cursusreglement</u></a>.  <br /> Alle velden met een * zijn verplicht in te vullen. <br /> Bij problemen gelieve ons te contacteren via e-mail of telefoon.",
+                            "reduction_title" : "Tijdelijke korting" ,
+                            "reduction_text" : "Schrijf u in voor 1 februari 2018 en geniet van een korting van 20 euro!",
+                            "autresReduction_title" : "Andere kortingen",
+                            "autresReduction_text" : "U kan van een korting genieten wanneer u een nieuwe inschrijving aanbrengt of meerdere kinderen inschrijft.",
+                            "info_btn" : "Zie voorwaarden",
+                            "form_session" : "Sessiekeuze",
+                            "form_lang" : "* Cursustaal:",
+                            "form_lang_nl" : "Nederlands",
+                            "form_lang_eng" : "Engels",
+                            "form_periode" : "* Periode:",
+                            "form_periode_july" : "2-12 juli 2018",
+                            "form_periode_august" : "2-12 augustus 2018",
+                            "form_eleve" : "Informatie leerling",
+                            "form_eleve_name" : "* Naam:",
+                            "form_eleve_firstname" : "* Voornaam:",
+                            "form_eleve_birthdate" : "* Geboortedatum:",
+                            "form_eleve_gender" : "* Geslacht:",
+                            "form_eleve_boy" : "Jongen",
+                            "form_eleve_girl" : "Meisje",
+                            "form_parent" : "Informatie ouder",
+                            "form_parent_name" : "* Naam:",
+                            "form_parent_firstname" : "* Voornaam:",
+                            "form_parent_mail" : "* E-mail:",
+                            "form_parent_relation" : "* Relatie met leerling:",
+                            "form_parent_relation_mother" : "Moeder",
+                            "form_parent_relation_father" : "Vader",
+                            "form_parent_relation_guardian" : "Voogd",
+                            "form_parent_street" : "* Straat:",
+                            "form_parent_street_nr" : "* Nr:",
+                            "form_parent_street_bus" : "Bus:",
+                            "form_parent_city" : "* Gemeente:",
+                            "form_parent_zip" : "* Postcode:",
+                            "form_parent_cell" : "* GSM:",
+                            "form_parent_cell_placeholder" : "in geval van nood, vaste lijn of gsm",
+                            "form_parent_urgent" : "* 2<sup>e</sup> telefoonnr:",
+                            "form_school" : "Informatie school",
+                            "form_school_name" : "* Naam school:",
+                            "form_school_street" : "* Straat:",
+                            "form_school_street_nr" : "* Nr:",
+                            "form_school_street_bus" : "Bus:",
+                            "form_school_city" : "* Gemeente:",
+                            "form_school_zip" : "* Postcode:",
+                            "form_prof_title" : "* Aanspreektitel leerkracht:",
+                            "form_prof_mr" : "Meneer",
+                            "form_prof_mme" : "Mevrouw",
+                            "form_prof_name" : "* Naam leerkracht:",
+                            "form_school_year" : "* Aantal jaren:",
+                            "form_school_year_extra" : "(Nederlands of Engels op school)",
+                            "form_school_hours" : "* Aantal uren:",
+                            "form_school_hours_extra" : "(Nederlands of Engels per week op school)",
+                            "form_school_immersion" : "* CLIL?",
+                            "form_school_immersion_yes" : "Ja",
+                            "form_school_immersion_no" : "Nee",
+                            "form_school_immersion_extra" : "(tweetalig onderwijs voor de gekozen doeltaal op school)",
+                            "form_school_rapport" : "* Rapport?",
+                            "form_school_rapport_yes" : "Ja",
+                            "form_school_rapport_no" : "Nee",
+                            "form_school_rapport_extra" : "(zal na de stage opgestuurd worden naar school)",
+                            "form_extra" : "Extra informatie:",
+                            "form_extra_apported" : "Naam nieuw aangebrachte leerling:<br><a href=\"information.html#reduction\" target=\"_blank\"><u>(klik hier om de voorwaarden te lezen)</u><a>",
+                            "form_extra_apported_placeholder" : "Geniet van een korting door een nieuwe leerling aan te brengen (zie voorwaarden)",
+                            "form_extra_voie" : "Hoe bent u in contact gekomen met de cursus?",
+                            "form_extra_voie_bouche" : "Mond-tot-mondreclame",
+                            "form_extra_voie_internet" : "Internet",
+                            "form_extra_voie_ecole" : "School",
+                            "form_extra_voie_ancien" : "Ik ben een oud-leerling",
+                            "form_extra_voie_par_ancien" : "Via een oud-leerling",
+                            "form_extra_voie_news" : "Het nieuws",
+                            "form_extra_voie_brochure" : "Brochure",
+                            "form_extra_voie_news_paper" : "Krant/magazine",
+                            "form_extra_voie_other" : "Andere",
+                            "form_extra_infos" : "Extra informatie over uw zoon of dochter:",
+                            "form_extra_infos_placeholder" : "(medisch, allergieën, examens, ... )",
+                            "form_extra_allergies" : "Relevante informatie voor de kok:",
+                            "form_extra_allergies_placeholer" : "Bv. voedselallergieën, intoleranties, vegetarisch, ...",
+                            "form_extra_interesse" : "Kent u mensen die ook interesse kunnen hebben in onze cursus?",
+                            "form_extra_interesse_placeholder" : "Graag naam, adres en ev. gsm of e-mail",
+                            "form_extra_rules" : "* Gelieve het reglement te lezen en goed te keuren<br><a href=\"rules.html\" target=\"_blank\"><u>(klik hier om te lezen)</u></a>",
+                            "form_btn_accept" : "Door hier te klikken gaat u akkoord met het cursusreglement",
+                            "form_btn_submit" : "Inschrijven",
+                            "confirmation_title" : "Bedankt voor uw inschrijving.",
+                            "confirmation_text" : "U ontvangt van ons een bevestigingsmail (gelieve ook uw ongewenste e-mail na te kijken). <br /> We verwachten u op de eerste dag van de stage in de abdijschool van Zevenkerken. <br /> Gelieve het voorschot binnen drie werkdagen te storten op rekening BE36 0016 2215 8581. <br />  Gelieve het resterende saldo te storen voor 1 juni. <br />",
+                            "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                        }
+                    }, 
+                    FR: {
+                        translation: {
+                            "home_nav" : "Home",
+                            "information_nav" : "Information",
+                            "inscription_nav" : "Inscrire",
+                            "rules_nav" : "Règlement",
+                            "photo_nav" : "Photos",
+                            "contact_nav" : "Contact",
+                            "faq_nav" : "FAQ",                                
+                            "inscription_title" : "Formulaire d'inscription",
+                            "inscription_text" : "En vous inscrivant, vous vous engagez &agrave; respecter <a href=\"rules.html\" target=\"_blank\">  <u> le r&egrave;glement du cours et les principes de base</u>. </a> <br /> Toutes les cases avec un * doivent obligatoirement &ecirc;tre remplies. <br /> En cas de problèmes veuillez nous contacter par e-mail ou par téléphone.",
+                            "reduction_title" : "R&eacute;duction temporaire" ,
+                            "reduction_text" : "Inscrivez votre enfant avant le premier f&eacute;vrier 2018 et profitez d'une r&eacute;duction de 20 euro!",
+                            "autresReduction_title" : "Autres r&eacute;ductions:",
+                            "autresReduction_text" : "Vous pouvez profiter d'une r&eacute;duction en apportant un nouvel inscrit ou en inscrivant plusieurs enfants ou en inscrivant pour plusieurs stages.",
+                            "info_btn" : "Voir conditions",
+                            "form_session" : "Session",
+                            "form_lang" : "* Langue du cours:",
+                            "form_lang_nl" : "Néerlandais",
+                            "form_lang_eng" : "Anglais",
+                            "form_periode" : "* Periode:",
+                            "form_periode_july" : "2-12 juillet 2018",
+                            "form_periode_august" : "2-12 août 2018",
+                            "form_eleve" : "Information élève",
+                            "form_eleve_name" : "* Nom:",
+                            "form_eleve_firstname" : "* Prénom:",
+                            "form_eleve_birthdate" : "* Date de naissance:",
+                            "form_eleve_gender" : "* Sexe:",
+                            "form_eleve_boy" : "Garçon",
+                            "form_eleve_girl" : "Fille",
+                            "form_parent" : "Information parent",
+                            "form_parent_name" : "* Nom:",
+                            "form_parent_firstname" : "* Prénom:",
+                            "form_parent_mail" : "* E-mail:",
+                            "form_parent_relation" : "* Relation avec l'élève:",
+                            "form_parent_relation_mother" : "Mère",
+                            "form_parent_relation_father" : "Père",
+                            "form_parent_relation_guardian" : "Tuteur",
+                            "form_parent_street" : "* Rue:",
+                            "form_parent_street_nr" : "* Nr:",
+                            "form_parent_street_bus" : "Boîte:",
+                            "form_parent_city" : "* Commune:",
+                            "form_parent_zip" : "* Code postal:",
+                            "form_parent_cell" : "* GSM:",
+                            "form_parent_cell_placeholder" : "en cas d'urgence, fixe ou autre GSM",
+                            "form_parent_urgent" : "* 2<sup>ième</sup> numéro de téléphone:",
+                            "form_school" : "Information école",
+                            "form_school_name" : "* Nom de l'école:",
+                            "form_school_street" : "* Rue:",
+                            "form_school_street_nr" : "* Nr:",
+                            "form_school_street_bus" : "Boîte:",
+                            "form_school_city" : "* Commune:",
+                            "form_school_zip" : "* Code postal:",
+                            "form_prof_title" : "* Titre du prof:",
+                            "form_prof_mr" : "Monsieur",
+                            "form_prof_mme" : "Madame",
+                            "form_prof_name" : "* Nom du prof:",
+                            "form_school_year" : "* Nombre d'années:",
+                            "form_school_year_extra" : "(de néerlandais ou anglais à l'école)",
+                            "form_school_hours" : "* Nombre d'heures:",
+                            "form_school_hours_extra" : "(de néerlandais ou anglais à l'école par semaine)",
+                            "form_school_immersion" : "* Immersion?",
+                            "form_school_immersion_yes" : "Oui",
+                            "form_school_immersion_no" : "Non",
+                            "form_school_immersion_extra" : "(dans la langue cible à l'école)",
+                            "form_school_rapport" : "* Bulletin?",
+                            "form_school_rapport_yes" : "Oui",
+                            "form_school_rapport_no" : "Non",
+                            "form_school_rapport_extra" : "(sera envoyé à l'école après le stage)",
+                            "form_extra" : "Extra information:",
+                            "form_extra_apported" : "Nom du nouvel élève apporté: <br><a href=\"information.html#reduction\" target=\"_blank\"><u>(cliquez ici pour lire les conditions)</u></a>",
+                            "form_extra_apported_placeholder" : "Profitez d'une réduction en apportant un nouvel élève",
+                            "form_extra_voie" : "Par quelle voie êtes-vous entré en contact avec notre cours?",
+                            "form_extra_voie_bouche" : "De bouche à oreil",
+                            "form_extra_voie_internet" : "Internet",
+                            "form_extra_voie_ecole" : "Ecole",
+                            "form_extra_voie_ancien" : "Participation l'année dernière",
+                            "form_extra_voie_par_ancien" : "Par un ancien élève",
+                            "form_extra_voie_news" : "Journal parlé",
+                            "form_extra_voie_brochure" : "Brochure",
+                            "form_extra_voie_news_paper" : "Presse écrite",
+                            "form_extra_voie_other" : "Autre",
+                            "form_extra_infos" : "Information supplémentaires concernant l'élève:",
+                            "form_extra_infos_placeholder" : "Soins médicaux, allergies, examens, ... ",
+                            "form_extra_allergies" : "Informations pertinentes pour la cuisine:",
+                            "form_extra_allergies_placeholer" : "Par exemple intolérances, allergies alimentaires, végétarien, ...",
+                            "form_extra_interesse" : "Connaissez-vous quelqu'un qui désire en savoir plus sur notre cours linguistique?",
+                            "form_extra_interesse_placeholder" : "S.v.p. nom, adresse et gsm ou e-mail",
+                            "form_extra_rules" : "* Veuillez lire et accepter le règlement<br><a href=\"rules.html\" target=\"_blank\"><u>(cliquez ici pour lire)</u></a>",
+                            "form_btn_accept" : "En cliquant ici, vous acceptez le règlement",
+                            "form_btn_submit" : "S'inscrire",
+                            "confirmation_title" : "Merci pour votre inscription.",
+                            "confirmation_text" : "Vous recevrez une confirmation de votre inscription par mail (il se peut que celui-ci se trouve dans votre dossier de courrier indésirable). <br />Nous vous attendons le premier jour du stage à l'école abbatiale de Zevenkerken entre 9 et 11 heures. <br />Veuillez verser l\'acompte dans les trois jours ouvrables sur notre compte BE36 0016 2215 8581. <br />Veuillez également vous acquitter du solde (€ 400) avant le premier juin \'18",                            
+                            "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                        }
+                    }
+                }
+            },  function(err, t) {
+                  // init set content
+                  updateContent();
+                });
+            });
+        });   
+
+        function updateContent() {
+            document.getElementById('home_nav').innerHTML = i18next.t('home_nav');
+            document.getElementById('information_nav').innerHTML = i18next.t('information_nav');
+            document.getElementById('inscription_nav').innerHTML = i18next.t('inscription_nav');
+            document.getElementById('rules_nav').innerHTML = i18next.t('rules_nav');
+            document.getElementById('photo_nav').innerHTML = i18next.t('photo_nav');
+            document.getElementById('contact_nav').innerHTML = i18next.t('contact_nav');
+            document.getElementById('faq_nav').innerHTML = i18next.t('faq_nav');                    
+            document.getElementById('inscription_title').innerHTML = i18next.t('inscription_title');
+            document.getElementById('inscription_text').innerHTML = i18next.t('inscription_text');
+            document.getElementById('reduction_title').innerHTML = i18next.t('reduction_title');
+            document.getElementById('reduction_text').innerHTML = i18next.t('reduction_text');
+            document.getElementById('autresReduction_title').innerHTML = i18next.t('autresReduction_title');
+            document.getElementById('autresReduction_text').innerHTML = i18next.t('autresReduction_text');
+            document.getElementById('info_btn').innerHTML = i18next.t('info_btn');
+            document.getElementById('form_session').innerHTML = i18next.t('form_session');
+            document.getElementById('form_lang').innerHTML = i18next.t('form_lang');
+            document.getElementById('form_lang_nl').innerHTML = i18next.t('form_lang_nl');
+            document.getElementById('form_lang_nl').value = i18next.t('form_lang_nl');
+            document.getElementById('form_lang_eng').innerHTML = i18next.t('form_lang_eng');
+            document.getElementById('form_lang_eng').value = i18next.t('form_lang_eng');            
+            document.getElementById('form_periode').innerHTML = i18next.t('form_periode');
+            document.getElementById('form_periode_july').innerHTML = i18next.t('form_periode_july');
+            document.getElementById("form_periode_july").value = i18next.t('form_periode_july');
+            document.getElementById('form_periode_august').innerHTML = i18next.t('form_periode_august');
+            document.getElementById("form_periode_august").value = i18next.t('form_periode_august');
+            document.getElementById('form_eleve').innerHTML = i18next.t('form_eleve');
+            document.getElementById('form_eleve_name').innerHTML = i18next.t('form_eleve_name');
+            document.getElementById('form_eleve_firstname').innerHTML = i18next.t('form_eleve_firstname');
+            document.getElementById('form_eleve_birthdate').innerHTML = i18next.t('form_eleve_birthdate');
+            document.getElementById('form_eleve_gender').innerHTML = i18next.t('form_eleve_gender');
+            document.getElementById('form_eleve_boy').innerHTML = i18next.t('form_eleve_boy');
+            document.getElementById('form_eleve_boy').value = i18next.t('form_eleve_boy');            
+            document.getElementById('form_eleve_girl').innerHTML = i18next.t('form_eleve_girl');
+            document.getElementById('form_eleve_girl').value = i18next.t('form_eleve_girl');            
+            document.getElementById('form_parent').innerHTML = i18next.t('form_parent');
+            document.getElementById('form_parent_name').innerHTML = i18next.t('form_parent_name');
+            document.getElementById('form_parent_firstname').innerHTML = i18next.t('form_parent_firstname');
+            document.getElementById('form_parent_mail').innerHTML = i18next.t('form_parent_mail');
+            document.getElementById('form_parent_relation').innerHTML = i18next.t('form_parent_relation');
+            document.getElementById('form_parent_relation_mother').innerHTML = i18next.t('form_parent_relation_mother');
+            document.getElementById('form_parent_relation_father').innerHTML = i18next.t('form_parent_relation_father');
+            document.getElementById('form_parent_relation_guardian').innerHTML = i18next.t('form_parent_relation_guardian');
+            document.getElementById('form_parent_relation_mother').value = i18next.t('form_parent_relation_mother');
+            document.getElementById('form_parent_relation_father').value = i18next.t('form_parent_relation_father');
+            document.getElementById('form_parent_relation_guardian').value = i18next.t('form_parent_relation_guardian');            
+            document.getElementById('form_parent_street').innerHTML = i18next.t('form_parent_street');
+            document.getElementById('form_parent_street_nr').innerHTML = i18next.t('form_parent_street_nr');
+            document.getElementById('form_parent_street_bus').innerHTML = i18next.t('form_parent_street_bus');
+            document.getElementById('form_parent_city').innerHTML = i18next.t('form_parent_city');
+            document.getElementById('form_parent_zip').innerHTML = i18next.t('form_parent_zip');
+            document.getElementById('form_parent_cell').innerHTML = i18next.t('form_parent_cell');
+            $("#telUrgent").attr("placeholder", i18next.t('form_parent_cell_placeholder'));
+            document.getElementById('form_parent_urgent').innerHTML = i18next.t('form_parent_urgent');
+            document.getElementById('form_school').innerHTML = i18next.t('form_school');
+            document.getElementById('form_school_name').innerHTML = i18next.t('form_school_name');
+            document.getElementById('form_school_street').innerHTML = i18next.t('form_school_street');
+            document.getElementById('form_school_street_nr').innerHTML = i18next.t('form_school_street_nr');
+            document.getElementById('form_school_street_bus').innerHTML = i18next.t('form_school_street_bus');
+            document.getElementById('form_school_city').innerHTML = i18next.t('form_school_city');
+            document.getElementById('form_school_zip').innerHTML = i18next.t('form_school_zip');
+            document.getElementById('form_prof_title').innerHTML = i18next.t('form_prof_title');
+            document.getElementById('form_prof_mr').innerHTML = i18next.t('form_prof_mr');
+            document.getElementById('form_prof_mme').innerHTML = i18next.t('form_prof_mme');
+            document.getElementById('form_prof_mr').value = i18next.t('form_prof_mr');
+            document.getElementById('form_prof_mme').value = i18next.t('form_prof_mme');
+            document.getElementById('form_prof_name').innerHTML = i18next.t('form_prof_name');
+            document.getElementById('form_school_year').innerHTML = i18next.t('form_school_year');
+            document.getElementById('form_school_year_extra').innerHTML = i18next.t('form_school_year_extra');
+            document.getElementById('form_school_hours').innerHTML = i18next.t('form_school_hours');
+            document.getElementById('form_school_hours_extra').innerHTML = i18next.t('form_school_hours_extra');
+            document.getElementById('form_school_immersion').innerHTML = i18next.t('form_school_immersion');
+            document.getElementById('form_school_immersion_yes').innerHTML = i18next.t('form_school_immersion_yes');
+            document.getElementById('form_school_immersion_no').innerHTML = i18next.t('form_school_immersion_no');
+            document.getElementById('form_school_immersion_yes').value = i18next.t('form_school_immersion_yes');
+            document.getElementById('form_school_immersion_no').value = i18next.t('form_school_immersion_no');            
+            document.getElementById('form_school_immersion_extra').innerHTML = i18next.t('form_school_immersion_extra');
+            document.getElementById('form_school_rapport').innerHTML = i18next.t('form_school_rapport');
+            document.getElementById('form_school_rapport_yes').innerHTML = i18next.t('form_school_rapport_yes');
+            document.getElementById('form_school_rapport_no').innerHTML = i18next.t('form_school_rapport_no');
+            document.getElementById('form_school_rapport_yes').value = i18next.t('form_school_rapport_yes');
+            document.getElementById('form_school_rapport_no').value = i18next.t('form_school_rapport_no');
+            document.getElementById('form_school_rapport_extra').innerHTML = i18next.t('form_school_rapport_extra');
+            document.getElementById('form_extra').innerHTML = i18next.t('form_extra');
+            document.getElementById('form_extra_apported').innerHTML = i18next.t('form_extra_apported');
+            $("#apportedStudent").attr("placeholder", i18next.t('form_extra_apported_placeholder'));
+            document.getElementById('form_extra_voie').innerHTML = i18next.t('form_extra_voie');
+            document.getElementById('form_extra_voie_bouche').innerHTML = i18next.t('form_extra_voie_bouche');
+            document.getElementById('form_extra_voie_internet').innerHTML = i18next.t('form_extra_voie_internet');
+            document.getElementById('form_extra_voie_ecole').innerHTML = i18next.t('form_extra_voie_ecole');
+            document.getElementById('form_extra_voie_ancien').innerHTML = i18next.t('form_extra_voie_ancien');
+            document.getElementById('form_extra_voie_par_ancien').innerHTML = i18next.t('form_extra_voie_par_ancien');
+            document.getElementById('form_extra_voie_news').innerHTML = i18next.t('form_extra_voie_news');
+            document.getElementById('form_extra_voie_brochure').innerHTML = i18next.t('form_extra_voie_brochure');
+            document.getElementById('form_extra_voie_news_paper').innerHTML = i18next.t('form_extra_voie_news_paper');
+            document.getElementById('form_extra_voie_other').innerHTML = i18next.t('form_extra_voie_other');
+            document.getElementById('form_extra_voie_bouche').value = i18next.t('form_extra_voie_bouche');
+            document.getElementById('form_extra_voie_internet').value = i18next.t('form_extra_voie_internet');
+            document.getElementById('form_extra_voie_ecole').value = i18next.t('form_extra_voie_ecole');
+            document.getElementById('form_extra_voie_ancien').value = i18next.t('form_extra_voie_ancien');
+            document.getElementById('form_extra_voie_par_ancien').value = i18next.t('form_extra_voie_par_ancien');
+            document.getElementById('form_extra_voie_news').value = i18next.t('form_extra_voie_news');
+            document.getElementById('form_extra_voie_brochure').value = i18next.t('form_extra_voie_brochure');
+            document.getElementById('form_extra_voie_news_paper').value = i18next.t('form_extra_voie_news_paper');
+            document.getElementById('form_extra_voie_other').value = i18next.t('form_extra_voie_other');            
+            document.getElementById('form_extra_infos').innerHTML = i18next.t('form_extra_infos');
+            $("#addedInfo").attr("placeholder", i18next.t('form_extra_infos_placeholder'));
+            document.getElementById('form_extra_allergies').innerHTML = i18next.t('form_extra_allergies');
+            $("#allergiesInfo").attr("placeholder", i18next.t('form_extra_allergies_placeholer'));
+            document.getElementById('form_extra_interesse').innerHTML = i18next.t('form_extra_interesse');
+            $("#comment").attr("placeholder", i18next.t('form_extra_interesse_placeholder'));            
+            document.getElementById('form_extra_rules').innerHTML = i18next.t('form_extra_rules');
+            document.getElementById('form_btn_accept').innerHTML = i18next.t('form_btn_accept');
+            document.getElementById('form_btn_submit').innerHTML = i18next.t('form_btn_submit');
+            document.getElementById('confirmation_title').innerHTML = i18next.t('confirmation_title');
+            document.getElementById('confirmation_text').innerHTML = i18next.t('confirmation_text');
+            document.getElementById('footer').innerHTML = i18next.t('footer');
+            console.log(document.getElementById('form_extra_voie_other').innerHTML);
+            console.log(i18next.t('form_extra_voie_other'));
+        }
+
+            function changeLng(lng) {
+              i18next.changeLanguage(lng);
+            }
+
+            function changeLng() {
+                var lang = window.localStorage.getItem("langChoice");
+                if(lang === "NL"){
+                    document.getElementById('langId').innerHTML = 'NL';
+                    window.localStorage.setItem("langChoice", 'FR');
+                    i18next.changeLanguage('FR');
+                } else {
+                    document.getElementById('langId').innerHTML = 'FR';
+                    window.localStorage.setItem("langChoice", 'NL');
+                    i18next.changeLanguage('NL')
+                }
+            }
+
+
+            i18next.on('languageChanged', function() {
+              updateContent();
+            });
+
+    </script>        
+
+    <!-- Bootstrap datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.fr.js"></script>
+    
+
+    <script src="js/mail.js"></script>
+    <script src="js/database.js"></script>
+
+
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+<script>
+    $(document).ready(
+        function(){
+        var date_input=$('input[name="birthDateInput"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'dd/mm/yyyy',
+            container: container,
+            startDate: '01/01/1999',            
+            endDate: '31/12/2009',
+            startView: 2,
+            maxViewMode: 2,
+            autoclose: true,
+            orientation: "top right",
+            defaultViewDate: { year: 2000 },
+            language: window.localStorage.getItem("langChoice") == "NL" ? "nl" : "fr",
+        })
+    })
+</script>
+<script type="text/javascript">
+
+    $('#contact').change(function(){
+    var selectedText = $(this).find(':selected').map(function(){
+       return $(this).text(); //$(this).val()
+    }).get().join(',');
+    $('#contactInput').val(selectedText);
+    console.log(selectedText);
+    });
+    $(function () {
+    $('.button-checkbox').each(function () {
+
+        // Settings
+        var $widget = $(this),
+            $button = $widget.find('button'),
+            $checkbox = $widget.find('input:checkbox'),
+            color = $button.data('color'),
+            settings = {
+                on: {
+                    icon: 'glyphicon glyphicon-check'
+                },
+                off: {
+                    icon: 'glyphicon glyphicon-unchecked'
+                }
+            };
+
+        // Event Handlers
+        $button.on('click', function () {
+            $checkbox.prop('checked', !$checkbox.is(':checked'));
+            $checkbox.triggerHandler('change');
+            updateDisplay();
+        });
+        $checkbox.on('change', function () {
+            updateDisplay();
+        });
+
+        // Actions
+        function updateDisplay() {
+            var isChecked = $checkbox.is(':checked');
+
+            // Set the button's state
+            $button.data('state', (isChecked) ? "on" : "off");
+
+            // Set the button's icon
+            $button.find('.state-icon')
+                .removeClass()
+                .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+            // Update the button's color
+            if (isChecked) {
+                $button
+                    .removeClass('btn-default')
+                    .addClass('btn-' + color + ' active');
+            }
+            else {
+                $button
+                    .removeClass('btn-' + color + ' active')
+                    .addClass('btn-default');
+            }
+        }
+
+        // Initialization
+        function init() {
+
+            updateDisplay();
+
+            // Inject the icon if applicable
+            if ($button.find('.state-icon').length == 0) {
+                $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+            }
+        }
+        init();
+    });
+});
+</script>
+
+<script type="text/javascript">
+    $(document).ready(
+        function(){
+            $('.selectpicker').selectpicker('refresh');
+    })
+</script>
+
+ </body>
+
+</html>

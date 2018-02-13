@@ -1,0 +1,49 @@
+body {
+    /* padding-top: 50px;  Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-color: #E0E0E0;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+li, 
+p {
+    text-align: justify;
+    font-size: 14px;
+}
+
+label {
+    width:150px;	
+    display:inline-block;
+    text-align: right;	
+}
+
+.btn-default.active, .btn-default.selected {
+	background: #0099cc;
+    color: #ffffff;
+}
+
+.btn-group > .btn.active {
+  color: #000;
+  background-color: #f5a034;
+  border-color: #2e6da4;
+}
+
+@media (max-width: 768px) {
+ .alignLeftXs {
+    text-align: left;
+}
+
+footer p {
+    margin: 50px 0;
+    text-align: center;  
+}
+
+select.form-control {
+  color: black;
+}
+
+.red {
+  color: red !important;
+}
