@@ -11,13 +11,16 @@
 
     <title>Loppem Conversa</title>
 
-
     <!-- CSS Libraries -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->    
     <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" rel="stylesheet" /> 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" rel="stylesheet"/>
-    <link href="css/bootstrap-select.css" rel="stylesheet">
+
+    <link href="css/jquery-ui.min.css" rel="stylesheet" /> 
+    <link href="css/bootstrap-datepicker3.css" rel="stylesheet"/>
+    <!-- Uncompatible with translation <link href="css/bootstrap-select.css" rel="stylesheet"> -->
 
     <link href="css/inscription-style.css" rel="stylesheet">
 </head>
@@ -50,9 +53,8 @@
             </div>
         </div>
 
-        <!-- Contact Form -->
-        <!-- In order to set the email address and subject line for the contact form go to the php/contact_me.php file. -->
         <div class="col-md-12">
+            <!-- When submit button is pressed a mail is sent and an insert into the DB is done through ajax calls -->
             <form class="form-horizontal" name="sentMessage" id="inscriptionForm" validate>
                 <input type="hidden" name="pageLang" id="pageLang"/>
                 <div class="panel panel-default">
@@ -108,9 +110,6 @@
                                 <div class="col-sm-4 col-xs-12 alignLeftXs">
                                     <div class="input-group">
                                         <input class="form-control" id="birthDateInput" name="birthDateInput" placeholder="DD/MM/YYYY"/> 
-<!--                                         <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div> -->
                                     </div>        
                                 </div>
                             </div>
@@ -462,18 +461,12 @@
     <script src="js/jquery.js"></script>
 
     <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script> 
+    <script src="js/jQuery/jquery.min.js"></script>
+    <script src="js/jQuery/jquery.validate.min.js"></script> 
 
     <!-- Bootstrap Core-->
     <script src="js/bootstrap.min.js"></script>    
 
-    <!-- <script type="text/javascript">
-        $(document).ready(function(){
-            $.getScript("js/bootstrap-select.js");
-    });
-    </script>
-     -->
     <script src="js/bootstrap-select.js"></script>
     <script src="js/bootstrap.js"></script>    
     <script src="js/bootstrap.min.js"></script>
@@ -701,7 +694,6 @@
                     }
                 }
             },  function(err, t) {
-                  // init set content
                   updateContent();
                 });
             });
@@ -845,7 +837,6 @@
                 }
             }
 
-
             i18next.on('languageChanged', function() {
               updateContent();
             });
@@ -853,24 +844,12 @@
     </script>        
 
     <!-- Bootstrap datepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/bootstrap-datepicker.fr.js"></script>
     
 
     <script src="js/mail.js"></script>
     <script src="js/database.js"></script>
-
-
-
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
-
 
 <script>
     $(document).ready(
@@ -891,6 +870,7 @@
         })
     })
 </script>
+
 <script type="text/javascript">
 
     $('#contact').change(function(){
@@ -974,6 +954,5 @@
     })
 </script>
 
- </body>
-
+</body>
 </html>
