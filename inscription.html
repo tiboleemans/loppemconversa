@@ -54,12 +54,13 @@
             <!-- When submit button is pressed a mail is sent and an insert into the DB is done through ajax calls -->
             <form class="form-horizontal" name="sentMessage" id="inscriptionForm" validate>
                 <input type="hidden" name="pageLang" id="pageLang"/>
-                <div id="general_error_div" style="width:75%; margin: 0 auto; display: none;">
+
+                <div class="panel panel-default">
+                                    <div id="general_error_div" style="width:75%; margin: 0 auto; display: none;">
                     <div class="alert alert-danger">
                         <strong> Opgelet! </storng> Niet alle verplichte velden zijn ingevuld. Gelieve de ontbrekende gegevens in te vullen en opnieuw op inschrijven te klikken.
                     </div>
                 </div>
-                <div class="panel panel-default">
                     <h3 class="panel-heading" id="form_session"></h3>
                     <div class="panel-body form-group">
                         <div class="has-feedback rowElement">                                        
