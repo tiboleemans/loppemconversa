@@ -163,7 +163,6 @@ $('form').validate({
     errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function(error, element) {
-            console.log(error[0].innerHTML);
             if(element.length) {
                 error.insertAfter(element);
             } else {
