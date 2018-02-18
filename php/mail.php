@@ -109,26 +109,7 @@ $inputArrayNL = [
 	"Interesse" => $comment,
 ];
 
-// $to = 'inschrijvingen2017@loppemconversa.be'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
-// $email_subject_loppem = "Website Contact Form:  $name";
-// $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
-// $headers = "From: tiboleemans@gmail.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-// $headers .= "Reply-To: $email_address";
-// mail($to,$email_subject,$email_body,$headers);
-
-
-// Set email variables
-// email_parent already set
-$email_loppem = 'info@loppemconversa.be';
-$email_one = 'inschrijvingen2018@loppemconversa.be';
-
-$email_subject_loppem = 'Nieuwe inschrijving - ' . $lastNameStudent . ' ' .$firstNameStudent;
-
-// Prepare our content string
 $email_content_loppem = 'Gegevens nieuwe inschrijving: ' . "\n\n";
-$headers_loppem = 'From: info@loppemconversa.be' . "\r\n" .
-'Reply-To:  ' . $email_parent  . "\r\n" .
-'X-Mailer: PHP/' . phpversion();
 
 $email_subject_parent_FR = 'Confirmation d\'inscription Loppem Conversa';
 
@@ -208,15 +189,26 @@ if($_POST["pageLang"] == "FR"){
 	}
 }
 
-$email_content_loppem = strip_tags(htmlspecialchars($email_content_loppem));
-$email_content_parent = strip_tags(htmlspecialchars($email_content_parent));
 
+// Mail to Loppem Conversa
+$email_loppem = 'info@loppemconversa.be';
+$email_subject_loppem = 'Nieuwe inschrijving - ' . $lastNameStudent . ' ' .$firstNameStudent;
+$email_content_loppem = strip_tags(htmlspecialchars($email_content_loppem));
+$headers_loppem = 'From: info@loppemconversa.be' . "\r\n" .
+'Reply-To:  ' . $email_parent  . "\r\n" .
+'X-Mailer: PHP/' . phpversion();
+
+mail($email_loppem, $email_subject_loppem, $email_content_loppem, $headers_loppem);
+
+// Mail backup
+$email_one = 'inschrijvingen2018@loppemconversa.be';
+$email_content_parent = strip_tags(htmlspecialchars($email_content_parent));
 $headers_parents = 'From: info@loppemconversa.be' . "\r\n" .
 'Reply-To: info@loppemconversa.be' . "\r\n" .
 'X-Mailer: PHP/' . phpversion();
 
 mail($email_one, $email_subject_parent, $email_content_parent, $headers_parents);
-mail($email_loppem, $email_subject_loppem, $email_content_loppem, $headers_loppem);
-mail($email_parent, $email_subject_parent, $email_content_parent, $headers_parents);
 
+// Mail to parents
+mail($email_parent, $email_subject_parent, $email_content_parent, $headers_parents);
 ?>

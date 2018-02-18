@@ -14,8 +14,6 @@
     <!-- CSS Libraries -->
     <!-- Bootstrap Core CSS -->
     <link href="libs/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">     -->
     <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/jquery-ui.min.css" rel="stylesheet" /> 
     <link href="css/bootstrap-datepicker3.css" rel="stylesheet"/>
@@ -813,8 +811,6 @@
             document.getElementById('confirmation_title').innerHTML = i18next.t('confirmation_title');
             document.getElementById('confirmation_text').innerHTML = i18next.t('confirmation_text');
             document.getElementById('footer').innerHTML = i18next.t('footer');
-            console.log(document.getElementById('form_extra_voie_other').innerHTML);
-            console.log(i18next.t('form_extra_voie_other'));
         }
 
             function changeLng(lng) {
@@ -875,7 +871,6 @@
        return $(this).text(); //$(this).val()
     }).get().join(',');
     $('#contactInput').val(selectedText);
-    console.log(selectedText);
     });
     $(function () {
     $('.button-checkbox').each(function () {
