@@ -57,9 +57,7 @@
 
                 <div class="panel panel-default">
                     <div id="general_error_div" style="width:75%; margin: 50px auto; display: none;">
-                        <div class="alert alert-danger">
-                            <strong> Opgelet! </storng> Niet alle verplichte velden zijn ingevuld. Gelieve de ontbrekende gegevens in te vullen en opnieuw op inschrijven te klikken.
-                        </div>
+                        <div class="alert alert-danger" id="general_error_text"></div>
                     </div>
                     <h3 class="panel-heading" id="form_session"></h3>
                     <div class="panel-body form-group">
@@ -517,6 +515,7 @@
                             "autresReduction_title" : "Andere kortingen",
                             "autresReduction_text" : "U kan van een korting genieten wanneer u een nieuwe inschrijving aanbrengt of meerdere kinderen inschrijft.",
                             "info_btn" : "Zie voorwaarden",
+                            "general_error_text" : "<strong> Opgelet! </storng> Niet alle verplichte velden zijn ingevuld. Gelieve de ontbrekende gegevens in te vullen en opnieuw op inschrijven te klikken.",
                             "form_session" : "Sessiekeuze",
                             "form_lang" : "* Cursustaal:",
                             "form_lang_nl" : "Nederlands",
@@ -613,6 +612,7 @@
                             "autresReduction_title" : "Autres r&eacute;ductions:",
                             "autresReduction_text" : "Vous pouvez profiter d'une r&eacute;duction en apportant un nouvel inscrit ou en inscrivant plusieurs enfants ou en inscrivant pour plusieurs stages.",
                             "info_btn" : "Voir conditions",
+                            "general_error_text" : "<strong> Attention! </strong> Tous les champs obligatoires n'ont pas été complétés. Veuillez remplir les détails manquants et cliquez sur le bouton s'inscrire à nouveau.",
                             "form_session" : "Session",
                             "form_lang" : "* Langue du cours:",
                             "form_lang_nl" : "Néerlandais",
@@ -715,6 +715,7 @@
             document.getElementById('autresReduction_title').innerHTML = i18next.t('autresReduction_title');
             document.getElementById('autresReduction_text').innerHTML = i18next.t('autresReduction_text');
             document.getElementById('info_btn').innerHTML = i18next.t('info_btn');
+            document.getElementById('general_error_text').innerHTML = i18next.t('general_error_text');
             document.getElementById('form_session').innerHTML = i18next.t('form_session');
             document.getElementById('form_lang').innerHTML = i18next.t('form_lang');
             document.getElementById('form_lang_nl').innerHTML = i18next.t('form_lang_nl');
