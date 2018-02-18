@@ -54,6 +54,11 @@
             <!-- When submit button is pressed a mail is sent and an insert into the DB is done through ajax calls -->
             <form class="form-horizontal" name="sentMessage" id="inscriptionForm" validate>
                 <input type="hidden" name="pageLang" id="pageLang"/>
+                <div id="general_error_div" style="width:75%; margin: 0 auto; display: none;">
+                    <div class="panel panel-default">
+                        <p class="panel-body" id="general_erro_text">test</p>
+                    </div>
+                </div>
                 <div class="panel panel-default">
                     <h3 class="panel-heading" id="form_session"></h3>
                     <div class="panel-body form-group">
@@ -843,26 +848,37 @@
 
     <script src="js/mail.js"></script>
     <script src="js/database.js"></script>
+    <script>
+        $(function() {
+            $("#inscriptionForm").submit(function(e) {
+            var $form = $(this);
+                if(!$form.valid()){
+                    $('#general_error_div').show();
+                    $('html,body').scrollTop(0);
+                }
+            }
+        }
+    </script>
 
-<script>
-    $(document).ready(
-        function(){
-        var date_input=$('input[name="birthDateInput"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'dd/mm/yyyy',
-            container: container,
-            startDate: '01/01/1999',            
-            endDate: '31/12/2009',
-            startView: 2,
-            maxViewMode: 2,
-            autoclose: true,
-            orientation: "top right",
-            defaultViewDate: { year: 2000 },
-            language: window.localStorage.getItem("langChoice") == "NL" ? "nl" : "fr",
+    <script>
+        $(document).ready(
+            function(){
+            var date_input=$('input[name="birthDateInput"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'dd/mm/yyyy',
+                container: container,
+                startDate: '01/01/1999',            
+                endDate: '31/12/2009',
+                startView: 2,
+                maxViewMode: 2,
+                autoclose: true,
+                orientation: "top right",
+                defaultViewDate: { year: 2000 },
+                language: window.localStorage.getItem("langChoice") == "NL" ? "nl" : "fr",
+            })
         })
-    })
-</script>
+    </script>
 
 <script type="text/javascript">
 
