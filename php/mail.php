@@ -198,7 +198,7 @@ $headers_loppem = 'From: info@loppemconversa.be' . "\r\n" .
 'Reply-To:  ' . $email_parent  . "\r\n" .
 'X-Mailer: PHP/' . phpversion();
 
-mail($email_loppem, $email_subject_loppem, $email_content_loppem, $headers_loppem);
+// mail($email_loppem, $email_subject_loppem, $email_content_loppem, $headers_loppem);
 
 // Mail backup
 $email_one = 'inschrijvingen2018@loppemconversa.be';
@@ -207,7 +207,7 @@ $headers_parents = 'From: info@loppemconversa.be' . "\r\n" .
 'Reply-To: info@loppemconversa.be' . "\r\n" .
 'X-Mailer: PHP/' . phpversion();
 
-mail($email_one, $email_subject_parent, $email_content_parent, $headers_parents);
+mail($email_one, $email_subject_loppem, $email_content_loppem, $headers_loppem);
 
 // Mail to parents
 mail($email_parent, $email_subject_parent, $email_content_parent, $headers_parents);
