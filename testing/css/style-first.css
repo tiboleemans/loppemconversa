@@ -1,0 +1,133 @@
+/* CSS Document */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    /* padding-top: 50px;  Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+/*    background-image: linear-gradient(180deg, #081A79, #6D7ABF);
+*/    /*background-color: #E0E0E0;*/
+    /*background-image: linear-gradient(180deg, #DFFFFF, #E9FFFF);*/
+    background-color: #EBE8E8;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#img_box	{
+	margin: 0px auto;
+	width:900px;
+	text-align: center;
+}
+
+a:active, a:selected, a:visited { 
+    border: none;
+    outline: none;
+}
+
+
+p{
+	color: #000;  
+	font-size: 20px; 
+	text-decoration: none;
+	text-align: center;
+	display: block; 
+	margin: auto auto;
+}
+
+h2 {
+		color: #000;  
+}
+
+
+
+p.langue:hover { 
+	color:#FAA22B;  
+	font-size: 20px; 
+	text-decoration: none;
+	text-align: center; 
+	display: block; 
+	margin: auto auto;
+}
+
+.frontpage_square{
+	position:relative;
+	overflow:hidden;
+	padding-bottom:100%;
+	margin-top: 20px;
+}
+.frontpage_square img{
+	position:absolute;
+}
+
+.row-container {
+  padding: 5px;
+  max-height: 50%;
+  height: auto;
+}
+
+.img-container {
+  height: 100%;
+  border: 5px;
+  border-color: black;
+  border-style: solid;
+  width: auto;
+}
+
+.col-sm-4 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row-inner {
+  background-color: orange;
+  height: 33vh;
+  width: auto;
+}
+
+img{
+  max-height:100%;
+}
+
+.inner-container{
+	height: 100vh;
+}
+
+.border2 {
+    text-align: center;
+    border: 5px solid #b2aca8;
+    height: 100%;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.noleftborder {
+	border-left: none;
+}
+
+.norightborder {
+	border-right: none;
+}
+
+.notopborder {
+	border-top: none;
+}
+
+.nobottomborder {
+	border-bottom: none;
+}
+
+.imggrid {
+	height: 100%; 
+	width: 100%; 
+	margin: auto auto;
+}
+

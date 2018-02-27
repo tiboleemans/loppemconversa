@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Loppem Conversa</title>
+    <link rel="shortcut icon" href="images/logo.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="libs/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/loppem-conversa.css" rel="stylesheet">
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div id="navigation"></div>
+
+    <!-- Page Content -->
+    <div style="margin-top: 75px" class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 id="page_title" class="page-header"></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <a href="https://goo.gl/photos/z8zwwYYKNUK29h219" target="_blank">
+                    <img class="img-responsive img-hover" src="images/pictures/pictures_august.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <div class="panel panel-default">
+                    <h3 id="august_2017" class="panel-heading">Augustus 2017</h3>
+                    <div class="panel-body">
+                        <h4 id="pictures_august_2017">Foto's</h4>
+                        <a href="https://goo.gl/photos/z8zwwYYKNUK29h219" target="_blank">https://goo.gl/photos/z8zwwYYKNUK29h219</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-7">
+                <a href="https://goo.gl/photos/M82v1LCm3Lw62Tr36" target="_blank">
+                    <img class="img-responsive img-hover" src="images/pictures/pictures_july.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <div class="panel panel-default">
+                    <h3 id="july_2017" class="panel-heading">Juli 2017</h3>
+                    <div class="panel-body">
+                        <h4 id="pictures_july2017" class="">Foto's</h4>
+                        <a href="https://goo.gl/photos/M82v1LCm3Lw62Tr36" target="_blank"> https://goo.gl/photos/M82v1LCm3Lw62Tr36  </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="row footer">
+                <div class="col-lg-12">
+                    <p style="text-align: center; margin-top: 50px" id="footer"></p>                
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/i18next/i18next.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $("#navigation").load("navigation.html", function(){
+                if(window.localStorage.getItem("langChoice") == "NL"){
+                    document.getElementById('langId').innerHTML = "FR";
+                } else {
+                    document.getElementById('langId').innerHTML = "NL";
+                }                
+                $(".home").removeClass("active");
+                $(".information").removeClass("active");
+                $(".inscription").removeClass("active");
+                $(".rules").removeClass("active");
+                $(".pictures").addClass("active");
+                $(".contact").removeClass("active");
+                $(".faq").removeClass("active");
+                $(".navbar").addClass("navbar-fixed-top");
+
+            i18next.init({
+              lng: window.localStorage.getItem("langChoice"),
+              debug: true,
+              resources: {
+                NL: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Informatie",
+                    "inscription_nav" : "Inschrijven",
+                    "rules_nav" : "Reglement",
+                    "photo_nav" : "Foto's",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",
+                    "page_title" : "Foto's en video's",
+                    "august_2017" : "Augustus 2017",
+                    "pictures_august_2017" : "Foto's",
+                    "july_2017" : "Juli 2017",
+                    "pictures_july2017" : "Foto's",
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                  }
+                },
+                FR: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Information",
+                    "inscription_nav" : "Inscrire",
+                    "rules_nav" : "Règlement",
+                    "photo_nav" : "Photos",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",                  
+                    "page_title" : "Photos et videos",
+                    "august_2017" : "Août 2017",
+                    "pictures_august_2017" : "Photos",
+                    "july_2017" : "Juillet 2017",
+                    "pictures_july2017" : "Photos",                    
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa "
+                    }
+                }
+              }
+            }, function(err, t) {
+              // init set content
+              updateContent();
+                });
+            });
+        });   
+
+        function updateContent() {    
+            document.getElementById('home_nav').innerHTML = i18next.t('home_nav');
+            document.getElementById('information_nav').innerHTML = i18next.t('information_nav');
+            document.getElementById('inscription_nav').innerHTML = i18next.t('inscription_nav');
+            document.getElementById('rules_nav').innerHTML = i18next.t('rules_nav');
+            document.getElementById('photo_nav').innerHTML = i18next.t('photo_nav');
+            document.getElementById('contact_nav').innerHTML = i18next.t('contact_nav');
+            document.getElementById('faq_nav').innerHTML = i18next.t('faq_nav');
+            document.getElementById('august_2017').innerHTML = i18next.t('august_2017');
+            document.getElementById('pictures_august_2017').innerHTML = i18next.t('pictures_august_2017');
+            document.getElementById('july_2017').innerHTML = i18next.t('july_2017');
+            document.getElementById('pictures_july2017').innerHTML = i18next.t('pictures_july2017');
+            document.getElementById('page_title').innerHTML = i18next.t('page_title');            
+            document.getElementById('footer').innerHTML = i18next.t('footer');
+        }
+
+        function changeLng(lng) {
+          i18next.changeLanguage(lng);
+        }
+
+        function changeLng() {
+            var lang = window.localStorage.getItem("langChoice");
+            if(lang === "NL"){
+                document.getElementById('langId').innerHTML = 'NL';
+                window.localStorage.setItem("langChoice", 'FR');
+                i18next.changeLanguage('FR');
+            } else {
+                document.getElementById('langId').innerHTML = 'FR';
+                window.localStorage.setItem("langChoice", 'NL');
+                i18next.changeLanguage('NL')
+            }
+        }
+
+
+        i18next.on('languageChanged', function() {
+          updateContent();
+        });
+
+    </script>    
+
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
