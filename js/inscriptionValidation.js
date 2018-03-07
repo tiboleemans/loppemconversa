@@ -28,7 +28,6 @@ $('#divRapport').on('click', '.btn', function () {
     $('#rapportInput').val($(this).val());
 });
 $('form').validate({
-
     rules: {
         langInput: {
             required: true
@@ -113,6 +112,9 @@ $('form').validate({
             required: true
         },
         accepted : {
+            required: true
+        }, 
+        acceptCheckbox : {
             required: true
         }
     },

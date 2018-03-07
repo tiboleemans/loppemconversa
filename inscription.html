@@ -386,8 +386,7 @@
                                         <option value="Autre" id="form_extra_voie_other"></option>
                                     </select>
                                     <input type="hidden" name="contactInput" id="contactInput" />                      
-<!--                                     <span class="glyphicon form-control-feedback" id="contact1"></span>                                  
- -->                                </div>
+                                </div>
                             </div> 
                         </div>
 
@@ -411,16 +410,6 @@
                                 <textarea class="form-control col-sm-6" rows="5" name="comment" id="comment" placeholder="S.v.p. nom, adresse et gsm ou e-mail"></textarea>
                             </div>
                         </div>
-<!--                         <div class="rowElement">                                        
-                            <label for="picturesLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_extra_pictures"></label>
-                            <div class="col-sm-4 col-xs-12 alignLeftXs">
-                                <div id="divPictures" class="btn-group" role="group" aria-label="picturesLabel">
-                                  <button type="button" class="btn btn-default" value="Yes" id="form_pictures_oui"></button>
-                                  <button type="button" class="btn btn-default" value="Non" id="form_pictures_non"></button>
-                                </div>
-                                <input type="hidden" name="picturesInput" id="picturesInput" />   
-                            </div>
-                        </div> -->
                         <div class="form-group has-feedback rowElement">
                             <label for="accepted" class="control-label col-sm-4 col-xs-12 alignLeftXs" id="form_extra_rules"></label>
                             <div class="control-group col-sm-6 col-xs-12">               
@@ -431,21 +420,21 @@
                                 <span class="glyphicon form-control-feedback" id="accepted1"></span>
                             </div>
                         </div>
-                        <div class="form-group has-feedback rowElement form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                          <label class="form-check-label" for="defaultCheck1">
-                            Default checkbox
-                          </label>
-                        </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                          <label class="form-check-label" for="defaultCheck2">
-                            Disabled checkbox
-                          </label>
+                            <div class="col-sm-4 col-xs-12 alignLeftXs"></div>
+                            <div class="col-sm-8 col-xs-12 alignLeftXs" style="display: block;">
+                                
+                                <label style="text-align: left;" class="form-check-label" for="pictureCheckbox"><input class="form-check-input" type="checkbox" value="" name="pictureCheckbox" id="pictureCheckbox"> Ik geef toestemming om foto's van mijn kind te gebruiken voor commerciële doeleinden <a href="rules.html" target="_blank"><u>(klik hier voor details)</u></a></label>
+                            </div>
+                        </div>                                                
+                        <div class="form-check">
+                            <div class="col-sm-4 col-xs-12 alignLeftXs"></div>
+                            <div class="col-sm-8 col-xs-12 alignLeftXs">
+                                <label style="text-align: left;" class="form-check-label" for="acceptCheckbox"><input class="form-check-input" type="checkbox" value="" name="acceptCheckbox" id="acceptCheckbox">Ik aanvaard <a href="rules.html" target="_blank"><u>de algmene voorwaarden met privacyregels</u></a></label>
+                            </div>
                         </div>
-                    </div>                    
                     <div class="form-group">
-                        <div class="button text-center">
+                        <div class=" col-sm-12 button text-center">
                             <button type="submit" class="btn btn-primary" id="form_btn_submit"></button>
                         </div>
                     </div>
@@ -467,7 +456,6 @@
         </footer>
     </div>
 </div>
-    <!-- /.container -->
 
     <!-- JavaScript -->
     <!-- jQuery -->
@@ -516,7 +504,7 @@
                             "home_nav" : "Home",
                             "information_nav" : "Informatie",
                             "inscription_nav" : "Inschrijven",
-                            "rules_nav" : "Reglement",
+                            "rules_nav" : "Voorwaarden <b class=\"caret\"></b>",
                             "photo_nav" : "Foto's",
                             "contact_nav" : "Contact",
                             "faq_nav" : "FAQ",
@@ -613,7 +601,7 @@
                             "home_nav" : "Home",
                             "information_nav" : "Information",
                             "inscription_nav" : "Inscrire",
-                            "rules_nav" : "Règlement",
+                            "rules_nav" : "Conditions <b class=\"caret\"></b>",
                             "photo_nav" : "Photos",
                             "contact_nav" : "Contact",
                             "faq_nav" : "FAQ",                                

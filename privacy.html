@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Loppem Conversa</title>
+    <link rel="shortcut icon" href="images/logo.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="libs/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/loppem-conversa.css" rel="stylesheet">
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div id="navigation"></div>
+
+    <div style="margin-top: 75px" class="container" >
+        <div class="col-md-7">
+            <h1 id="page_title" class="page-header"></h1>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <h2 id="general_title" class="panel-heading"></h2>
+                <p id="general_text" class="panel-body">
+                </p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="data_title" class="panel-heading"></h2>
+                <p id="data_text" class="panel-body"></p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="newsletter_title" class="panel-heading"></h2>
+                <p id="newsletter_text" class="panel-body">
+                    
+                </p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="info_thirdparties_title" class="panel-heading"></h2>
+                <p id="info_thirdparties_text" class="panel-body"></p>
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="security_title" class="panel-heading"></h2>
+                <p id="security_text" class="panel-body"></p>
+            </div>
+
+            <div class="panel panel-default">
+            </div>
+
+            <div class="panel panel-default">
+                <h2 id="modifications_title" class="panel-heading"></h2>
+                <p id="modifications_text" class="panel-body">
+                    
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image1.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image2.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image3.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image4.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image5.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image6.jpg" />
+            <img style="max-width: 80%; margin: 50px auto;" class="img-responsive center-block" src="images/rules/rules-image7.jpg" />            
+        </div>
+
+        <footer>
+            <div class="row footer">
+                <div class="col-lg-12">
+                    <p style="text-align: center;" id="footer"></p>                
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/i18next/i18next.js"></script>
+    
+    <script type="text/javascript">
+        $(function(){
+
+            $("#navigation").load("navigation.html", function(){
+                if(window.localStorage.getItem("langChoice") == "NL"){
+                    document.getElementById('langId').innerHTML = "FR";
+                } else {
+                    document.getElementById('langId').innerHTML = "NL";
+                }                
+                $(".home").removeClass("active");
+                $(".information").removeClass("active");
+                $(".inscription").removeClass("active");
+                $(".rules").addClass("active");
+                $(".pictures").removeClass("active");
+                $(".contact").removeClass("active");
+                $(".faq").removeClass("active");
+                $(".navbar").addClass("navbar-fixed-top");
+
+            i18next.init({
+              lng: window.localStorage.getItem("langChoice"),
+              debug: true,
+              resources: {
+                NL: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Informatie",
+                    "inscription_nav" : "Inschrijven",
+                    "rules_nav" : "Voorwaarden <b class=\"caret\"></b>",
+                    "photo_nav" : "Foto's",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",
+                    "page_title" : "Privacyverklaring Loppem Conversa",
+                    "general_title" : "Algemeen",
+                    "general_text" : "Dit Privacybeleid is van toepassing op alle informatie die u van Loppem Conversa ontvangt of aan Loppem Conversa verstrekt. Loppem Conversa verwerkt privacygevoelige informatie of persoonsgegevens door middel van haar website. Loppem Conversa hecht groot belang aan de privacy van haar leden en betracht daarom de grootst mogelijke zorgvuldigheid in het behandelen en beschermen van persoonsgegevens. Loppem Conversa verwerkt data overeenkomstig met de voorwaarden die daaraan worden gesteld in de Wet bescherming persoonsgegevens (GDPR of AVG), die van kracht gaan op 25 mei 2018. Loppem Conversa is de partij die verantwoordelijk is voor de manier waarop deze data worden gebruikt.",
+                    "data_title" : "Gebruik van persoonsgegevens",
+                    "data_text" : "Als u gebruik maakt van onze diensten, stelt u bepaalde gegevens ter beschikking aan Loppem Conversa. Loppem Conversa bewaart en gebruikt alleen persoonsgegevens die direct door u verstrekt zijn, of informatie waarvan duidelijk is dat deze beschikbaar is gesteld om te worden verwerkt. Uw gegevens worden niet voor andere doeleinden gebruikt dan zoals beschreven in dit Privacybeleid, of zoals logisch zou zijn voor het verlenen van optimale dienstverlening. Gegevens worden waar nodig wel intern, maar niet met derden gedeeld.",
+                    "newsletter_title" : "Mailing",
+                    "newsletter_text" : "Loppem Conversa brengt een mailing uit om zijn leden op de hoogte te houden van haar producten en/of diensten. Bij een inschrijving of vraag, wordt uw e-mailadres automatisch aan deze lijst toegevoegd. U kan ten allen tijde vragen om uit deze lijst verwijderd te worden. Als u op onze website een contactformulier invult of als u ons een e-mail stuurt, worden de gegevens die u verstrekt bewaart zo lang als nodig om uw bericht of e-mail volledig en correct te kunnen afhandelen. Voor commerciële doeleinden kunnen we contact met u opnemen via e-mail of per telefoon.",
+                    "info_thirdparties_title" : "Informatieverstrekking aan derden",
+                    "info_thirdparties_text" : "Uw (persoons)gegevens worden nadrukkelijk niet aan derden verstrekt. Op onze website staan buttons die naar sociale media verwijzen. Deze buttons worden door derden gebruikt om uw persoonsgegevens te verzamelen. In het Privacybeleid van deze derden leest u hoe zij met uw persoonsgegevens omgaan.",
+                    "security_title" : "Beveiliging",
+                    "security_text" : "Loppem Conversa treft beveiligingsmaatregelen om misbruik van of onrechtmatige toegang tot persoonsgegevens te voorkomen. De volgende specifieke maatregelen worden getroffen: <br>1. Toegang tot persoonsgegevens vereist invoering van een gebruikersnaam en wachtwoord. <br> 2. Van onze website houden we statistieken bij, maar deze blijven te allen tijde anoniem.",
+                    "modifications_title" : "Inzage in en wijziging van uw gegevens",
+                    "modifications_text" : "Op verzoek kunnen we uw bedrijfs- of persoonlijke gegevens verwijderen uit onze databases en softwareapplicaties. Als u vragen of zorgen heeft over ons Privacybeleid, of als u uw persoonsgegevens wilt inzien, wijzigen of laten verwijderen, kunt u te allen tijde contact met ons opnemen.",
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                  }
+                },
+                FR: {
+                  translation: {
+                    "home_nav" : "Home",
+                    "information_nav" : "Information",
+                    "inscription_nav" : "Inscrire",
+                    "rules_nav" : "Conditions <b class=\"caret\"></b>",
+                    "photo_nav" : "Photos",
+                    "contact_nav" : "Contact",
+                    "faq_nav" : "FAQ",
+                    "page_title" : "",
+                    "general_title" : "",
+                    "general_text" : "",
+                    "data_title" : "",
+                    "data_text" : "",
+                    "newsletter_title" : "",
+                    "newsletter_text" : "",
+                    "info_thirdparties_title" : "",
+                    "info_thirdparties_text" : "",
+                    "security_title" : "",
+                    "security_text" : "",
+                    "modifications_title" : "",
+                    "modifications_text" : "",
+                    "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                    }
+                }
+              }
+            }, function(err, t) {
+              // init set content
+              updateContent();
+                });
+            });
+        });   
+
+        function updateContent() {    
+            document.getElementById('home_nav').innerHTML = i18next.t('home_nav');
+            document.getElementById('information_nav').innerHTML = i18next.t('information_nav');
+            document.getElementById('inscription_nav').innerHTML = i18next.t('inscription_nav');
+            document.getElementById('rules_nav').innerHTML = i18next.t('rules_nav');
+            document.getElementById('photo_nav').innerHTML = i18next.t('photo_nav');
+            document.getElementById('contact_nav').innerHTML = i18next.t('contact_nav');
+            document.getElementById('faq_nav').innerHTML = i18next.t('faq_nav');
+            document.getElementById('page_title').innerHTML = i18next.t('page_title');
+            document.getElementById('general_title').innerHTML = i18next.t('general_title');
+            document.getElementById('general_text').innerHTML = i18next.t('general_text');
+            document.getElementById('data_title').innerHTML = i18next.t('data_title');
+            document.getElementById('data_text').innerHTML = i18next.t('data_text');
+            document.getElementById('newsletter_title').innerHTML = i18next.t('newsletter_title');
+            document.getElementById('newsletter_text').innerHTML = i18next.t('newsletter_text');
+            document.getElementById('info_thirdparties_title').innerHTML = i18next.t('info_thirdparties_title');
+            document.getElementById('info_thirdparties_text').innerHTML = i18next.t('info_thirdparties_text');
+            document.getElementById('security_title').innerHTML = i18next.t('security_title');
+            document.getElementById('security_text').innerHTML = i18next.t('security_text');
+            document.getElementById('modifications_title').innerHTML = i18next.t('modifications_title');
+            document.getElementById('modifications_text').innerHTML = i18next.t('modifications_text');
+            document.getElementById('footer').innerHTML = i18next.t('footer');      
+        }
+
+        function changeLng(lng) {
+          i18next.changeLanguage(lng);
+        }
+
+        function changeLng() {
+            var lang = window.localStorage.getItem("langChoice");
+            if(lang === "NL"){
+                document.getElementById('langId').innerHTML = 'NL';
+                window.localStorage.setItem("langChoice", 'FR');
+                i18next.changeLanguage('FR');
+            } else {
+                document.getElementById('langId').innerHTML = 'FR';
+                window.localStorage.setItem("langChoice", 'NL');
+                i18next.changeLanguage('NL')
+            }
+        }
+
+
+        i18next.on('languageChanged', function() {
+          updateContent();
+        });
+
+    </script>
+</body>
+</html>
