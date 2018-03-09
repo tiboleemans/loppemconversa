@@ -410,7 +410,7 @@
                                 <textarea class="form-control col-sm-6" rows="5" name="comment" id="comment" placeholder="S.v.p. nom, adresse et gsm ou e-mail"></textarea>
                             </div>
                         </div>
-                        <div class="form-group has-feedback rowElement">
+<!--                         <div class="form-group has-feedback rowElement">
                             <label for="accepted" class="control-label col-sm-4 col-xs-12 alignLeftXs" id="form_extra_rules"></label>
                             <div class="control-group col-sm-6 col-xs-12">               
                                 <span class="button-checkbox">
@@ -419,23 +419,23 @@
                                 </span>
                                 <span class="glyphicon form-control-feedback" id="accepted1"></span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-check">
                             <div class="col-sm-4 col-xs-12 alignLeftXs"></div>
-                            <div class="col-sm-8 col-xs-12 alignLeftXs" style="display: block;">
-                                
-                                <label style="text-align: left;" class="form-check-label" for="pictureCheckbox"><input class="form-check-input" type="checkbox" value="" name="pictureCheckbox" id="pictureCheckbox"> Ik geef toestemming om foto's van mijn kind te gebruiken voor commerciële doeleinden <a href="rules.html" target="_blank"><u>(klik hier voor details)</u></a></label>
+                            <div id="divPicture" class="col-sm-8 col-xs-12 alignLeftXs" style="display: block;">
+                                <label style="text-align: left;" class="form-check-label" for="pictureCheckbox"><input class="form-check-input" type="checkbox" value="" name="pictureCheckbox" id="pictureCheckbox"> Ik geef toestemming om foto's van mijn kind te gebruiken voor commerciële doeleinden <a href="imagery.html" target="_blank"><u>(klik hier voor details)</u></a></label>
                             </div>
                         </div>                                                
-                        <div class="form-check">
+                        <div class="has-feedback rowElement form-check">
                             <div class="col-sm-4 col-xs-12 alignLeftXs"></div>
-                            <div class="col-sm-8 col-xs-12 alignLeftXs">
-                                <label style="text-align: left;" class="form-check-label" for="acceptCheckbox"><input class="form-check-input" type="checkbox" value="" name="acceptCheckbox" id="acceptCheckbox">Ik aanvaard <a href="rules.html" target="_blank"><u>de algmene voorwaarden met privacyregels</u></a></label>
+                            <div class="has-feedback rowElement col-sm-8 col-xs-12 alignLeftXs">
+                                <span class="glyphicon form-control-feedback" id="acceptInput1"></span><label style="text-align: left;" class="form-check-label" for="acceptCheckbox"><input class="form-check-input" type="checkbox" value="" name="acceptCheckbox" id="acceptCheckbox"> Ik aanvaard <a href="rules.html" target="_blank"><u>de algmene voorwaarden</u></a> en <a href="privacy.html" target="_blank"><u>privacyregels</u></a></label>
+                                 <input type="hidden" name="acceptInput" id="acceptInput" />
                             </div>
                         </div>
                     <div class="form-group">
-                        <div class=" col-sm-12 button text-center">
-                            <button type="submit" class="btn btn-primary" id="form_btn_submit"></button>
+                        <div class="col-sm-12 button text-center">
+                            <button style="margin-top: 20px; font-style: bold; font-size: 25px; color: #000; background-color: #f5a034; border-color: #2e6da4;" type="submit" class="btn btn-inscription red" id="form_btn_submit"></button>
                         </div>
                     </div>
                 </div>
@@ -588,8 +588,8 @@
                             "form_extra_allergies_placeholer" : "Bv. voedselallergieën, intoleranties, vegetarisch, ...",
                             "form_extra_interesse" : "Kent u mensen die ook interesse kunnen hebben in onze cursus?",
                             "form_extra_interesse_placeholder" : "Graag naam, adres en ev. gsm of e-mail",
-                            "form_extra_rules" : "* Gelieve het reglement te lezen en goed te keuren<br><a href=\"rules.html\" target=\"_blank\"><u>(klik hier om te lezen)</u></a>",
-                            "form_btn_accept" : "Door hier te klikken gaat u akkoord met het cursusreglement",
+                            // "form_extra_rules" : "* Gelieve het reglement te lezen en goed te keuren<br><a href=\"rules.html\" target=\"_blank\"><u>(klik hier om te lezen)</u></a>",
+                            // "form_btn_accept" : "Door hier te klikken gaat u akkoord met het cursusreglement",
                             "form_btn_submit" : "Inschrijven",
                             "confirmation_title" : "Bedankt voor uw inschrijving.",
                             "confirmation_text" : "U ontvangt van ons een bevestigingsmail (gelieve ook uw ongewenste e-mail na te kijken). <br /> We verwachten u op de eerste dag van de stage in de abdijschool van Zevenkerken. <br /> Gelieve het voorschot binnen drie werkdagen te storten op rekening BE36 0016 2215 8581. <br />  Gelieve het resterende saldo te storen voor 1 juni. <br />",
@@ -685,8 +685,8 @@
                             "form_extra_allergies_placeholer" : "Par exemple intolérances, allergies alimentaires, végétarien, ...",
                             "form_extra_interesse" : "Connaissez-vous quelqu'un qui désire en savoir plus sur notre cours linguistique?",
                             "form_extra_interesse_placeholder" : "S.v.p. nom, adresse et gsm ou e-mail",
-                            "form_extra_rules" : "* Veuillez lire et accepter le règlement<br><a href=\"rules.html\" target=\"_blank\"><u>(cliquez ici pour lire)</u></a>",
-                            "form_btn_accept" : "En cliquant ici, vous acceptez le règlement",
+                            // "form_extra_rules" : "* Veuillez lire et accepter le règlement<br><a href=\"rules.html\" target=\"_blank\"><u>(cliquez ici pour lire)</u></a>",
+                            // "form_btn_accept" : "En cliquant ici, vous acceptez le règlement",
                             "form_btn_submit" : "S'inscrire",
                             "confirmation_title" : "Merci pour votre inscription.",
                             "confirmation_text" : "Vous recevrez une confirmation de votre inscription par mail (il se peut que celui-ci se trouve dans votre dossier de courrier indésirable). <br />Nous vous attendons le premier jour du stage à l'école abbatiale de Zevenkerken entre 9 et 11 heures. <br />Veuillez verser l\'acompte dans les trois jours ouvrables sur notre compte BE36 0016 2215 8581. <br />Veuillez également vous acquitter du solde (€ 400) avant le premier juin \'18",                            
@@ -812,8 +812,8 @@
             $("#allergiesInfo").attr("placeholder", i18next.t('form_extra_allergies_placeholer'));
             document.getElementById('form_extra_interesse').innerHTML = i18next.t('form_extra_interesse');
             $("#comment").attr("placeholder", i18next.t('form_extra_interesse_placeholder'));            
-            document.getElementById('form_extra_rules').innerHTML = i18next.t('form_extra_rules');
-            document.getElementById('form_btn_accept').innerHTML = i18next.t('form_btn_accept');
+            // document.getElementById('form_extra_rules').innerHTML = i18next.t('form_extra_rules');
+            // document.getElementById('form_btn_accept').innerHTML = i18next.t('form_btn_accept');
             document.getElementById('form_btn_submit').innerHTML = i18next.t('form_btn_submit');
             document.getElementById('confirmation_title').innerHTML = i18next.t('confirmation_title');
             document.getElementById('confirmation_text').innerHTML = i18next.t('confirmation_text');

@@ -27,6 +27,14 @@ $('#divImmersion').on('click', '.btn', function () {
 $('#divRapport').on('click', '.btn', function () {
     $('#rapportInput').val($(this).val());
 });
+$('#acceptCheckbox').click(function() {
+    if($("#acceptCheckbox").is(':checked')){
+        $("#acceptInput").val('ACCEPTED');
+    }
+    else {
+        $("#acceptInput").val(null);
+    }
+});
 $('form').validate({
     rules: {
         langInput: {
@@ -111,10 +119,7 @@ $('form').validate({
         rapportInput: {
             required: true
         },
-        accepted : {
-            required: true
-        }, 
-        acceptCheckbox : {
+        acceptInput : {
             required: true
         }
     },
@@ -150,7 +155,7 @@ $('form').validate({
         immersionInput: window.localStorage.getItem("langChoice") == "NL" ? "Gelieve aan te duiden of de leerling immersie volgt." : "Veuillez indiquer si l'élève est en immersion.",
         rapportInput: window.localStorage.getItem("langChoice") == "NL" ? "Gelieve aan te duiden of u een rapport wenst op te sturen naar de school na de stage." : "Veuillez indiquer si vous désirez qu'un bulletin sera envoyé vers l'école après le stage.",        
         /*contact: window.localStorage.getItem("langChoice") == "NL" ? "Gelieve aan te duiden via welke weg u in contact bent gekomen met Loppem Conversa." : "Veuillez indiquer par quelle voie vous êtes venu en contact avec Loppem Conversa.",*/
-        accepted: window.localStorage.getItem("langChoice") == "NL" ? "" : "Veuillez lire et accepter le règlement"
+        acceptInput: window.localStorage.getItem("langChoice") == "NL" ? "test" : "Veuillez lire et accepter le règlement"
     },
     highlight: function(element) {
         var id_attr = "#" + $( element ).attr("id") + "1";
