@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Loppem Conversa</title>
+
+    <!-- CSS Libraries -->
+    <!-- Bootstrap Core CSS -->
+    <link href="libs/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.min.css" rel="stylesheet" /> 
+    <link href="css/bootstrap-datepicker3.css" rel="stylesheet"/>
+    <!--Uncompatible with translation: <link href="css/bootstrap-select.css" rel="stylesheet"> -->
+
+    <link href="css/inscription-style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/fancybox.min.css" media="screen">
+	
+<!-- 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+</head>
+
+<body>
+    <div id="navigation"></div>
+
+<!-- References: https://github.com/fancyapps/fancyBox -->
+
+
+    <div style="margin-top: 75px" class="container">
+    	<div id="content"></div>
+		<div class="row">
+			<div class='list-group gallery'>
+	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
+	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
+	                    <div class='text-right'>
+	                        <small class='text-muted'>Image Title</small>
+	                    </div> <!-- text-right / end -->
+	                </a>
+	            </div> <!-- col-6 / end -->
+	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
+	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
+	                    <div class='text-right'>
+	                        <small class='text-muted'>Image Title</small>
+	                    </div> <!-- text-right / end -->
+	                </a>
+	            </div> <!-- col-6 / end -->
+	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
+	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
+	                    <div class='text-right'>
+	                        <small class='text-muted'>Image Title</small>
+	                    </div> <!-- text-right / end -->
+	                </a>
+	            </div> <!-- col-6 / end -->
+	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
+	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
+	                    <div class='text-right'>
+	                        <small class='text-muted'>Image Title</small>
+	                    </div> <!-- text-right / end -->
+	                </a>
+	            </div> <!-- col-6 / end -->
+	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
+	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
+	                    <div class='text-right'>
+	                        <small class='text-muted'>Image Title</small>
+	                    </div> <!-- text-right / end -->
+	                </a>
+	            </div> <!-- col-6 / end -->
+	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
+	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
+	                    <div class='text-right'>
+	                        <small class='text-muted'>Image Title</small>
+	                    </div> <!-- text-right / end -->
+	                </a>
+	            </div> <!-- col-6 / end -->
+	        </div> <!-- list-group / end -->
+		</div> <!-- row / end -->
+		<footer>
+			<div class="row footer">
+				<div class="col-lg-12">
+					<p style="text-align: center;" id="footer"></p>                
+				</div>
+			</div>
+		</footer>
+	</div>
+<!-- JavaScript -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- jQuery -->
+    <script src="js/jQuery/jquery.min.js"></script>
+    <script src="js/jQuery/jquery.validate.min.js"></script> 
+
+    <!-- Bootstrap Core-->
+    <script src="js/bootstrap.min.js"></script>    
+
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootstrap.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Validation scripts -->
+    <!-- <script src="js/jqBootstrapValidation.js"></script> -->
+    <script src="js/inscriptionValidation.js"></script>
+
+    <script src="js/i18next/i18next.js"></script>
+
+	<script src="js/fancybox/fancybox.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function(){
+            $("#navigation").load("navigation.html", function(){
+                
+                if(window.localStorage.getItem("langChoice") == "NL"){
+                    document.getElementById('langId').innerHTML = "FR";
+                } else {
+                    document.getElementById('langId').innerHTML = "NL";
+                }
+                $(".home").removeClass("active");
+                $(".information").removeClass("active");
+                $(".inscription").addClass("active");
+                $(".rules").removeClass("active");
+                $(".contact").removeClass("active");
+                $(".faq").removeClass("active");
+                $(".navbar").addClass("navbar-fixed-top");
+
+                i18next.init({
+                  lng: window.localStorage.getItem("langChoice"),
+                  debug: true,
+                  resources: {
+                    NL: {
+                        translation: {
+                            "home_nav" : "Home",
+                            "information_nav" : "Informatie",
+                            "inscription_nav" : "Inschrijven",
+                            "rules_nav" : "Voorwaarden <b class=\"caret\"></b>",
+                            "photo_nav" : "Foto's",
+                            "contact_nav" : "Contact",
+                            "faq_nav" : "FAQ",
+                            "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                        }
+                    }, 
+                    FR: {
+                        translation: {
+                            "home_nav" : "Home",
+                            "information_nav" : "Information",
+                            "inscription_nav" : "Inscrire",
+                            "rules_nav" : "Conditions <b class=\"caret\"></b>",
+                            "photo_nav" : "Photos",
+                            "contact_nav" : "Contact",
+                            "faq_nav" : "FAQ",                                
+                            "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
+                        }
+                    }
+                }
+            },  function(err, t) {
+                  updateContent();
+                });
+            });
+        });   
+
+        function updateContent() {
+            document.getElementById('home_nav').innerHTML = i18next.t('home_nav');
+            document.getElementById('information_nav').innerHTML = i18next.t('information_nav');
+            document.getElementById('inscription_nav').innerHTML = i18next.t('inscription_nav');
+            document.getElementById('rules_nav').innerHTML = i18next.t('rules_nav');
+            document.getElementById('photo_nav').innerHTML = i18next.t('photo_nav');
+            document.getElementById('contact_nav').innerHTML = i18next.t('contact_nav');
+            document.getElementById('faq_nav').innerHTML = i18next.t('faq_nav');                    
+            document.getElementById('footer').innerHTML = i18next.t('footer');
+        }
+
+            function changeLng(lng) {
+              i18next.changeLanguage(lng);
+            }
+
+            function changeLng() {
+                var lang = window.localStorage.getItem("langChoice");
+                if(lang === "NL"){
+                    document.getElementById('langId').innerHTML = 'NL';
+                    window.localStorage.setItem("langChoice", 'FR');
+                    i18next.changeLanguage('FR');
+                } else {
+                    document.getElementById('langId').innerHTML = 'FR';
+                    window.localStorage.setItem("langChoice", 'NL');
+                    i18next.changeLanguage('NL')
+                }
+            }
+
+            i18next.on('languageChanged', function() {
+              updateContent();
+            });
+
+    </script>       
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    //FANCYBOX
+    //https://github.com/fancyapps/fancyBox
+    $(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+    });
+});
+    </script> 
+
+    <script type="text/javascript">
+    	function changeDivContent(){
+    		var divContent = "";
+	    	for(i = 0; i < 10; i++){
+	    		var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>";
+	    		var linkInit = "<a class=\"thumbnail fancybox\" ";
+	    		var linkRel = "rel=\"ligthbox\" ";
+	    		var linkHref = "href=\"http:\/\/placehold.it\/300x320.png\" "
+	    		var linkClose = ">";
+	    		var img = "<img class=\"img-responsive\" alt=\"\" src=\"http:\/\/placehold.it/320x320\"/>";
+	    		var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
+	    		var divEnd = "</div>";
+	    		divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);
+	    	}
+	    	document.getElementById("content").innerHTML = divContent;
+    	}
+
+    	changeDivContent();
+    </script>
+</body>
+</html>
