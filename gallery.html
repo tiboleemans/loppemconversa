@@ -245,18 +245,17 @@
                             var linkInit = "<a class=\"thumbnail fancybox\" ";
                             var linkRel = "rel=\"ligthbox\" ";      
                             var linkHref = "href=\"".concat(imgLocation).concat("\"");   
-                            // var linkHref = "href=\"".concat(imgLocation).concat("\"");    
                             var linkClose = ">";
                             var img = "<img class=\"img-responsive\" alt=\"\" src=\"".concat(imgLocation).concat("\"/>");
                             var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
                             var divEnd = "</div>";
-                            divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);                                   
-                            // $("body").append( "<img src='"+ folder + val +"'>" );
+                            divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);     
+                            document.getElementById("content").innerHTML = divContent;                              
                         } 
                     });
                 }
             });    		
-	    	document.getElementById("content").innerHTML = divContent;
+	    	
     	}
 
     	// changeDivContent();
