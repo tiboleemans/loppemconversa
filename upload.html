@@ -16,30 +16,11 @@
 
 <form action="/php/upload.php" method="post" enctype="multipart/form-data">
     Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload" multiple>
+	<input name="upload[]" type="file" multiple="multiple" />
     <input type="submit" value="Upload Image" name="submit">
 </form>
 
 <div id='fileNames'> </div>
 
-
-
 </body>
 </html>	
-<script src="js/jquery.js"></script>
-
-<script type="text/javascript">
-
-    var folder = "images/gallery/july2018/";
-
-	$.ajax({
-	    url : folder,
-	    success: function (data) {
-	        $(data).find("a").attr("href", function (i, val) {
-	            if( val.match(/\.(jpg)$/) ) { 
-	                $("body").append( "<img src='"+ folder + val +"'>" );
-	            } 
-	        });
-	    }
-	});
-</script>
