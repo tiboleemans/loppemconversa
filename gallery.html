@@ -61,7 +61,7 @@
                     <div id="password" class="panel-body">
                         <label for="passLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="passLabel">Paswoord</label>
                         <div class="col-sm-3 col-xs-12 alignLeftXs">
-                            <input type="text" class="form-control" id="passInput" name="passInput">
+                            <input type="password" class="form-control" id="passInput" name="passInput">
                             <span class="glyphicon form-control-feedback" id="passInput1"></span>
                         </div>
                         <div class="col-sm-2 button text-center">
@@ -221,19 +221,30 @@
 
     <script type="text/javascript">
     	function changeDivContent(directory){
-    		var divContent = "";
-	    	for(i = 1; i < 8; i++){
-                var imgLocation = "images/gallery/".concat(directory).concat("/").concat(i).concat(".jpg");
-	    		var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>";
-	    		var linkInit = "<a class=\"thumbnail fancybox\"";
-	    		var linkRel = "rel=\"ligthbox\" ";
-	    		var linkHref = "href=\"".concat(imgLocation).concat("\"");
-	    		var linkClose = ">";
-	    		var img = "<img class=\"img-responsive\" alt=\"\" src=\"".concat(imgLocation).concat("\"/>");
-	    		var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
-	    		var divEnd = "</div>";
-	    		divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);
-	    	}
+            var divContent = "";
+            var folder = "images/gallery/".concat(directory);
+
+            $.ajax({
+                url : folder,
+                success: function (data) {
+                    $(data).find("a").attr("href", function (i, val) {
+                        if( val.match(/\.(jpg)$/) ) { 
+                            var imgLocation = folder.concat("/").concat(val);
+                            var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>";
+                            var linkInit = "<a class=\"thumbnail fancybox\"";
+                            var linkRel = "rel=\"ligthbox\" ";      
+                            var linkHref = "href=\"".concat(imgLocation).concat("\"");   
+                            // var linkHref = "href=\"".concat(imgLocation).concat("\"");    
+                            var linkClose = ">";
+                            var img = "<img class=\"img-responsive\" alt=\"\" src=\"".concat(imgLocation).concat("\"/>");
+                            var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
+                            var divEnd = "</div>";
+                            divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);                                   
+                            // $("body").append( "<img src='"+ folder + val +"'>" );
+                        } 
+                    });
+                }
+            });    		
 	    	document.getElementById("content").innerHTML = divContent;
     	}
 
@@ -257,5 +268,10 @@
         });
 
     </script>
+
+    <script type="text/javascript">
+
+
+    </script>    
 </body>
 </html>
