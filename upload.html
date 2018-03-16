@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Loppem Conversa</title>
+    <link rel="shortcut icon" href="images/logo.ico">
+    </head>
 <body>
+
 
 <form action="/php/upload.php" method="post" enctype="multipart/form-data">
     Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="file" name="fileToUpload" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
 </form>
 
+<div id='fileNames'> </div>
+
+
+
 </body>
-</html>
+</html>	
+<script src="js/jquery.js"></script>
+
+<script type="text/javascript">
+
+    var folder = "images/gallery/july2018/";
+
+	$.ajax({
+	    url : folder,
+	    success: function (data) {
+	        $(data).find("a").attr("href", function (i, val) {
+	            if( val.match(/\.(jpg)$/) ) { 
+	                $("body").append( "<img src='"+ folder + val +"'>" );
+	            } 
+	        });
+	    }
+	});
+</script>
