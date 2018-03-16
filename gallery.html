@@ -229,6 +229,17 @@
                 success: function (data) {
                     $(data).find("a").attr("href", function (i, val) {
                         if( val.match(/\.(jpg)$/) ) { 
+                            $("body").append( "<img src='"+ folder + val +"'>" );
+                        } 
+                    });
+                }
+            });
+
+            $.ajax({
+                url : folder,
+                success: function (data) {
+                    $(data).find("a").attr("href", function (i, val) {
+                        if( val.match(/\.(jpg)$/) ) { 
                             var imgLocation = folder.concat(val);
                             var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>";
                             var linkInit = "<a class=\"thumbnail fancybox\"";
