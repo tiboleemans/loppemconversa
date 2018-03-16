@@ -103,6 +103,15 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/i18next/i18next.js"></script>
+
+    <script type="text/javascript">
+        function setDefaultLng() {
+            if(window.localStorage.getItem("langChoice") === null || window.localStorage.getItem("langChoice") === ""){
+                console.log('empty');
+                window.localStorage.setItem("langChoice", 'FR');
+            }
+        }
+    </script>    
     
     <script type="text/javascript">
         $(function(){
@@ -121,6 +130,8 @@
                 $(".contact").removeClass("active");
                 $(".faq").removeClass("active");
                 $(".navbar").addClass("navbar-fixed-top");
+
+                setDefaultLng(); 
 
             i18next.init({
               lng: window.localStorage.getItem("langChoice"),

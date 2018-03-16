@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -65,8 +65,8 @@
                             <label for="langLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_lang"></label>
                             <div class="col-sm-4 col-xs-12 alignLeftXs">
                                 <div id="divLang" class="btn-group" style="padding-bottom: 5px" role="group" aria-label="langLabel">
-                                  <button type="button" class="btn btn-default" value="Néerlandais" id="form_lang_nl"></button>
-                                  <button type="button" class="btn btn-default" value="Anglais" id="form_lang_eng"></button>
+                                  <button type="button" role="button" class="btn btn-default" value="Néerlandais" id="form_lang_nl"></button>
+                                  <button type="button" role="button" class="btn btn-default" value="Anglais" id="form_lang_eng"></button>
                                 </div>
                                 <input type="hidden" name="langInput" id="langInput" />
                                 <span class="glyphicon form-control-feedback" id="langInput1"></span>                                
@@ -435,7 +435,7 @@
                         </div>
                     <div class="form-group">
                         <div class="col-sm-12 button text-center">
-                            <button style="margin-top: 20px; font-style: bold; font-size: 25px; color: #000; background-color: #f5a034; border-color: #2e6da4;" type="submit" class="btn btn-inscription red" id="form_btn_submit"></button>
+                            <button style="margin-top: 20px; font-style: bold; font-size: 25px; color: #000; background-color: #f5a034; border-color: #2e6da4;" type="submit" class="btn btn-inscription" id="form_btn_submit"></button>
                         </div>
                     </div>
                 </div>
@@ -447,14 +447,14 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="row footer">
-                <div class="col-lg-12">
-                    <p style="text-align: center;" id="footer"></p>                
-                </div>
-            </div>
-        </footer>
     </div>
+    <footer>
+        <div class="row footer">
+            <div class="col-lg-12">
+                <p style="text-align: center;" id="footer"></p>                
+            </div>
+        </div>
+    </footer>
 </div>
 
     <!-- JavaScript -->
@@ -479,6 +479,15 @@
     <script src="js/i18next/i18next.js"></script>
 
     <script type="text/javascript">
+    function setDefaultLng() {
+        if(window.localStorage.getItem("langChoice") === null || window.localStorage.getItem("langChoice") === ""){
+            console.log('empty');
+            window.localStorage.setItem("langChoice", 'FR');
+        }
+    }
+    </script>
+
+    <script type="text/javascript">
         $(function(){
             $("#navigation").load("navigation.html", function(){
                 
@@ -494,6 +503,8 @@
                 $(".contact").removeClass("active");
                 $(".faq").removeClass("active");
                 $(".navbar").addClass("navbar-fixed-top");
+
+                setDefaultLng(); 
 
                 i18next.init({
                   lng: window.localStorage.getItem("langChoice"),

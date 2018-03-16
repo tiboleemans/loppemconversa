@@ -22,71 +22,57 @@
     <link href="css/inscription-style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/fancybox.min.css" media="screen">
-	
-<!-- 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 </head>
 
 <body>
     <div id="navigation"></div>
 
-<!-- References: https://github.com/fancyapps/fancyBox -->
-
-
     <div style="margin-top: 75px" class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 id="page_title" class="page-header"></h1>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <h2 id="offre_title" class="panel-heading">Beveiliging</h2>
+                <p id="offre_text" class="panel-body">Tijdens de activiteiten worden heel wat foto’s genomen. U kan deze foto’s raadplegen met behulp van een paswoord, verkregen via mail. Ga discreet om met dit paswoord. Dit omwille van het privacy reglement (GDPR of AVG) van kracht vanaf 25 mei 2018. Dit is ook de reden dat onze foto's niet downloadbaar zijn. Indien u toch een mooie foto van uw kind tijdens onze stage wil bezitten kan u ons hier altijd voor mailen. Loppem Conversa wenst eveneens graag foto’s te gebruiken op sociale media en in haar publicaties, tijdschriften en website. Alle foto’s worden na 2 jaar gewist. U kan uw akkoord aanvinken bij het bevestigen van uw kamp. Paswoord aanvragen of problemen mail gerust naar info@loppemconversa.be </p>
+            </div>
+        </div>      
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <h2 id="offre_title" class="panel-heading">Stagekeuze</h2>
+                <div id="imgChoice" class="panel-body">
+                    <label for="imgChoiceLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="imgChoiceLabel">Welke stage?</label>
+                    <div class="col-sm-10 col-xs-12 alignLeftXs">
+                        <div id="divImgChoiceBtns" class="btn-group" role="group" aria-label="imgChoiceLabel">
+                            <button type="button" class="btn btn-group btn-default active" value="general" id="img_choice_general">Algemeen</button>
+                            <button type="button" class="btn btn-group btn-default" value="july2018" id="img_choice_july_2017">Juli 2018</button>
+                            <button type="button" class="btn btn-group btn-default" value="august2018" id="img_choice_august_2017">Augustus 2018</button>                            
+                            <button type="button" class="btn btn-group btn-default" value="july2017" id="img_choice_july_2017">Juli 2017</button>
+                            <button type="button" class="btn btn-group btn-default" value="august2017" id="img_choice_august_2017">Augustus 2017</button>
+                        </div>   
+                        <input type="hidden" name="imgChoiceInput" id="imgChoiceInput" />                         
+                    </div>
+                </div>
+                <form class="form-horizontal" name="passForm" id="passForm" validate>
+                    <div id="password" class="panel-body">
+                        <label for="passLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="passLabel">Paswoord</label>
+                        <div class="col-sm-3 col-xs-12 alignLeftXs">
+                            <input type="text" class="form-control" id="passInput" name="passInput">
+                            <span class="glyphicon form-control-feedback" id="passInput1"></span>
+                        </div>
+                        <div class="col-sm-2 button text-center">
+                            <button style="font-style: bold; font-size: 14px; color: #000; background-color: #f5a034; border-color: #2e6da4;" type="submit" class="btn btn-inscription" id="form_btn_submit">Toon foto's</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>                
     	<div id="content"></div>
-		<div class="row">
-			<div class='list-group gallery'>
-	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-	                    <div class='text-right'>
-	                        <small class='text-muted'>Image Title</small>
-	                    </div> <!-- text-right / end -->
-	                </a>
-	            </div> <!-- col-6 / end -->
-	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-	                    <div class='text-right'>
-	                        <small class='text-muted'>Image Title</small>
-	                    </div> <!-- text-right / end -->
-	                </a>
-	            </div> <!-- col-6 / end -->
-	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-	                    <div class='text-right'>
-	                        <small class='text-muted'>Image Title</small>
-	                    </div> <!-- text-right / end -->
-	                </a>
-	            </div> <!-- col-6 / end -->
-	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-	                    <div class='text-right'>
-	                        <small class='text-muted'>Image Title</small>
-	                    </div> <!-- text-right / end -->
-	                </a>
-	            </div> <!-- col-6 / end -->
-	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-	                    <div class='text-right'>
-	                        <small class='text-muted'>Image Title</small>
-	                    </div> <!-- text-right / end -->
-	                </a>
-	            </div> <!-- col-6 / end -->
-	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-	                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-	                    <div class='text-right'>
-	                        <small class='text-muted'>Image Title</small>
-	                    </div> <!-- text-right / end -->
-	                </a>
-	            </div> <!-- col-6 / end -->
-	        </div> <!-- list-group / end -->
-		</div> <!-- row / end -->
+		
 		<footer>
 			<div class="row footer">
 				<div class="col-lg-12">
@@ -95,7 +81,7 @@
 			</div>
 		</footer>
 	</div>
-<!-- JavaScript -->
+    
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -117,6 +103,15 @@
     <script src="js/i18next/i18next.js"></script>
 
 	<script src="js/fancybox/fancybox.min.js"></script>
+
+    <script type="text/javascript">
+	    function setDefaultLng() {
+	        if(window.localStorage.getItem("langChoice") === null || window.localStorage.getItem("langChoice") === ""){
+	            console.log('empty');
+	            window.localStorage.setItem("langChoice", 'FR');
+	        }
+	    }
+    </script>	
     
     <script type="text/javascript">
         $(function(){
@@ -134,6 +129,8 @@
                 $(".contact").removeClass("active");
                 $(".faq").removeClass("active");
                 $(".navbar").addClass("navbar-fixed-top");
+
+                setDefaultLng(); 
 
                 i18next.init({
                   lng: window.localStorage.getItem("langChoice"),
@@ -205,25 +202,34 @@
     </script>       
     <script type="text/javascript">
     	$(document).ready(function(){
-    //FANCYBOX
-    //https://github.com/fancyapps/fancyBox
-    $(".fancybox").fancybox({
-        openEffect: "none",
-        closeEffect: "none"
-    });
-});
+            $(".fancybox").fancybox({
+                openEffect: "elastic",
+                closeEffect : 'elastic',
+                beforeShow: function () {
+                    /* Disable right click */
+                    $.fancybox.wrap.bind("contextmenu", function (e) {
+                        return false;
+                    });
+                    /* Disable drag */
+                    $.fancybox.wrap.bind("dragstart", function (e) {
+                        return false;
+                    });
+                }
+            });
+        });
     </script> 
 
     <script type="text/javascript">
-    	function changeDivContent(){
+    	function changeDivContent(directory){
     		var divContent = "";
-	    	for(i = 0; i < 10; i++){
+	    	for(i = 1; i < 8; i++){
+                var imgLocation = "images/gallery/".concat(directory).concat("/").concat(i).concat(".jpg");
 	    		var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>";
-	    		var linkInit = "<a class=\"thumbnail fancybox\" ";
+	    		var linkInit = "<a class=\"thumbnail fancybox\"";
 	    		var linkRel = "rel=\"ligthbox\" ";
-	    		var linkHref = "href=\"http:\/\/placehold.it\/300x320.png\" "
+	    		var linkHref = "href=\"".concat(imgLocation).concat("\"");
 	    		var linkClose = ">";
-	    		var img = "<img class=\"img-responsive\" alt=\"\" src=\"http:\/\/placehold.it/320x320\"/>";
+	    		var img = "<img class=\"img-responsive\" alt=\"\" src=\"".concat(imgLocation).concat("\"/>");
 	    		var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
 	    		var divEnd = "</div>";
 	    		divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);
@@ -231,7 +237,25 @@
 	    	document.getElementById("content").innerHTML = divContent;
     	}
 
-    	changeDivContent();
+    	// changeDivContent();
+    </script>
+
+    <script type="text/javascript">
+        $('#divImgChoiceBtns').on('click', '.btn', function () {
+            $('#imgChoiceInput').val($(this).val());
+        });
+
+        $("#passForm").submit(function(e) {
+            e.preventDefault();
+            if( $("#passInput").val() === "paterleon"){
+                changeDivContent($('#imgChoiceInput').val());
+                
+                $('img').bind("contextmenu", function(e){
+                    return false;
+                });
+            }
+        });
+
     </script>
 </body>
 </html>
