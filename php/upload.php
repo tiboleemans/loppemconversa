@@ -3,7 +3,7 @@
 $target_dir = "../images/gallery/july2018/";
 
 // foreach ($_FILES["fileToUpload"]["name"] as $fileToUpload) {
-$fileSize = sizeof($_FILES["fileToUpload"]["name"];
+$fileSize = sizeof($_FILES["fileToUpload"]["name"]);
 echo "Amount of images to upload: " . $fileSize;
 for($i; $i < $fileSize; $i++){
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$i]);
