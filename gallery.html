@@ -245,7 +245,7 @@
                     $(data).find("a").attr("href", function (i, val) {
                         console.log("success");
                         if( val.match(/\.(jpg)$/) ) { 
-                            if(pictureIndex > minIndexPicture && pictureIndex < maxIndexPicture){
+                            if(pictureIndex >= minIndexPicture && pictureIndex < maxIndexPicture){
                                 var imgLocation = folder.concat(val);
                                 var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>";
                                 var linkInit = "<a class=\"thumbnail fancybox\" ";
