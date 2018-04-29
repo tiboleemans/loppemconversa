@@ -255,6 +255,8 @@
 
     <script type="text/javascript">
         console.log('onload');
+        var defaultSelection = "july2018";
+        $('#imgChoiceInput').val(defaultSelection);
 
         $('#divImgChoiceBtns').on('click', '.btn', function () {
             $('#imgChoiceInput').val($(this).val());
