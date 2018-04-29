@@ -1,5 +1,6 @@
 <?php
-$target_dir = "uploads/";
+// $target_dir = "uploads/";
+$target_dir = "../images/gallery/july2018/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][0]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
