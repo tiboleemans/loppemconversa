@@ -2,7 +2,7 @@
 // $target_dir = "uploads/";
 $target_dir = "../images/gallery/july2018/";
 $filesToUpload = $_FILES["fileToUpload"]["name"];
-for($i = 0; $i < 3; $i++) {
+for($i = 0; $i < 1; $i++) {
     $target_file = $target_dir . basename($fileToUpload);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
