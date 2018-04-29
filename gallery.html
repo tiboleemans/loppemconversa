@@ -305,11 +305,13 @@
     <script type="text/javascript">
         function createPages(pages){
             var initUL = "<ul class=\"pagination\">";
+            var allListItems;
             for(var page = 1; page <= pages; page++){
                 var listItem = "<li><a href=\"#\">".concat(page).concat("</a></li>");
+                allListItems.concat(listItem);
             }
-            var endUL = "</ul";
-            var result = initUL.concat(listItem).concat(endUL);
+            var endUL = "</ul>";
+            var result = initUL.concat(allListItems).concat(endUL);
             document.getElementById("pagination").innerHTML = result;     
         }
     </script>    
