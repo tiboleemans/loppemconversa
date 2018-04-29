@@ -308,7 +308,7 @@
             var allListItems = "";
             for(var page = 1; page <= pages; page++){
                 var listItem = "<li><a href=\"#\">".concat(page).concat("</a></li>");
-                allListItems.concat(listItem);
+                allListItems = allListItems.concat(listItem);
             }
             var endUL = "</ul>";
             var result = initUL.concat(allListItems).concat(endUL);
