@@ -72,6 +72,7 @@
             </div>
         </div>                
     	<div id="content"></div>
+        <div id="pagination" class="pagination"></div>
 		
 		<footer>
 			<div class="row footer">
@@ -221,33 +222,51 @@
     </script> 
 
     <script type="text/javascript">
-    	function changeDivContent(directory){
+    	function changeDivContent(directory, page){
             var divContent = "";
             var folder = "images/gallery/".concat(directory).concat("/");
             console.log("changeDivContent".concat(folder));
+            var picturesPerPage = 5;
+            var minIndexPicture = (page * picturesPerPage) - picturesPerPage;
+            var maxIndexPicture = (page * picturesPerPage);
 
             $.ajax({
                 url : folder,
                 success: function (data) {
+                    console.log(data.size);
+                    var total = 0;
+                    $(data).find("a").attr("href", function (i, val) {
+                        if( val.match(/\.(jpg)$/) ) {
+                            total++;
+                        }
+                    });
+
+                    var pictureIndex = 0;
                     $(data).find("a").attr("href", function (i, val) {
                         console.log("success");
                         if( val.match(/\.(jpg)$/) ) { 
-                            var imgLocation = folder.concat(val);
-                            var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>";
-                            var linkInit = "<a class=\"thumbnail fancybox\" ";
-                            var linkRel = "rel=\"ligthbox\" ";      
-                            var linkHref = "href=\"".concat(imgLocation).concat("\"");   
-                            var linkClose = ">";
-                            var img = "<img class=\"img-responsive\" alt=\"\" src=\"".concat(imgLocation).concat("\"/>");
-                            var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
-                            var divEnd = "</div>";
-                            divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);     
-                            document.getElementById("content").innerHTML = divContent;                              
-                        } 
+                            if(pictureIndex > minIndexPicture && pictureIndex < maxIndexPicture){
+                                var imgLocation = folder.concat(val);
+                                var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>";
+                                var linkInit = "<a class=\"thumbnail fancybox\" ";
+                                var linkRel = "rel=\"ligthbox\" ";      
+                                var linkHref = "href=\"".concat(imgLocation).concat("\"");   
+                                var linkClose = ">";
+                                var img = "<img class=\"img-responsive\" alt=\"\" src=\"".concat(imgLocation).concat("\"/>");
+                                var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
+                                var divEnd = "</div>";
+                                divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);     
+                                document.getElementById("content").innerHTML = divContent;                              
+                            }
+                            pictureIndex++;
+                        }
                     });
-                }
+                    createPages(total/picturesPerPage);
+                },
+            error: function(req) {
+                console.log('Error: ' + req.status);
+            }
             });    		
-	    	
     	}
 
     	// changeDivContent();
@@ -265,7 +284,7 @@
         $("#passForm").submit(function(e) {
             e.preventDefault();
             if( $("#passInput").val() === "paterleon"){
-                changeDivContent($('#imgChoiceInput').val());
+                changeDivContent($('#imgChoiceInput').val(), 1);
                 
                 $('img').bind("contextmenu", function(e){
                     return false;
@@ -275,9 +294,24 @@
 
     </script>
 
+<!-- <ul class="pagination">
+  <li><a href="#">1</a></li>
+  <li class="active"><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul> -->
+
     <script type="text/javascript">
-
-
+        function createPages(pages){
+            var initUL = "<ul class=\"pagination\">";
+            for(var page = 1; page <= pages; i++){
+                var listItem = "<li><a href=\"#\">".concat(page).concat("</a></li>");
+            }
+            var endUL = "</ul";
+            var result = initUL.concat(listItem).concat(endUL);
+            document.getElementById("pagination").innerHTML = result;     
+        }
     </script>    
 </body>
 </html>
