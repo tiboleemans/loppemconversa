@@ -5,7 +5,7 @@ $target_dir = "../images/gallery/july2018/";
 // foreach ($_FILES["fileToUpload"]["name"] as $fileToUpload) {
 $fileSize = sizeof($_FILES["fileToUpload"]["name"]);
 echo "Amount of images to upload: " . $fileSize;
-for($i = 1; $i < $fileSize; $i++){
+for($i = 1; $i <= $fileSize; $i++){
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$i]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -38,7 +38,7 @@ for($i = 1; $i < $fileSize; $i++){
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file)) {
-            echo "The file ". basename( $_FILES["fileToUpload"]["name"][$i]). " has been uploaded.";
+            echo "The file ". basename( $_FILES["fileToUpload"]["name"][$i]). " has been uploaded. \n";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
