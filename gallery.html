@@ -287,12 +287,12 @@
                                 var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
                                 var divEnd = "</div>";
                                 divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);     
-                                document.getElementById("content").innerHTML = divContent;                              
+                                document.getElementById("content").innerHTML = divContent;
                             }
                             pictureIndex++;
                         }
                     });
-                    createPages(total/picturesPerPage);
+                    createPages(total/picturesPerPage, page);
                 },
             error: function(req) {
                 console.log('Error: ' + req.status);
@@ -334,11 +334,11 @@
 </ul> -->
 
     <script type="text/javascript">
-        function createPages(pages){
+        function createPages(amountOfPages, currentPage){
             var initUL = "<ul class=\"pagination\">";
             var allListItems = "";
-            for(var page = 1; page <= pages; page++){
-                var listItem = "<li><a href=\"#\">".concat(page).concat("</a></li>");
+            for(var page = 1; page <= amountOfPages; page++){
+                var listItem = "<li><a onclick="createPages(amountOfPages, page)" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
                 allListItems = allListItems.concat(listItem);
             }
             var endUL = "</ul>";
