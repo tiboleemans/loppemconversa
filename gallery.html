@@ -335,7 +335,7 @@
 
     <script type="text/javascript">
         function createPages(amountOfPages, directory){
-            var initUL = "<div> <ul class=\"pagination\">";
+            var initUL = "<div style=\"clear: both\"> <ul class=\"pagination\">";
             var allListItems = "";
             for(var page = 1; page <= amountOfPages; page++){
                 var listItem = "<li><a onclick=\"changeDivContent(\'" + directory + "\', " + page + ") \" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
