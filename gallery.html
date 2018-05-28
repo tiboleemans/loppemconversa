@@ -338,7 +338,7 @@
             var initUL = "<ul class=\"pagination\">";
             var allListItems = "";
             for(var page = 1; page <= amountOfPages; page++){
-                var listItem = "<li><a onclick=\"createPages(amountOfPages, page)\" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
+                var listItem = "<li><a onclick=\"createPages(" + amountOfPages ", " + page + ") \" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
                 allListItems = allListItems.concat(listItem);
             }
             var endUL = "</ul>";
