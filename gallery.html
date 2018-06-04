@@ -309,13 +309,16 @@
     </script>
 
     <script type="text/javascript">
-        console.log('onload');
-        var defaultSelection = "july2018";
+        var defaultSelection = "general";
         $('#imgChoiceInput').val(defaultSelection);
+        $('#password').hide();
 
         $('#divImgChoiceBtns').on('click', '.btn', function () {
             $('#imgChoiceInput').val($(this).val());
+            $('#password').show();
         });
+
+        changeDivContent($('#imgChoiceInput').val(), 1);
 
         $("#passForm").submit(function(e) {
             e.preventDefault();
