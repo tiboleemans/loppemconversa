@@ -57,8 +57,14 @@ p {
     opacity: 0.8;
 }
 
-.item-layout {
-    height: 300px;
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Home Page Carousel */
