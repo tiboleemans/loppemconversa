@@ -57,14 +57,10 @@ p {
     opacity: 0.8;
 }
 
-.row.display-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.row.display-flex > [class*='col-'] {
-  display: flex;
-  flex-direction: column;
+.row.make-columns {
+    -moz-column-width: 19em;
+    -webkit-column-width: 19em;
+    -moz-column-gap: 1em;
 }
 
 /* Home Page Carousel */
