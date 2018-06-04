@@ -57,10 +57,8 @@ p {
     opacity: 0.8;
 }
 
-.row.make-columns {
-    -moz-column-width: 19em;
-    -webkit-column-width: 19em;
-    -moz-column-gap: 1em;
+.item-layout {
+    min-height: 250px;
 }
 
 /* Home Page Carousel */
