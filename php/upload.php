@@ -1,6 +1,6 @@
 <?php
 // $target_dir = "uploads/";
-$target_dir = "../images/gallery/july2018/";
+$target_dir = "../images/gallery/common/";
 
 $fileSize = sizeof($_FILES["fileToUpload"]["name"]);
 echo "Amount of images to upload: " . $fileSize;
