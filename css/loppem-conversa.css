@@ -57,6 +57,10 @@ p {
     opacity: 0.8;
 }
 
+.item-layout {
+    min-height: 300px;
+}
+
 /* Home Page Carousel */
 
 header.carousel {
