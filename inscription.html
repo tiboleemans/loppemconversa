@@ -56,10 +56,12 @@
                 <input type="hidden" name="pageLang" id="pageLang"/>
 
                 <div class="panel panel-default">
+
                     <div id="general_error_div" style="width:75%; margin: 50px auto; display: none;">
                         <div class="alert alert-danger" id="general_error_text"></div>
                     </div>
                     <h3 class="panel-heading" id="form_session"></h3>
+                <div id="wait_list_div" class="alert alert-info" style="font-size: 24px"></div>                    
                     <div class="panel-body form-group">
                         <div class="has-feedback rowElement">                                        
                             <label for="langLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_lang"></label>
@@ -77,7 +79,7 @@
                             <label for="periodeLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="form_periode"></label>
                             <div class="col-sm-4 col-xs-12 alignLeftXs">
                                 <div id="divPeriode" class="btn-group" role="group" aria-label="periodeLabel">
-                                  <button type="button" class="btn btn-default" value="Juillet" id="form_periode_july"></button>
+                                  <button type="button" onclick="alertWaitList()" class="btn btn-default" value="Juillet" id="form_periode_july"></button>
                                   <button type="button" class="btn btn-default" value="Août" id="form_periode_august"></button>
                                 </div>
                                 <input type="hidden" name="periodeInput" id="periodeInput" />   
@@ -448,6 +450,34 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 id="complet_header" class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <p id="complet_body"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
     <footer>
         <div class="row footer">
             <div class="col-lg-12">
@@ -478,12 +508,25 @@
 
     <script src="js/i18next/i18next.js"></script>
 
+    <script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        
+    });
+});
+</script>
+
     <script type="text/javascript">
     function setDefaultLng() {
         if(window.localStorage.getItem("langChoice") === null || window.localStorage.getItem("langChoice") === ""){
             console.log('empty');
             window.localStorage.setItem("langChoice", 'FR');
         }
+    }
+
+
+    function alertWaitList(){
+        $("#myModal").modal();
     }
     </script>
 
@@ -530,6 +573,9 @@
                             "autresReduction_text" : "U kan van een korting genieten wanneer u een nieuwe inschrijving aanbrengt of meerdere kinderen inschrijft.",
                             "info_btn" : "Zie voorwaarden",
                             "general_error_text" : "<strong> Opgelet! Niet alle verplichte velden zijn ingevuld. Gelieve de ontbrekende gegevens in te vullen en opnieuw op inschrijven te klikken. </strong>",
+                            "wait_list_div" : "<strong>Opgepast</strong> Het is niet meer mogelijk om in te schrijven voor de stage van juli. Door dit formulier in te vullen met juli als keuze wordt u op de wachtlijst gezet. Wij contacteren u zodra er een plaats vrijkomt.",
+                            "complet_header" : "Stage juli volzet",
+                            "complet_body" : "Door het formulier voor de stage van juli in te vullen wordt u op de wachtlijst geplaatst",
                             "form_session" : "Sessiekeuze",
                             "form_lang" : "* Cursustaal:",
                             "form_lang_nl" : "Nederlands",
@@ -629,6 +675,9 @@
                             "autresReduction_text" : "Vous pouvez profiter d'une r&eacute;duction en apportant un nouvel inscrit ou en inscrivant plusieurs enfants ou en inscrivant pour plusieurs stages.",
                             "info_btn" : "Voir conditions",
                             "general_error_text" : "<strong> Attention! Tous les champs obligatoires n'ont pas été complétés. Veuillez remplir les détails manquants et cliquez sur le bouton s'inscrire à nouveau.</strong> ",
+                            "wait_list_div" : "<strong>Attention!</strong> Ce n'est plus possible de s'inscrire au stage de juillet. En remplissant ce formulaire pour le stage de juillet, vous serez mis sur la liste d'attente. Nous vous contacterons dès qu'une place sera disponible.",
+                            "complet_header" : "Stage juillet complet",
+                            "complet_body" : "En remplissant ce formulaire pour le stage de juillet, vous serez mis sur la liste d'attente.",
                             "form_session" : "Session",
                             "form_lang" : "* Langue du cours:",
                             "form_lang_nl" : "Néerlandais",
@@ -734,6 +783,9 @@
             document.getElementById('autresReduction_text').innerHTML = i18next.t('autresReduction_text');
             document.getElementById('info_btn').innerHTML = i18next.t('info_btn');
             document.getElementById('general_error_text').innerHTML = i18next.t('general_error_text');
+            document.getElementById('wait_list_div').innerHTML = i18next.t('wait_list_div');
+            document.getElementById('complet_header').innerHTML = i18next.t('complet_header');
+            document.getElementById('complet_body').innerHTML = i18next.t('complet_body');
             document.getElementById('form_session').innerHTML = i18next.t('form_session');
             document.getElementById('form_lang').innerHTML = i18next.t('form_lang');
             document.getElementById('form_lang_nl').innerHTML = i18next.t('form_lang_nl');

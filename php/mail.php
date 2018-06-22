@@ -124,6 +124,16 @@ Zevenkerken 4
 8200 Brugge.' . "\n\n";
 
 
+// Prepare our content string
+$email_content_introduction_wait_list_FR = 
+'Madame, Monsieur ' . $lastNameParent . "\n\n" . 
+'Nous avons mis'. $firstNameStudent .' ' . $lastNameStudent .' sur la liste d\'attente pour la période ' . $periodeInput .' et vous en remercions.' . "\n" . 
+'Nous vous contacterons dès qu\'une place sera disponible.'. "\n\n" .
+'Nouv vous remercions pour votre confiance!' . "\n\n" .
+'Bien cordialement, ' . "\n" .
+'Loppem Conversa ' . "\n\n" ;
+
+
 $email_content_parent_before_june_FR = 
 'Veuillez verser l\'acompte dans les trois jours ouvrables sur notre compte BE36 0016 2215 8581.
 Veuillez également vous acquitter du solde (€ 400) avant le premier juin \'18.
@@ -151,6 +161,13 @@ Abdijschool van Zevenkerken
 Zevenkerken 4
 8200 Brugge.' . "\n\n";
 
+$email_content_introduction_wait_list_NL = 
+'Mijnheer, Mevrouw '  . $lastNameParent . "\n\n" . 
+'Wij hebben '. $firstNameStudent .' ' . $lastNameStudent .' op de wachtlijst geplaatst voor de periode ' . $periodeInput .' ' . "\n" .
+'Wij contacteren u zodra er een plaats vrijkomt' . "\n\n" . 
+'Alvast bedankt voor het vertrouwen!' . "\n\n" .
+'Met vriendelijke groeten,' . "\n\n" . 
+'Loppem Conversa';
 
 
 $email_content_parent_before_june_NL = 
@@ -172,8 +189,14 @@ Loppem Conversa' . "\n\n" ;
 
 // simple email content
 if($_POST["pageLang"] == "NL"){
-	$email_subject_parent = $email_subject_parent_FR;
-	$email_content_parent =  $email_content_introduction_FR . "\n\n" . $email_content_parent_before_june_FR;
+	if($periodeInput == "juillet"){
+		$email_subject_parent = 'Bevestiging wachtlijst Loppem Conversa';
+		$email_content_parent =  $email_content_introduction_wait_list_FR;
+	} else {
+		$email_subject_parent = $email_subject_parent_FR;
+		$email_content_parent =  $email_content_introduction_FR . "\n\n" . $email_content_parent_after_june_FR;
+	}
+	
 	foreach($inputArrayFR as $key => $value) {
 	  $email_content_loppem .= $key . ': ' . $value . "\n";
 	  $email_content_parent .= $key . ': ' . $value . "\n";
@@ -181,8 +204,13 @@ if($_POST["pageLang"] == "NL"){
 }
 
 if($_POST["pageLang"] == "FR"){
-	$email_subject_parent = $email_subject_parent_NL;
-	$email_content_parent =  $email_content_introduction_NL . "\n\n" . $email_content_parent_before_june_NL;
+	if($periodeInput == "Juillet"){
+		$email_subject_parent = 'Confirmation liste d\'attente Loppem Conversa';
+		$email_content_parent =  $email_content_introduction_wait_list_FR;
+	} else {
+		$email_subject_parent = $email_subject_parent_NL;
+		$email_content_parent =  $email_content_introduction_NL . "\n\n" . $email_content_parent_after_june_NL;
+	}
 	foreach($inputArrayNL as $key => $value) {
 	  $email_content_loppem .= $key . ': ' . $value . "\n";
 	  $email_content_parent .= $key . ': ' . $value . "\n";
