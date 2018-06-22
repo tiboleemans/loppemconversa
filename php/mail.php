@@ -189,7 +189,7 @@ Loppem Conversa' . "\n\n" ;
 
 // simple email content
 if($_POST["pageLang"] == "NL"){
-	if($periodeInput == "juillet"){
+	if($periodeInput == "2-12 juli 2018"){
 		$email_subject_parent = 'Bevestiging wachtlijst Loppem Conversa';
 		$email_content_parent =  $email_content_introduction_wait_list_FR;
 	} else {
@@ -204,7 +204,7 @@ if($_POST["pageLang"] == "NL"){
 }
 
 if($_POST["pageLang"] == "FR"){
-	if($periodeInput == "Juillet"){
+	if($periodeInput == "2-12 juli 2018"){
 		$email_subject_parent = 'Confirmation liste d\'attente Loppem Conversa';
 		$email_content_parent =  $email_content_introduction_wait_list_FR;
 	} else {
