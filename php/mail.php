@@ -188,7 +188,7 @@ Met vriendelijke groeten, ' . "\n\n" .'
 Loppem Conversa' . "\n\n" ;
 
 echo $_POST["pageLang"];
-echo $periodeInput);
+echo $periodeInput;
 // simple email content
 if($_POST["pageLang"] == "NL"){
 
