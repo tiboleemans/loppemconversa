@@ -187,9 +187,11 @@ Wij danken u voor het gestelde vertrouwen in Loppem Conversa ' . "\n" .'
 Met vriendelijke groeten, ' . "\n\n" .'
 Loppem Conversa' . "\n\n" ;
 
+echo $_POST["pageLang"];
+echo $periodeInput);
 // simple email content
 if($_POST["pageLang"] == "NL"){
-	console.log('NL:' . $periodeInput);
+
 	if($periodeInput == "2-12 juli 2018"){
 		$email_subject_parent = 'Bevestiging wachtlijst Loppem Conversa';
 		$email_content_parent =  $email_content_introduction_wait_list_FR;
