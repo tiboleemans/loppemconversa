@@ -281,20 +281,18 @@
                 changeDivContent($('#imgChoiceInput').val(), currentPage);
             }
         });*/
-
-        $(function() {
           $("#passForm").submit(function(e) {
             console.log("submit");
               $.ajax({
-                type: "POST",
+                type: "GET",
                 url: "php/gallery.php",
                 data: $("#passForm").serialize(), // serializes the form's elements.
                 success:function(){
-                    console.log("test");
+                    changeDivContent($('#imgChoiceInput').val(), currentPage);
                 }
           }  
           )}
-        )})
+        )
 
     	function changeDivContent(directory, page){
             var divContent = "";

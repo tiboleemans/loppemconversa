@@ -1,6 +1,6 @@
 <?php
 
-echo $_POST["passInput"];
+echo $_GET["passInput"];
 echo "test";
 
 array(
@@ -10,7 +10,7 @@ array(
     "august2017" => "paterleon" 
 );
 
-if($_POST["passInput"] == "paterleon"){
+if($_GET["passInput"] == "paterleon"){
 	$response_array['status'] = 'success';
 } else {
 	$response_array['status'] = 'error';
