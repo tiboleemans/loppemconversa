@@ -280,6 +280,7 @@
         var currentPage = 1;
         $('#session').val(defaultSelection);
         $('#password').hide();
+        changeDivContent($('#session').val(), currentPage);
 
         $('#divImgChoiceBtns').on('click', '.btn', function () {
             $('#session').val($(this).val());
