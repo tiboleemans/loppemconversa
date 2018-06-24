@@ -288,11 +288,12 @@
                 type: "POST",
                 url: "php/gallery.php",
                 data: $("#passForm").serialize(), // serializes the form's elements.
-                success: 
-                    changeDivContent($('#imgChoiceInput').val(), currentPage),
-                error: 
-                    alert('failed client side')
-                });
+                success:function(data){
+                    console.log(data);
+                },
+                error: function(data, errorThrown){
+                    console.log('error => ' + errorThrown);
+                }
           }  
           )}
         )

@@ -1,6 +1,7 @@
 <?php
 
-$_POST["langInput"];
+echo $_POST["passInput"];
+echo "test";
 
 array(
     "july2018" => "paterleon",
