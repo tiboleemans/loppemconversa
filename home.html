@@ -136,11 +136,7 @@
     <script type="text/javascript">
         $(function(){
             $("#navigation").load("navigation.html", function(){
-                if(window.localStorage.getItem("langChoice") == "NL"){
-                    document.getElementById('langId').innerHTML = "FR";
-                } else {
-                    document.getElementById('langId').innerHTML = "NL";
-                }
+
                 
                 $(".home").addClass("active");
                 $(".information").removeClass("active");
@@ -221,6 +217,12 @@
         }
 
         function setLanguage(lng) {
+            if(window.localStorage.getItem("langChoice") == "NL"){
+                document.getElementById('langId').innerHTML = "FR";
+            } else {
+                document.getElementById('langId').innerHTML = "NL";
+            }
+
           i18next.changeLanguage(lng);
         }
 

@@ -74,7 +74,7 @@
             </div>
         </div>
     	   <div id="grid"><div class="grid-sizer"></div></div>
-        <div id="pagination" class="col-xs-12 paginationOuter"></div>
+        <div id="pagination" class="col-xs-12 center"></div>
 
 
 		<footer>
@@ -266,6 +266,7 @@
     <script type="text/javascript">
 
         var defaultSelection = "general";
+        var currentPage = 1;
         $('#imgChoiceInput').val(defaultSelection);
         $('#password').hide();
 
@@ -279,7 +280,7 @@
         $("#passForm").submit(function(e) {
             e.preventDefault();
             if( $("#passInput").val() === "paterleon"){
-                changeDivContent($('#imgChoiceInput').val(), 1);
+                changeDivContent($('#imgChoiceInput').val(), currentPage);
                 
                 $('img').bind("contextmenu", function(e){
                     return false;
@@ -291,7 +292,7 @@
             var divContent = "";
             var folder = "images/gallery/".concat(directory).concat("/");
             console.log("changeDivContent".concat(folder));
-            var picturesPerPage = 20;
+            var picturesPerPage = 7;
             var minIndexPicture = (page * picturesPerPage) - picturesPerPage;
             var maxIndexPicture = (page * picturesPerPage);
 
@@ -323,7 +324,7 @@
                             pictureIndex++;
                         }
                     });
-                    createPages(Math.ceil(total/picturesPerPage), directory);
+                    createPages(Math.ceil(total/picturesPerPage), directory, page);
                 },
             error: function(req) {
                 console.log('Error: ' + req.status);
@@ -331,17 +332,27 @@
             });    		
     	}
 
-        var currentPage;
-        function nextPage(){
 
-        }
-
-        function createPages(amountOfPages, directory){
-            var initUL = "<ul class=\"pagination\">";
+        function createPages(amountOfPages, directory, currentPage){
+            var initUL = "<ul class=\"pagination center\">";
             var allListItems = "";
+            var previousPage = currentPage - 1;
+            if((previousPage > 0)){
+                var previousListItem = "<li><a onclick=\"changeDivContent(\'" + directory + "\', " + previousPage + ") \" href=\"javascript:void(0)\">".concat("<<").concat("</a></li>");
+                allListItems = allListItems.concat(previousListItem);
+            }
             for(var page = 1; page <= amountOfPages; page++){
-                var listItem = "<li><a onclick=\"changeDivContent(\'" + directory + "\', " + page + ") \" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
+                if(page == currentPage){
+                    var listItem = "<li class=\"active\"><a onclick=\"changeDivContent(\'" + directory + "\', " + page + ") \" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
+                } else {
+                    var listItem = "<li><a onclick=\"changeDivContent(\'" + directory + "\', " + page + ") \" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
+                }
                 allListItems = allListItems.concat(listItem);
+            }
+            var nextPage = currentPage + 1;
+            if((nextPage <= amountOfPages)){
+                var nextListItem = "<li><a onclick=\"changeDivContent(\'" + directory + "\', " + nextPage + ") \" href=\"javascript:void(0)\">".concat(">>").concat("</a></li>");
+                allListItems = allListItems.concat(nextListItem);
             }
             var endUL = "</ul>";
             var result = initUL.concat(allListItems).concat(endUL);

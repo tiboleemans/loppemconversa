@@ -34,7 +34,7 @@ body { font-family: sans-serif; }
   max-width: 100%;
 }
 
-.paginationOuter {
+.center {
 	display: table;
 	margin: 0 auto;
 }
