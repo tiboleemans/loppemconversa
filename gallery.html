@@ -291,9 +291,9 @@
                 url: "php/gallery.php",
                 data: $("#passForm").serialize(), // serializes the form's elements.
                 success: 
-                    changeDivContent($('#imgChoiceInput').val(), currentPage);
+                    changeDivContent($('#imgChoiceInput').val(), currentPage),
                 error: 
-                    alert('failed client side');
+                    alert('failed client side')
                 });
           }  
           )}
