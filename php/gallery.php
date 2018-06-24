@@ -7,7 +7,7 @@ $passBySessions = array(
     "august2017" => "augustus2017" 
 );
 
-$session = $_GET["session"]
+$session = $_GET["session"];
 $password = $_GET["pass"];
 $req_pass = $passBySessions[$session];
 
