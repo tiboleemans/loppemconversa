@@ -1,8 +1,5 @@
 <?php
 
-echo $_GET["passInput"];
-echo "test";
-
 array(
     "july2018" => "paterleon",
     "august2018" => "paterleon",
