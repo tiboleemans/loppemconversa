@@ -113,7 +113,6 @@
     <script type="text/javascript">
 	    function setDefaultLng() {
 	        if(window.localStorage.getItem("langChoice") === null || window.localStorage.getItem("langChoice") === ""){
-	            console.log('empty');
 	            window.localStorage.setItem("langChoice", 'FR');
 	        }
 	    }
@@ -275,18 +274,30 @@
             $('#password').show();
         });
 
-        changeDivContent($('#imgChoiceInput').val(), 1);
-
-        $("#passForm").submit(function(e) {
+/*        $("#passForm").submit(function(e) {
             e.preventDefault();
             if( $("#passInput").val() === "paterleon"){
                 changeDivContent($('#imgChoiceInput').val(), currentPage);
-                
-                $('img').bind("contextmenu", function(e){
-                    return false;
-                });
             }
-        });
+        });*/
+
+        $(function() {
+          $("#passForm").submit(function(e) {
+            $('#pageLang').val(document.getElementById('imgChoiceInput').innerHTML);
+
+              
+              $.ajax({
+                type: "POST",
+                url: "php/gallery.php",
+                data: $("#passForm").serialize(), // serializes the form's elements.
+                success: 
+                    changeDivContent($('#imgChoiceInput').val(), currentPage);
+                error: 
+                    alert('failed client side');
+                });
+          }  
+          )}
+        )
 
     	function changeDivContent(directory, page){
             var divContent = "";
