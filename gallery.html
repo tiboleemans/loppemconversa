@@ -55,8 +55,7 @@
                             <button type="button" class="btn btn-group btn-default" value="august2018" id="img_choice_august_2018"></button>                            
                             <button type="button" class="btn btn-group btn-default" value="july2017" id="img_choice_july_2017"></button>
                             <button type="button" class="btn btn-group btn-default" value="august2017" id="img_choice_august_2017"></button>
-                        </div>   
-                                                 
+                        </div>                        
                     </div>
                 </div>
                 <form class="form-horizontal" name="passForm" id="passForm" validate>
@@ -65,11 +64,15 @@
                         <label for="passLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="passLabel"></label>
                         <div class="col-sm-3 col-xs-12 alignLeftXs">
                             <input type="password" class="form-control" id="pass" name="pass">
-                            <span class="glyphicon form-control-feedback" id="passWrong">test</span>
                         </div>
                         <div class="col-sm-2 button text-center">
                             <button style="font-style: bold; font-size: 14px; color: #000; background-color: #f5a034; border-color: #2e6da4;" type="submit" class="btn btn-inscription" id="show_button"></button>
                         </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <small id="passwordWrong" class="text-danger" style="width:75%; margin: 50px auto; display: none;">
+                            Password wrong
+                        </small>      
                     </div>
                 </form>
             </div>
@@ -294,7 +297,7 @@
                     if (data.status == 'success') {
                         changeDivContent($('#session').val(), currentPage);
                     } else if (data.status == 'error') {
-                        $('#passWrong').show();
+                        $('#passwordWrong').show();
                     }
                 }
           }  
