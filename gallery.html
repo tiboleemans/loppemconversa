@@ -74,6 +74,65 @@
         </div>
     	   <div class="row make-columns" id="content"></div>
         <div id="pagination" style="clear: both;" class="pagination"></div>
+
+        <div class="container">
+    <div class="row make-columns">
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">1 - This is my panel with some content!
+                    <br><img src="//placehold.it/130x90"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">2 - This is another panel with even more text content!</div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">3 - This is a panel with just some text, stuff to say and some more blah filler fill content with even more text content...
+                    <br> </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">4 - This is my panel with some blah content aliquam in cursus ut, ullamcorper in tort..</div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">5 - This is another panel with even more content!</div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">6 - This is a panel with and image
+                    <br><img src="//placehold.it/150x80"> </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">7 - Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. Aliquam codeply mauris!</div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">8 - This is a panel with and image
+                    <br><img src="//placehold.it/150x100"> </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">9 - This is another panel with even more text content! Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. Aliquam codeply mauris arcu, tristique a lobortis vitae, condimentum feugiat justo.</div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">10 - Nullam sapien massa, aliquam in cursus ut, Yes. This is another panel with even more text content!</div>
+            </div>
+        </div>
+    </div>
+</div>
 		
 		<footer>
 			<div class="row footer">
@@ -283,14 +342,14 @@
                         if( val.match(/\.(jpg)$/) ) { 
                             if(pictureIndex >= minIndexPicture && pictureIndex < maxIndexPicture){
                                 var imgLocation = folder.concat(val);
-                                var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3 item-layout'>";
+                                var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3 item-layout'> <div class=\"panel panel-default\"> <div class=\"panel-body\">";
                                 var linkInit = "<a class=\"thumbnail fancybox\" ";
                                 var linkRel = "rel=\"ligthbox\" ";      
                                 var linkHref = "href=\"".concat(imgLocation).concat("\"");   
                                 var linkClose = ">";
                                 var img = "<img class=\"img-responsive\" alt=\"\" src=\"".concat(imgLocation).concat("\"/>");
                                 var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
-                                var divEnd = "</div>";
+                                var divEnd = "</div></div></div>";
                                 divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);     
                                 document.getElementById("content").innerHTML = divContent;
                             }
