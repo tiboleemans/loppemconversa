@@ -38,3 +38,8 @@ body { font-family: sans-serif; }
 	display: table;
 	margin: 0 auto;
 }
+
+img {
+-webkit-user-select:none;
+-webkit-touch-callout:none;
+}
