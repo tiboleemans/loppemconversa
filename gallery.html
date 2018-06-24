@@ -77,42 +77,6 @@
         <div id="pagination" style="clear: both;" class="pagination"></div>
 
 
-<div class="grid">
-
-  <div class="grid-sizer"></div>
-  <div class="grid-item">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
-  </div>
-  <div class="grid-item">
-    
-  </div>
-  <div class="grid-item">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" />
-  </div>
-  <div class="grid-item">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" />
-  </div>
-  <div class="grid-item">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" />
-  </div>
-  <div class="grid-item">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" />
-  </div>
-  <div class="grid-item">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" />
-  </div>
-  <div class="grid-item">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" />
-  </div>
-  <div class="grid-item">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
-  </div>
-</div>
-
-
-
-
-		
 		<footer>
 			<div class="row footer">
 				<div class="col-lg-12">
@@ -322,17 +286,16 @@
                     $(data).find("a").attr("href", function (i, val) {
                         if( val.match(/\.(jpg)$/) ) { 
                             if(pictureIndex >= minIndexPicture && pictureIndex < maxIndexPicture){
-                                console.log(imgLocation);
                                 var imgLocation = folder.concat(val);
                                 var divInit = "<div class='grid-item'>";
-/*                                var linkInit = "<a class=\"thumbnail fancybox\" ";
+                                var linkInit = "<a class=\"thumbnail fancybox\" ";
                                 var linkRel = "rel=\"ligthbox\" ";      
                                 var linkHref = "href=\"".concat(imgLocation).concat("\"");   
-                                var linkClose = ">";*/
+                                var linkClose = ">";
                                 /*<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />*/
                                 var img = "<img src=\"".concat(imgLocation).concat("\"/>");
                                 var divEnd = "</a></div>";
-                                divContent += divInit.concat(img).concat(divEnd);     
+                                divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(divEnd);     
                                 document.getElementById("grid").innerHTML = divContent;
                             }
                             pictureIndex++;
