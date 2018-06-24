@@ -74,7 +74,7 @@
             </div>
         </div>
     	   <div id="grid"><div class="grid-sizer"></div></div>
-        <div id="pagination" style="clear: both;" class="pagination"></div>
+        <div id="pagination" class="paginationOuter"></div>
 
 
 		<footer>
@@ -264,6 +264,29 @@
     </script> 
 
     <script type="text/javascript">
+
+        var defaultSelection = "general";
+        $('#imgChoiceInput').val(defaultSelection);
+        $('#password').hide();
+
+        $('#divImgChoiceBtns').on('click', '.btn', function () {
+            $('#imgChoiceInput').val($(this).val());
+            $('#password').show();
+        });
+
+        changeDivContent($('#imgChoiceInput').val(), 1);
+
+        $("#passForm").submit(function(e) {
+            e.preventDefault();
+            if( $("#passInput").val() === "paterleon"){
+                changeDivContent($('#imgChoiceInput').val(), 1);
+                
+                $('img').bind("contextmenu", function(e){
+                    return false;
+                });
+            }
+        });
+
     	function changeDivContent(directory, page){
             var divContent = "";
             var folder = "images/gallery/".concat(directory).concat("/");
@@ -308,6 +331,24 @@
             });    		
     	}
 
+        var currentPage;
+        function nextPage(){
+
+        }
+
+        function createPages(amountOfPages, directory){
+            var initUL = "<ul class=\"pagination\">";
+            var allListItems = "";
+            for(var page = 1; page <= amountOfPages; page++){
+                var listItem = "<li><a onclick=\"changeDivContent(\'" + directory + "\', " + page + ") \" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
+                allListItems = allListItems.concat(listItem);
+            }
+            var endUL = "</ul>";
+            var result = initUL.concat(allListItems).concat(endUL);
+            document.getElementById("pagination").innerHTML = result;     
+        }
+
+
         var $grid = $('.grid').imagesLoaded( function() {
           $grid.masonry({
             itemSelector: '.grid-item',
@@ -316,57 +357,6 @@
           }); 
         });
 
-    </script>
-        <script type="text/javascript">
-
-
-    </script>
-
-    <script type="text/javascript">
-        var defaultSelection = "general";
-        $('#imgChoiceInput').val(defaultSelection);
-        $('#password').hide();
-
-        $('#divImgChoiceBtns').on('click', '.btn', function () {
-            $('#imgChoiceInput').val($(this).val());
-            $('#password').show();
-        });
-
-        changeDivContent($('#imgChoiceInput').val(), 1);
-
-        $("#passForm").submit(function(e) {
-            e.preventDefault();
-            if( $("#passInput").val() === "paterleon"){
-                changeDivContent($('#imgChoiceInput').val(), 1);
-                
-                $('img').bind("contextmenu", function(e){
-                    return false;
-                });
-            }
-        });
-
-    </script>
-
-<!-- <ul class="pagination">
-  <li><a href="#">1</a></li>
-  <li class="active"><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-</ul> -->
-
-    <script type="text/javascript">
-        function createPages(amountOfPages, directory){
-            var initUL = "<div style=\"clear: both\"> <ul class=\"pagination\">";
-            var allListItems = "";
-            for(var page = 1; page <= amountOfPages; page++){
-                var listItem = "<li><a onclick=\"changeDivContent(\'" + directory + "\', " + page + ") \" href=\"javascript:void(0)\">".concat(page).concat("</a></li>");
-                allListItems = allListItems.concat(listItem);
-            }
-            var endUL = "</ul> </div>";
-            var result = initUL.concat(allListItems).concat(endUL);
-            document.getElementById("pagination").innerHTML = result;     
-        }
     </script>
 </body>
 </html>
