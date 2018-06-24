@@ -283,6 +283,7 @@
         });*/
           $("#passForm").submit(function(e) {
             console.log("submit");
+            e.preventDefault();
               $.ajax({
                 type: "GET",
                 url: "php/gallery.php",
