@@ -292,7 +292,6 @@
                                 var linkRel = "rel=\"ligthbox\" ";      
                                 var linkHref = "href=\"".concat(imgLocation).concat("\"");   
                                 var linkClose = ">";
-                                /*<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />*/
                                 var img = "<img src=\"".concat(imgLocation).concat("\"/>");
                                 var divEnd = "</a></div>";
                                 divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(divEnd);     
@@ -301,7 +300,7 @@
                             pictureIndex++;
                         }
                     });
-                    createPages(total/picturesPerPage, directory);
+                    createPages(Math.ceil(total/picturesPerPage), directory);
                 },
             error: function(req) {
                 console.log('Error: ' + req.status);
