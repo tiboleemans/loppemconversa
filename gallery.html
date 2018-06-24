@@ -145,18 +145,17 @@
 	<script src="js/fancybox/fancybox.min.js"></script>
 
     <script type="text/javascript">
-        // external js: masonry.pkgd.js, imagesloaded.pkgd.js
+// external js: masonry.pkgd.js, imagesloaded.pkgd.js
 
-        // init Masonry
-        var $grid = $('.grid').masonry({
-          itemSelector: '.grid-item',
-          percentPosition: true,
-          columnWidth: '.grid-sizer'
-        });
-        // layout Masonry after each image loads
-        $grid.imagesLoaded().progress( function() {
-          $grid.masonry();
-        });  
+// init Masonry after all images have loaded
+var $grid = $('.grid').imagesLoaded( function() {
+  $grid.masonry({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  }); 
+});
+
     </script>
 
     <script type="text/javascript">
@@ -342,7 +341,7 @@
                                 var linkHref = "href=\"".concat(imgLocation).concat("\"");   
                                 var linkClose = ">";*/
                                 /*<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />*/
-                                var img = "<img src=\"https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg\"".concat("\"/>");
+                                var img = "<img src=\"".concat(imgLocation).concat("\"/>");
                                 var divEnd = "</a></div>";
                                 divContent += divInit.concat(img).concat(divEnd);     
                                 document.getElementById("grid").innerHTML = divContent;
