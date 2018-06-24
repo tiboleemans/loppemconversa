@@ -289,8 +289,12 @@
                 url: "php/gallery.php",
                 data: $("#passForm").serialize(), // serializes the form's elements.
                 success:function(){
-                    console.log("test");
+                    console.log(data);
+                },
+                error: function(data){
+                    console.log(data);
                 }
+          }  
           )}
         )})
 
