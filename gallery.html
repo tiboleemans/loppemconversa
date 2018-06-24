@@ -18,6 +18,7 @@
     <link href="css/jquery-ui.min.css" rel="stylesheet" /> 
     <link href="css/bootstrap-datepicker3.css" rel="stylesheet"/>
     <link href="css/loppem-conversa.css" rel="stylesheet">
+    <link href="css/gallery.css" rel="stylesheet">
     <!--Uncompatible with translation: <link href="css/bootstrap-select.css" rel="stylesheet"> -->
 
     <link href="css/inscription-style.css" rel="stylesheet">
@@ -72,25 +73,45 @@
                 </form>
             </div>
         </div>
-    	   <div class="row make-columns" id="content"></div>
+    	   <div id="grid"><div class="grid-sizer"></div></div>
         <div id="pagination" style="clear: both;" class="pagination"></div>
 
 
-<div class="container">
-    <br>
-    <div class="row">
-        <div class="col-xs-6 col-lg-4">1</div>
-        <div class="col-xs-6 col-lg-4 tall">2</div>
-        <div class="col-xs-6 col-lg-4">3</div>
-        <div class="col-xs-6 col-lg-4 tall">4</div>
-        <div class="col-xs-6 col-lg-4 taller">5</div>
-        <div class="col-xs-6 col-lg-4">6</div>
-        <div class="col-xs-6 col-lg-4 tall">7</div>
-        <div class="col-xs-6 col-lg-4">8</div>
-        <div class="col-xs-6 col-lg-4">9</div>
-        <div class="col-xs-6 col-lg-4 taller">10</div>
-    </div>
+<div class="grid">
+
+  <div class="grid-sizer"></div>
+  <div class="grid-item">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
+  </div>
+  <div class="grid-item">
+    
+  </div>
+  <div class="grid-item">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" />
+  </div>
+  <div class="grid-item">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" />
+  </div>
+  <div class="grid-item">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" />
+  </div>
+  <div class="grid-item">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" />
+  </div>
+  <div class="grid-item">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" />
+  </div>
+  <div class="grid-item">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" />
+  </div>
+  <div class="grid-item">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
+  </div>
 </div>
+
+
+
+
 		
 		<footer>
 			<div class="row footer">
@@ -102,10 +123,10 @@
 	</div>
     
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/masonry.pkgd.js"></script>
+    <script src="js/imagesloaded.pkgd.js"></script>
 
-    <!-- jQuery -->
-    <script src="js/jQuery/jquery.min.js"></script>
     <script src="js/jQuery/jquery.validate.min.js"></script> 
 
     <!-- Bootstrap Core-->
@@ -123,12 +144,22 @@
 
 	<script src="js/fancybox/fancybox.min.js"></script>
 
-    <script src="js/masonry.min.js"></script>
+    <script type="text/javascript">
+        // external js: masonry.pkgd.js, imagesloaded.pkgd.js
+
+        // init Masonry
+        var $grid = $('.grid').masonry({
+          itemSelector: '.grid-item',
+          percentPosition: true,
+          columnWidth: '.grid-sizer'
+        });
+        // layout Masonry after each image loads
+        $grid.imagesLoaded().progress( function() {
+          $grid.masonry();
+        });  
+    </script>
 
     <script type="text/javascript">
-        $('.row').masonry({
-              itemSelector : '.col-xs-6'
-            });
 	    function setDefaultLng() {
 	        if(window.localStorage.getItem("langChoice") === null || window.localStorage.getItem("langChoice") === ""){
 	            console.log('empty');
@@ -305,14 +336,15 @@
                         if( val.match(/\.(jpg)$/) ) { 
                             if(pictureIndex >= minIndexPicture && pictureIndex < maxIndexPicture){
                                 var imgLocation = folder.concat(val);
-                                var divInit = "<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3 item-layout'> <div class=\"panel panel-default\"> <div class=\"panel-body\">";
+                                var divInit = "<div class='grid-item'>";
                                 var linkInit = "<a class=\"thumbnail fancybox\" ";
                                 var linkRel = "rel=\"ligthbox\" ";      
                                 var linkHref = "href=\"".concat(imgLocation).concat("\"");   
                                 var linkClose = ">";
-                                var img = "<img class=\"img-responsive\" alt=\"\" src=\"".concat(imgLocation).concat("\"/>");
+                                /*<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />*/
+                                var img = "<img src=\"".concat(imgLocation).concat("\"/>");
                                 var caption = "<div class='text-right'><small class='text-muted'>Image Title</small></div></a>";
-                                var divEnd = "</div></div></div>";
+                                var divEnd = "</div>";
                                 divContent += divInit.concat(linkInit).concat(linkRel).concat(linkHref).concat(linkClose).concat(img).concat(caption).concat(divEnd);     
                                 document.getElementById("content").innerHTML = divContent;
                             }

@@ -181,12 +181,7 @@ header.carousel .fillimg5 {
     background-color: #f5a034 !important;
 }
 
-.gallery {
-    display: inline-block;
-    margin-top: 20px;
-}
 
- .row [class*='col-'] {
-  background-color: #cceeee;
-  background-clip: content-box;
+
+
 
