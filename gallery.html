@@ -284,15 +284,13 @@
 
         $(function() {
           $("#passForm").submit(function(e) {
+            console.log("submit");
               $.ajax({
                 type: "POST",
                 url: "php/gallery.php",
                 data: $("#passForm").serialize(), // serializes the form's elements.
                 success:function(){
-                    console.log(data);
-                },
-                error: function(data){
-                    console.log(data);
+                    console.log("test");
                 }
           }  
           )}
