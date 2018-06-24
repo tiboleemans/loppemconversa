@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="css/fancybox.min.css" media="screen">
 </head>
 
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body oncontextmenu="return false">
     <div id="navigation"></div>
 
     <div style="margin-top: 75px" class="container">
@@ -296,12 +296,6 @@
             }
         });
 
-/*        $("#passForm").submit(function(e) {
-            e.preventDefault();
-            if( $("#pass").val() === "paterleon"){
-                changeDivContent($('#session').val(), currentPage);
-            }
-        });*/
           $("#passForm").submit(function(e) {
             console.log("submit");
             e.preventDefault();
