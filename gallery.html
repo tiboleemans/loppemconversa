@@ -75,62 +75,20 @@
     	   <div class="row make-columns" id="content"></div>
         <div id="pagination" style="clear: both;" class="pagination"></div>
 
-        <div class="container">
-    <div class="row make-columns">
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">1 - This is my panel with some content!
-                    <br><img src="//placehold.it/130x90"></div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">2 - This is another panel with even more text content!</div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">3 - This is a panel with just some text, stuff to say and some more blah filler fill content with even more text content...
-                    <br> </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">4 - This is my panel with some blah content aliquam in cursus ut, ullamcorper in tort..</div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">5 - This is another panel with even more content!</div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">6 - This is a panel with and image
-                    <br><img src="//placehold.it/150x80"> </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">7 - Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. Aliquam codeply mauris!</div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">8 - This is a panel with and image
-                    <br><img src="//placehold.it/150x100"> </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">9 - This is another panel with even more text content! Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. Aliquam codeply mauris arcu, tristique a lobortis vitae, condimentum feugiat justo.</div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">10 - Nullam sapien massa, aliquam in cursus ut, Yes. This is another panel with even more text content!</div>
-            </div>
-        </div>
+
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-xs-6 col-lg-4">1</div>
+        <div class="col-xs-6 col-lg-4 tall">2</div>
+        <div class="col-xs-6 col-lg-4">3</div>
+        <div class="col-xs-6 col-lg-4 tall">4</div>
+        <div class="col-xs-6 col-lg-4 taller">5</div>
+        <div class="col-xs-6 col-lg-4">6</div>
+        <div class="col-xs-6 col-lg-4 tall">7</div>
+        <div class="col-xs-6 col-lg-4">8</div>
+        <div class="col-xs-6 col-lg-4">9</div>
+        <div class="col-xs-6 col-lg-4 taller">10</div>
     </div>
 </div>
 		
@@ -165,7 +123,12 @@
 
 	<script src="js/fancybox/fancybox.min.js"></script>
 
+    <script src="js/masonry.min.js"></script>
+
     <script type="text/javascript">
+        $('.row').masonry({
+              itemSelector : '.col-xs-6'
+            });
 	    function setDefaultLng() {
 	        if(window.localStorage.getItem("langChoice") === null || window.localStorage.getItem("langChoice") === ""){
 	            console.log('empty');
