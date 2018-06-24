@@ -9,7 +9,12 @@ array(
     "august2017" => "paterleon" 
 );
 
-$response_array['status'] = 'failed';
+if($_POST["passInput"] == "paterleon"){
+	$response_array['status'] = 'success';
+} else {
+	$response_array['status'] = 'error';
+}
+
 echo json_encode($response_array);
 
 ?>

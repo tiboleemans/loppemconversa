@@ -56,10 +56,11 @@
                             <button type="button" class="btn btn-group btn-default" value="july2017" id="img_choice_july_2017"></button>
                             <button type="button" class="btn btn-group btn-default" value="august2017" id="img_choice_august_2017"></button>
                         </div>   
-                        <input type="hidden" name="imgChoiceInput" id="imgChoiceInput" />                         
+                                                 
                     </div>
                 </div>
                 <form class="form-horizontal" name="passForm" id="passForm" validate>
+                    <input type="hidden" name="imgChoiceInput" id="imgChoiceInput" />
                     <div id="password" class="panel-body">
                         <label for="passLabel" class="control-label col-sm-2 col-xs-12 alignLeftXs" id="passLabel"></label>
                         <div class="col-sm-3 col-xs-12 alignLeftXs">
@@ -283,9 +284,6 @@
 
         $(function() {
           $("#passForm").submit(function(e) {
-            $('#pageLang').val(document.getElementById('imgChoiceInput').innerHTML);
-
-              
               $.ajax({
                 type: "POST",
                 url: "php/gallery.php",
