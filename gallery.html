@@ -289,11 +289,13 @@
                 url: "php/gallery.php",
                 data: $("#passForm").serialize(), // serializes the form's elements.
                 success:function(data){
+                    console.log(data);
                     if (data.status == 'success') {
                         changeDivContent($('#imgChoiceInput').val(), currentPage);
                     } else if (data.status == 'error') {
                         alert("verkeerde paswoord");
                     } else {
+
                         alert("niks");
                     }                
                 }
