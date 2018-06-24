@@ -288,7 +288,8 @@
                 type: "GET",
                 url: "php/gallery.php",
                 data: $("#passForm").serialize(), // serializes the form's elements.
-                success:function(){
+                success:function(data){
+                    console.log(data);
                     changeDivContent($('#imgChoiceInput').val(), currentPage);
                 }
           }  
@@ -298,7 +299,6 @@
     	function changeDivContent(directory, page){
             var divContent = "";
             var folder = "images/gallery/".concat(directory).concat("/");
-            console.log("changeDivContent".concat(folder));
             var picturesPerPage = 50;
             var minIndexPicture = (page * picturesPerPage) - picturesPerPage;
             var maxIndexPicture = (page * picturesPerPage);
