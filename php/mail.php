@@ -127,7 +127,7 @@ Zevenkerken 4
 // Prepare our content string
 $email_content_introduction_wait_list_FR = 
 'Madame, Monsieur ' . $lastNameParent . "\n\n" . 
-'Nous avons mis'. $firstNameStudent .' ' . $lastNameStudent .' sur la liste d\'attente pour la période ' . $periodeInput .' et vous en remercions.' . "\n" . 
+'Nous avons mis '. $firstNameStudent .' ' . $lastNameStudent .' sur la liste d\'attente pour la période ' . $periodeInput .' et vous en remercions.' . "\n" . 
 'Nous vous contacterons dès qu\'une place sera disponible.'. "\n\n" .
 'Nouv vous remercions pour votre confiance!' . "\n\n" .
 'Bien cordialement, ' . "\n" .
@@ -167,7 +167,7 @@ $email_content_introduction_wait_list_NL =
 'Wij contacteren u zodra er een plaats vrijkomt' . "\n\n" . 
 'Alvast bedankt voor het vertrouwen!' . "\n\n" .
 'Met vriendelijke groeten,' . "\n\n" . 
-'Loppem Conversa';
+'Loppem Conversa'. "\n\n";
 
 
 $email_content_parent_before_june_NL = 
@@ -193,9 +193,11 @@ if($_POST["pageLang"] == "NL"){
 	if($periodeInput == "2-12 juillet 2018"){
 		$email_subject_parent = 'Confirmation liste d\'attente Loppem Conversa';
 		$email_content_parent =  $email_content_introduction_wait_list_FR;
+		$email_subject_loppem = 'Wachtlijst - ' . $lastNameStudent . ' ' .$firstNameStudent;
 	} else {
 		$email_subject_parent = $email_subject_parent_FR;
 		$email_content_parent =  $email_content_introduction_FR . "\n\n" . $email_content_parent_after_june_FR;
+		$email_subject_loppem = 'Nieuwe inschrijving - ' . $lastNameStudent . ' ' .$firstNameStudent;
 	}
 	
 	foreach($inputArrayFR as $key => $value) {
@@ -208,9 +210,12 @@ if($_POST["pageLang"] == "FR"){
 	if($periodeInput == "2-12 juli 2018"){
 		$email_subject_parent = 'Bevestiging wachtlijst Loppem Conversa';
 		$email_content_parent =  $email_content_introduction_wait_list_NL;
+		$email_subject_loppem = 'Wachtlijst - ' . $lastNameStudent . ' ' .$firstNameStudent;
+
 	} else {
 		$email_subject_parent = $email_subject_parent_NL;
 		$email_content_parent =  $email_content_introduction_NL . "\n\n" . $email_content_parent_after_june_NL;
+		$email_subject_loppem = 'Nieuwe inschrijving - ' . $lastNameStudent . ' ' .$firstNameStudent;
 	}
 	foreach($inputArrayNL as $key => $value) {
 	  $email_content_loppem .= $key . ': ' . $value . "\n";
@@ -221,7 +226,6 @@ if($_POST["pageLang"] == "FR"){
 
 // Mail to Loppem Conversa
 $email_loppem = 'info@loppemconversa.be';
-$email_subject_loppem = 'Nieuwe inschrijving - ' . $lastNameStudent . ' ' .$firstNameStudent;
 $email_content_loppem = strip_tags(htmlspecialchars($email_content_loppem));
 $headers_loppem = 'From: info@loppemconversa.be' . "\r\n" .
 'Reply-To:  ' . $email_parent  . "\r\n" .

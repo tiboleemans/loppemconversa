@@ -448,6 +448,12 @@
                     <p class="panel-body" id="confirmation_text"> </p>
                 </div>
             </div>
+            <div id="confirmation_wait_div" style="width:75%; margin: 0 auto; display: none;">
+                <div class="panel panel-default">
+                    <h1 class="panel-heading" id="confirmation_wait_title"></h1>
+                    <p class="panel-body" id="confirmation_wait_text"> </p>
+                </div>
+            </div>                        
         </div>
     </div>
 
@@ -653,6 +659,8 @@ $(document).ready(function(){
                             "form_btn_submit" : "Inschrijven",
                             "confirmation_title" : "Bedankt voor uw inschrijving.",
                             "confirmation_text" : "U ontvangt van ons een bevestigingsmail (gelieve ook uw ongewenste e-mail na te kijken). <br /> We verwachten u op de eerste dag van de stage in de abdijschool van Zevenkerken. <br /> Gelieve het voorschot binnen drie werkdagen te storten op rekening BE36 0016 2215 8581. <br />  Gelieve het resterende saldo te storen voor 1 juni. <br />",
+                            "confirmation_wait_title" : "Uw gegevens werden aan de wachtlijst toegevoegd",
+                            "confirmation_wait_text" : "U ontvangt van ons een bevestigingsmail (gelieve ook uw ongewenste e-mail na te kijken). <br /> We contacteren u zodra er een plaats vrijkomt <br />&copy; 2010-2018 Loppem Conversa",                         
                             "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
                         }
                     }, 
@@ -754,7 +762,9 @@ $(document).ready(function(){
                             // "form_btn_accept" : "En cliquant ici, vous acceptez le règlement",
                             "form_btn_submit" : "S'inscrire",
                             "confirmation_title" : "Merci pour votre inscription.",
-                            "confirmation_text" : "Vous recevrez une confirmation de votre inscription par mail (il se peut que celui-ci se trouve dans votre dossier de courrier indésirable). <br />Nous vous attendons le premier jour du stage à l'école abbatiale de Zevenkerken entre 9 et 11 heures. <br />Veuillez verser l\'acompte dans les trois jours ouvrables sur notre compte BE36 0016 2215 8581. <br />Veuillez également vous acquitter du solde (€ 400) avant le premier juin \'18",                            
+                            "confirmation_text" : "Vous recevrez une confirmation de votre inscription par mail (il se peut que celui-ci se trouve dans votre dossier de courrier indésirable). <br />Nous vous attendons le premier jour du stage à l'école abbatiale de Zevenkerken entre 9 et 11 heures. <br />Veuillez verser l\'acompte dans les trois jours ouvrables sur notre compte BE36 0016 2215 8581. <br />Veuillez également vous acquitter du solde (€ 400) avant le premier juin \'18",           
+                            "confirmation_wait_title" : "Vos données sont ajoutées à la liste d\'attente",
+                            "confirmation_wait_text" : "Vous recevrez une confirmation de votre inscription par mail (il se peut que celui-ci se trouve dans votre dossier de courrier indésirable). <br /> Nous vous contacterons dès qu'une place sera disponible. <br />&copy; 2010-2018 Loppem Conversa",                 
                             "footer" : "Loppem Conversa BVBA - Christine D'haenstraat 18/101 - 8000 Brugge<br>gsm 0478 51 93 44 - www.loppemconversa.be - info@loppemconversa.be <br>RPR Brugge BTW BE 0830.437.586 - rekening BNP Paribas Fortis BE36 0016 2215 8581 <br />&copy; 2010-2018 Loppem Conversa"
                         }
                     }
@@ -887,6 +897,8 @@ $(document).ready(function(){
             document.getElementById('form_btn_submit').innerHTML = i18next.t('form_btn_submit');
             document.getElementById('confirmation_title').innerHTML = i18next.t('confirmation_title');
             document.getElementById('confirmation_text').innerHTML = i18next.t('confirmation_text');
+            document.getElementById('confirmation_wait_title').innerHTML = i18next.t('confirmation_wait_title');
+            document.getElementById('confirmation_wait_text').innerHTML = i18next.t('confirmation_wait_text');
             document.getElementById('footer').innerHTML = i18next.t('footer');
         }
 
